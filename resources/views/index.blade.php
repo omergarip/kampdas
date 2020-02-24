@@ -91,16 +91,20 @@
                     <div class="row">
                         <div class="km-right-bar">
                             <div class="col-md-4">
-                                <img src="img/merve.jpg" class="km-circle-img">
+                                @if(auth()->user()->photo == '')
+                                    <img class="rounded-circle z-depth-0" style="width: 4rem; height: 4rem;" src="https://www.pngkey.com/png/detail/230-2301779_best-classified-apps-default-user-profile.png">
+                                @else
+                                    <img class="rounded-circle z-depth-0" style="width: 4rem; height: 4rem;" src="{{ asset('storage/'.auth()->user()->photo) }}">
+                                @endif
                             </div>
                             <div class="col-md-8">
-                                <h4 >Merve Akgörmüş</h4>
-                                <p > @merveakgormus </p>
+                                <h4 >{{ auth()->user()->name }}</h4>
+                                <p > {{ '@' . auth()->user()->username }} </p>
                                 <p></p>
                             </div>
                         </div>
                     </div>
-                    <button class="btn btn-default km-dark-green-btn"><b>Yeni Etkinlik Oluştur</b></button>
+                    <a href="{{ route('events.create') }}" class="btn btn-default km-dark-green-btn">Yeni Etkinlik Oluştur</a>
                 </div>
             </div>
             @endauth

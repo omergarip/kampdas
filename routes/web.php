@@ -25,3 +25,9 @@ Route::post('kayitol', 'Auth\RegisterController@register')->name('register');
 
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+//Event Routes
+Route::get('etkinlikler', 'EventsController@index')->name('events.index');
+Route::get('etkinlik/olustur', 'EventsController@create')->name('events.create')->middleware('auth');
+Route::post('etkinlik', 'EventsController@store')->name('events.store')->middleware('auth');
