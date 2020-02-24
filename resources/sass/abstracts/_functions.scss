@@ -1,0 +1,106 @@
+.km-nav{
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.08), 0 6px 5px 0 rgba(0, 0, 0, 0.019);
+}
+.km-green-bar{
+    height: 800px;
+    background-color: #848c2f;
+    border-radius: 25px;
+    padding:30px;
+
+}
+.km-social-icon{
+    border-radius: 50%;
+    background-color: #fcc044;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    color: #fff;
+    vertical-align: center;
+}
+
+.km-circle-img{
+    border-radius: 50%;
+    width: 100px; height: 100px;
+}
+
+.km-dark-green-btn{
+    background-color: #777e2a;
+    color: #422c18;
+    margin-top: 20px;width: 100%
+}
+
+.km-radius{
+    border-radius: 25px;
+}
+
+.sidenav {
+    z-index: -999;
+    border-radius: 25px;
+    top: 0;
+    background-color: #848c2f;
+
+    padding: 20px;
+}
+.container-fluid{
+    padding-right: 100px;
+    padding-left: 100px;
+}
+
+.main {
+    margin-left: 160px; /* Same as the width of the sidenav */
+    margin-right: 430px;
+    font-size: 28px; /* Increased text to enable scrolling */
+    padding: 0px 10px;
+}
+
+.km-top-menu-p{
+    letter-spacing: .0500rem;
+    font-weight: 700;
+    color: #a5958c;
+}
+
+.km-td{
+    padding: 10px;
+}
+
+.km-post h4{
+    color: #422c18
+}
+
+.km-post h5{
+    color: #422c18
+}
+
+.km-post small{
+    color: #a5958c;margin-right: 20px
+}
+
+.km-post p{
+    color: #746862;
+    margin-top: 20px;
+}
+
+.km-post-statistic{
+    margin-top: 20px;
+}
+
+.km-post button{
+    background-color: #dd5449; color: #fff;
+}
+
+.km-right-bar h4{
+    color: #422c18
+}
+.km-right-bar p{
+    color: #422c18;
+}
+.km-circle-icon-img{
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+.km-thumbnail-img{
+    border-radius: 30%;
+    width: 15px;
+    height: auto;
+}
