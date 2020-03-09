@@ -13,7 +13,7 @@ class CreateEventRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,21 @@ class CreateEventRequest extends FormRequest
     public function rules()
     {
         return [
+            'title' => ['required', 'string', 'max:255', 'min:10'],
+            'location' => 'required',
+            'description' => ['required', 'string', 'min:10'],
+        ];
+    }
 
+    public function messages()
+    {
+        return [
+            'title.required' => 'Başlık gerekli',
+            'title.min' => 'En az 10 karakterden olusmak zorunda',
+            'title.max' => '255 karakteri gecemez',
+            'location.required' => 'Konum Gerekli',
+            'description.required' => 'Aciklama gerekli',
+            'description.min' => 'En az 10 karakterden olusmak zorunda',
         ];
     }
 }

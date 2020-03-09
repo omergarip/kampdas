@@ -4,8 +4,9 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
+require('./dropzone.min');
 require('./bootstrap');
-
+require('./script');
 window.Vue = require('vue');
 
 /**

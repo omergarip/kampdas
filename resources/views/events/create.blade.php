@@ -1,11 +1,11 @@
-@extends('layouts.dashboard')
+@extends('layouts.app')
 
 @section('title')
     <title>Etkinlik Oluştur</title>
 @endsection
 
-@section('contents')
-    <div class="container-fluid">
+@section('content')
+    <div class="container">
         @if($errors->any())
             <div class="alert alert-danger">
                 <ul class="list-group">
@@ -19,52 +19,36 @@
         @endif
         <div class="card card-default">
             <div class="card-header">
-                {{ isset($competition) ? 'Etkinliği Düzenle' :  'Yeni Etkinlik Ekle' }}
+                {{ isset($event) ? 'Etkinliği Düzenle' :  'Yeni Etkinlik Ekle' }}
             </div>
             <div class="card-body">
-                <form action="{{ isset($event) ? route('events.update', $event->id) : route('events.store') }}" method="post" enctype="multipart/form-data">
+                <form action="{{ isset($event) ? route('events.update', $event->slug) : route('events.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
                     @if(isset($event))
                         @method('PUT')
                     @endif
-                    @if(isset($event))
-                        <div class="form-group">
-                            <img style="width: 10rem; height: 10rem;" src="{{ asset('/storage/'.$event->image) }}" alt="" width="100%">
-                        </div>
-                    @endif
-                    <div class="custom-file">
-                        <input type="file" class="custom-file-input" name="image" id="customFilecover">
-                        <label class="custom-file-label" for="customFilecover">Kapak Fotoğrafı Seç</label>
-                    </div>
-                    <div class="form-group">
-                        <label for="organizer">Kurum</label>
-                        <input type="text" class="form-control" name="organizer" id="organizer" value="{{ isset($event) ? $competition->organizer : '' }}">
-                    </div>
                     <div class="form-group">
                         <label for="title">Başlık</label>
-                        <input type="text" class="form-control" name="title" id="title" value="{{ isset($competition) ? $competition->title : '' }}">
+                        <input type="text" class="form-control" name="title" id="title" value="{{ isset($event) ? $event->title : '' }}">
                     </div>
                     <div class="form-group">
-                        <label for="content">Tanıtım Metni</label>
-                        <input id="description" type="hidden" name="description" value="{{ isset($competition) ? $competition->description : '' }}">
-                        <trix-editor class="trix-content" input="description"></trix-editor>
+                        <label for="location">Konum</label>
+                        <input type="text" class="form-control" name="location" id="location" value="{{ isset($event) ? $event->location : '' }}">
+                        <input type="hidden" name="lat" id="lat" value="{{ isset($event) ? $event->lat : '' }}" >
+                        <input type="hidden" name="lng" id="lng" value="{{ isset($event) ? $event->lng : '' }}" >
                     </div>
                     <div class="form-group">
-                        <label for="reward">Ödül</label>
-                        <input id="reward" type="hidden" name="reward" value="{{ isset($competition) ? $competition->reward : '' }}">
-                        <trix-editor class="trix-content" input="reward"></trix-editor>
+                        <label for="description">Açıklama</label>
+                        <input type="text" class="form-control" name="description" id="description" value="{{ isset($event) ? $event->description : '' }}">
                     </div>
                     <div class="form-group">
-                        <label for="deadline">Son Başvuru Tarihi</label>
-                        <input type="text" class="form-control" name="deadline" id="deadline" value="{{ isset($competition) ? $competition->deadline : '' }}">
-                    </div>
-                    <div class="form-group">
-                        <label for="detail">Detaylı Bilgi</label>
-                        <input type="text" class="form-control" name="detail" id="detail" value="{{ isset($competition) ? $competition->detail : '' }}">
+                        <label for="limit">Kontejyan</label>
+                        <input type="text" class="form-control" name="limit" id="limit" value="{{ isset($event) ? $event->limit : '' }}">
+                        <input type="checkbox" id="limitless">Sinirsiz
                     </div>
                     <div class="form-group">
                         <button class="btn btn-success">
-                            {{ isset($competition) ? 'Güncelle' : 'Ekle' }}
+                            {{ isset($event) ? 'Güncelle' : 'İkinci Adım' }}
                         </button>
                     </div>
                 </form>
@@ -77,11 +61,25 @@
 
 
 @section('scripts')
-
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGutj4a-6ZWDix23sZTPt30IFrKjo_iFM&libraries=places"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/trix/1.2.0/trix.js"></script>
     <script>
         flatpickr("#deadline");
+
+        var input = document.getElementById('location');
+        var options = {
+            componentRestrictions: {country: "TR"}
+        };
+        var autocomplete = new google.maps.places.Autocomplete(input, options);
+        google.maps.event.addListener(autocomplete, 'place_changed', function() {
+            var place = autocomplete.getPlace();
+            var lat = place.geometry.location.lat();
+            var lng = place.geometry.location.lng();
+            document.getElementById("lat").value = lat;
+            document.getElementById("lng").value = lng;
+        });
+
     </script>
 @endsection
 

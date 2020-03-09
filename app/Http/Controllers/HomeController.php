@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Event;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -14,6 +15,6 @@ class HomeController extends Controller
 
     public function index()
     {
-        return view('home');
+        return view('index')->with('events', Event::all());
     }
 }

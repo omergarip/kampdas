@@ -4,10 +4,11 @@
 // Abstracts
 @import "abstracts/functions";
 
-
-
 // Variables
 @import 'variables';
+
+// Vendor
+@import "vendor/dropzone";
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';

@@ -27,8 +27,6 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
-    <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
-
     @yield('css')
 
 </head>
@@ -57,8 +55,7 @@
 </div>
 
 <script src="{{ asset('js/app.js') }}"></script>
-<script src="{{ asset('js/jquery.waypoints.min.js') }}"></script>
-<script src="{{ asset('js/script.v1.js') }}"></script>
+<script src="{{ asset('js/script.js') }}"></script>
 <script src="https://kit.fontawesome.com/e651d63672.js" crossorigin="anonymous"></script>
 @yield('scripts')
 </body>

@@ -20,7 +20,12 @@ class CreateEventsTable extends Migration
             $table->text('description');
             $table->integer('limit');
             $table->string('location');
+            $table->string('lat');
+            $table->string('lng');
+            $table->dateTime('start_date');
+            $table->dateTime('end_date');
             $table->string('slug');
+            $table->integer('is_pinned');
             $table->softDeletes();
             $table->timestamps();
         });
