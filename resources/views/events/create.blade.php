@@ -6,17 +6,6 @@
 
 @section('content')
     <div class="container">
-        @if($errors->any())
-            <div class="alert alert-danger">
-                <ul class="list-group">
-                    @foreach($errors->all() as $error)
-                        <li class="list-group-item">
-                            {{ $error }}
-                        </li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
         <div class="card card-default">
             <div class="card-header">
                 {{ isset($event) ? 'Etkinliği Düzenle' :  'Yeni Etkinlik Ekle' }}
@@ -29,22 +18,56 @@
                     @endif
                     <div class="form-group">
                         <label for="title">Başlık</label>
-                        <input type="text" class="form-control" name="title" id="title" value="{{ isset($event) ? $event->title : '' }}">
+                        <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" id="title" value="{{ isset($event) ? $event->title :  old('title') }}">
+                        @error('title')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="location">Konum</label>
-                        <input type="text" class="form-control" name="location" id="location" value="{{ isset($event) ? $event->location : '' }}">
+                        <input type="text" class="form-control @error('location') is-invalid @enderror " name="location" id="location" value="{{ isset($event) ? $event->location : '' }}">
+
                         <input type="hidden" name="lat" id="lat" value="{{ isset($event) ? $event->lat : '' }}" >
                         <input type="hidden" name="lng" id="lng" value="{{ isset($event) ? $event->lng : '' }}" >
+                        <input type="hidden" class="@error('county') is-invalid @enderror" name="county" id="county">
+                        @if(!$errors->has('location'))
+                            @error('county')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{!! $message !!}</strong>
+                                </span>
+                            @enderror
+                        @else
+                            @error('location')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        @endif
                     </div>
                     <div class="form-group">
                         <label for="description">Açıklama</label>
-                        <input type="text" class="form-control" name="description" id="description" value="{{ isset($event) ? $event->description : '' }}">
+                        <input type="text" class="form-control @error('description') is-invalid @enderror" name="description" id="description" value="{{ isset($event) ? $event->description : old('description') }}">
+                        @error('description')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="limit">Kontejyan</label>
-                        <input type="text" class="form-control" name="limit" id="limit" value="{{ isset($event) ? $event->limit : '' }}">
-                        <input type="checkbox" id="limitless">Sinirsiz
+                        <select name="limit" id="limit" class="form-control @error('limit') is-invalid @enderror">
+                            <option selected disabled hidden>Kontejyan Seçiniz</option>
+                            @if(isset($event))
+                                <option selected value="{{ $event->limit  }}">{{ $event->limit  }}</option>
+                            @endif
+                        </select>
+                        @error('limit')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <button class="btn btn-success">
@@ -67,15 +90,25 @@
     <script>
         flatpickr("#deadline");
 
-        var input = document.getElementById('location');
-        var options = {
+        let input = document.getElementById('location');
+        let options = {
             componentRestrictions: {country: "TR"}
         };
-        var autocomplete = new google.maps.places.Autocomplete(input, options);
+        let autocomplete = new google.maps.places.Autocomplete(input, options);
         google.maps.event.addListener(autocomplete, 'place_changed', function() {
-            var place = autocomplete.getPlace();
-            var lat = place.geometry.location.lat();
-            var lng = place.geometry.location.lng();
+            let place = autocomplete.getPlace();
+            let test = autocomplete.getPlace().address_components
+            console.log(test);
+            let county = document.getElementById("county");
+            county.value = '';
+            test.forEach(function(data){
+                if(data.types.includes('administrative_area_level_4')){
+                    console.log(data);
+                    county.value = data.types[0];
+                }
+            });
+            let lat = place.geometry.location.lat();
+            let lng = place.geometry.location.lng();
             document.getElementById("lat").value = lat;
             document.getElementById("lng").value = lng;
         });

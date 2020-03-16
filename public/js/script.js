@@ -1,11 +1,6 @@
-var checkbox = $('#limitless');
-var limit = $('#limit');
+let limit = $('#limit')
+limit.append($("<option></option>").attr("value",0).text('Sınırsız'));
+for(let i = 1; i <= 100; i++ ) {
+    limit.append($("<option></option>").attr("value",i).text(i));
+}
 
-checkbox.click(function() {
-    if ($(this).prop("checked") == true) {
-        limit.val('');
-        limit.prop('disabled', true);
-    } else if ($(this).prop("checked") == false) {
-        limit.prop('disabled', false);
-    }
-});

@@ -35,6 +35,7 @@ Route::get('etkinlik/{slug}', 'EventsController@show')->name('events.show')->mid
 Route::get('etkinlik/{slug}/guncelle', 'EventsController@edit')->name('events.edit')->middleware('auth');
 Route::put('etkinlik/{slug}/', 'EventsController@update')->name('events.update')->middleware('auth');
 Route::delete('etkinlik/{id}/sil', 'EventsController@destroy')->name('events.delete')->middleware('auth');
+Route::post('etkinlik/{slug}/katil', 'EventsController@attend')->name('events.attend')->middleware('auth');
 
 //Event Media Routes
 Route::get('etkinlik/{slug}/medya', 'EventsMediaController@create')->name('media.create')->middleware('auth');

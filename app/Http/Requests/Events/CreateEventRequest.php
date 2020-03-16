@@ -26,7 +26,9 @@ class CreateEventRequest extends FormRequest
         return [
             'title' => ['required', 'string', 'max:255', 'min:10'],
             'location' => 'required',
+            'county' => 'min:5',
             'description' => ['required', 'string', 'min:10'],
+            'limit' => 'required'
         ];
     }
 
@@ -37,8 +39,11 @@ class CreateEventRequest extends FormRequest
             'title.min' => 'En az 10 karakterden olusmak zorunda',
             'title.max' => '255 karakteri gecemez',
             'location.required' => 'Konum Gerekli',
+            'county.min' => 'Sizinle birlikte kamp yapacak kampdaşların kamp yerini daha kolay bulabilmesi için lütfen daha ayrıntılı bir adres giriniz.<br/>
+            Ör. Akvaryum Koyu, Bozcaada/Çanakkale, Türkiye&emsp;&emsp;&emsp;<strike>Bozcaada/Çanakkale, Türkiye</strike>',
             'description.required' => 'Aciklama gerekli',
             'description.min' => 'En az 10 karakterden olusmak zorunda',
+            'limit.required' => 'Kontejyan gerekli',
         ];
     }
 }

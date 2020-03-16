@@ -19,14 +19,16 @@ class Event extends Model
         'end_date'
     ];
 
-
     protected $attributes = [
-        'limit' => 0,
         'is_pinned' => 0
     ];
 
     public function user() {
         return $this->belongsTo(User::class);
+    }
+
+    public function users() {
+        return $this->belongsToMany(User::class);
     }
 
     public function sluggable()

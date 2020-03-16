@@ -68,4 +68,12 @@ class EventsController extends Controller
         session()->flash('success', 'Etkinlik başarı ile silindi.');
         return redirect(route('home'));
     }
+
+    public function attend($slug)
+    {
+        $event = Event::whereSlug($slug)->first();
+        $event->users()->attach(auth()->id());
+        session()->flash('success', 'Etkinliğe başarı ile katıldınız');
+        return redirect()->back();
+    }
 }
