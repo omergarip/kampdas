@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Event;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -10,11 +11,10 @@ class HomeController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth');
     }
 
     public function index()
     {
-        return view('index')->with('events', Event::all());
+        return view('index')->with('events', Event::all()->where('start_date', '>', Carbon::today())->sortBy('start_date'));
     }
 }

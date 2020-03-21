@@ -28,7 +28,9 @@ class CreateEventRequest extends FormRequest
             'location' => 'required',
             'county' => 'min:5',
             'description' => ['required', 'string', 'min:10'],
-            'limit' => 'required'
+            'limit' => 'required',
+            'start_date' => 'required',
+            'end_date' => 'required'
         ];
     }
 
@@ -44,6 +46,8 @@ class CreateEventRequest extends FormRequest
             'description.required' => 'Aciklama gerekli',
             'description.min' => 'En az 10 karakterden olusmak zorunda',
             'limit.required' => 'Kontejyan gerekli',
+            'start_date.required' => 'Baslangic tarihi gerekli',
+            'end_date.required' => 'Bitis tarihi gerekli'
         ];
     }
 }

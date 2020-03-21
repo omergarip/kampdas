@@ -12,7 +12,12 @@ class EventsController extends Controller
 {
     public function index()
     {
-        return view('events.index')->with('events', Event::paginate(5));
+        return view('events.index')->with('events', Event::paginate(5)->where('start_date', '>', Carbon::today())->sortBy('start_date'));
+    }
+
+    public function apiIndex()
+    {
+        return response()->json(Event::all());
     }
 
     public function create()
@@ -24,8 +29,8 @@ class EventsController extends Controller
     {
         $data = $request->all();
         $data['created_by'] = auth()->id();
-        $data['start_date'] = Carbon::now();
-        $data['end_date'] = Carbon::now();
+        $data['start_date'] = Carbon::parse($data['start_date']);
+        $data['end_date'] = Carbon::parse($data['end_date']);
         $event = Event::create($data);
         session()->flash('success', 'Etkinlik başarı ile oluşturuldu.');
         return redirect(route('media.create', $event->slug));
@@ -52,6 +57,8 @@ class EventsController extends Controller
     {
         $event = Event::whereSlug($slug)->first();
         $data = $request->all();
+        $data['start_date'] = Carbon::parse($data['start_date']);
+        $data['end_date'] = Carbon::parse($data['end_date']);
         $event->update($data);
         session()->flash('success', 'Etkinlik güncellendi.');
         return redirect(route('events.show', $slug));

@@ -11,10 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
-
 
 Route::get('giris', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('giris', 'Auth\LoginController@login');
@@ -29,13 +25,13 @@ Route::get('/', 'HomeController@index')->name('home');
 
 //Event Routes
 Route::get('etkinlikler', 'EventsController@index')->name('events.index');
-Route::get('etkinlik/olustur', 'EventsController@create')->name('events.create')->middleware('auth');
-Route::post('etkinlik', 'EventsController@store')->name('events.store')->middleware('auth');
-Route::get('etkinlik/{slug}', 'EventsController@show')->name('events.show')->middleware('auth');
-Route::get('etkinlik/{slug}/guncelle', 'EventsController@edit')->name('events.edit')->middleware('auth');
-Route::put('etkinlik/{slug}/', 'EventsController@update')->name('events.update')->middleware('auth');
-Route::delete('etkinlik/{id}/sil', 'EventsController@destroy')->name('events.delete')->middleware('auth');
-Route::post('etkinlik/{slug}/katil', 'EventsController@attend')->name('events.attend')->middleware('auth');
+Route::get('etkinlikler/olustur', 'EventsController@create')->name('events.create')->middleware('auth');
+Route::post('etkinlikler', 'EventsController@store')->name('events.store')->middleware('auth');
+Route::get('etkinlikler/{slug}', 'EventsController@show')->name('events.show')->middleware('auth');
+Route::get('etkinlikler/{slug}/guncelle', 'EventsController@edit')->name('events.edit')->middleware('auth');
+Route::put('etkinlikler/{slug}/', 'EventsController@update')->name('events.update')->middleware('auth');
+Route::delete('etkinlikler/{id}/sil', 'EventsController@destroy')->name('events.delete')->middleware('auth');
+Route::post('etkinlikler/{slug}/katil', 'EventsController@attend')->name('events.attend')->middleware('auth');
 
 //Event Media Routes
 Route::get('etkinlik/{slug}/medya', 'EventsMediaController@create')->name('media.create')->middleware('auth');

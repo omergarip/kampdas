@@ -158,11 +158,12 @@
                                     <div class="col-sm-3" style="word-break: break-all;">
                                         Düzenleyen:</div>
 
-                                    @if(auth()->user()->photo == '')
-                                        <img class="rounded-circle z-depth-0" style="width: 4rem; height: 4rem;" src="https://www.pngkey.com/png/detail/230-2301779_best-classified-apps-default-user-profile.png">
-                                    @else
-                                        <img class="rounded-circle z-depth-0" style="width: 4rem; height: 4rem;" src="{{ asset('storage/'.auth()->user()->photo) }}">
-                                    @endif
+{{--                                    @if(auth()->user()->photo == '')--}}
+{{--
+{{--                                    @else--}}
+                                    <img class="rounded-circle z-depth-0" style="width: 4rem; height: 4rem;" src="https://www.pngkey.com/png/detail/230-2301779_best-classified-apps-default-user-profile.png">--}}
+{{--                                        <img class="rounded-circle z-depth-0" style="width: 4rem; height: 4rem;" src="{{ asset('storage/'.auth()->user()->photo) }}">--}}
+{{--                                    @endif--}}
                                     <div class="col-sm-4"><small>{{ $event->user }} {{ '@' . $event->user  }}</small></div>
                                 </div>
                                 <!--  <small ><i class="fas fa-user"></i> Yücel Beki</small>

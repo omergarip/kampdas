@@ -12,14 +12,19 @@
                     @method('DELETE')
                     <button class="form-control btn btn-sm btn-danger">Sil</button>
                 </form>
-                @if(!$event->users[0]->id == auth()->id())
-                <form action="{{ route('events.attend', $event->slug)}}" method="POST">
-                    @csrf
-                    <button class="form-control btn btn-sm btn-info">Katil</button>
-                </form>
-                @else
-                    {{ $event->users[0]->username }}
-                @endif
+                    @if($event->users->isEmpty())
+                        <form action="{{ route('events.attend', $event->slug)}}" method="POST">
+                            @csrf
+                            <button class="form-control btn btn-sm btn-info">Katil</button>
+                        </form>
+                    @elseif(!$event->users[0]->id == auth()->id())
+                        <form action="{{ route('events.attend', $event->slug)}}" method="POST">
+                            @csrf
+                            <button class="form-control btn btn-sm btn-info">Katil</button>
+                        </form>
+                    @else
+                        {{ $event->users[0]->id }}
+                    @endif
             </div>
         @endif
         <div class="row">

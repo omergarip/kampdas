@@ -25,6 +25,25 @@
                         </span>
                         @enderror
                     </div>
+                    <div class="form-inline d-flex justify-content-between">
+                            <label for="start_date" class="mr-3">Start date</label>
+                            <input type="text" class="form-control @error('start_date') is-invalid @enderror" name="start_date" id="start_date" value="{{ isset($event) ? $event->start_date :  old('start_date') }}">
+                            @error('start_date')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+
+
+                            <label for="end_date" class="mx-3">End date</label>
+                            <input type="text" class="form-control @error('end_date') is-invalid @enderror" name="end_date" id="end_date" value="{{ isset($event) ? $event->end_date :  old('end_date') }}">
+                            @error('end_date')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+
+                    </div>
                     <div class="form-group">
                         <label for="location">Konum</label>
                         <input type="text" class="form-control @error('location') is-invalid @enderror " name="location" id="location" value="{{ isset($event) ? $event->location : '' }}">
@@ -86,9 +105,28 @@
 @section('scripts')
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGutj4a-6ZWDix23sZTPt30IFrKjo_iFM&libraries=places"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://npmcdn.com/flatpickr/dist/l10n/tr.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/trix/1.2.0/trix.js"></script>
     <script>
-        flatpickr("#deadline");
+        $("#start_date").flatpickr({
+            locale: 'tr',
+            enableTime: true,
+            dateFormat: "d.m.Y H:i",
+            minDate: new Date().fp_incr(5),
+            onChange: function(date) {
+
+                var selectedDate = new Date(date);
+                var msecsInADay = 86400000;
+                var endDate = new Date(selectedDate.getTime() + msecsInADay);
+                $("#end_date").flatpickr({
+                    minDate: endDate,
+                    locale: 'tr',
+                    enableTime: true,
+                    dateFormat: "d.m.Y H:i"
+                })
+            }
+
+        });
 
         let input = document.getElementById('location');
         let options = {
@@ -114,6 +152,7 @@
         });
 
     </script>
+
 @endsection
 
 @section('css')
