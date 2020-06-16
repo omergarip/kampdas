@@ -1,0 +1,48 @@
+.navbar {
+    padding: 0 1rem;
+}
+
+#mainNav {
+    font-weight: 700;
+    font-family: Montserrat;
+    background-color: $white!important;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.08), 0 6px 5px 0 rgba(0, 0, 0, 0.019);
+
+    & .logo-brand {
+        width: auto;
+        height: 8rem;
+    }
+
+    & .navbar {
+
+        &-brand{
+            color: $grey!important;
+        }
+
+        &-nav {
+            margin-top: 1rem;
+            letter-spacing: 0.0625rem;
+            & li.nav-item {
+                & a.nav-link{
+                    color: $grey!important;
+
+                    &:hover {
+                        color: $mainColor!important;
+                    }
+                    &:active,
+                    &:focus {
+                        color: $grey!important;
+                    }
+                    &.active {
+                        color: $mainColor!important;
+                    }
+                }
+            }
+        }
+
+        &-toggler {
+            font-size: 80%;
+            padding: 0.8rem;
+        }
+    }
+}

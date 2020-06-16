@@ -2,15 +2,63 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a5129c1a-c031-46d5-910b-444fc876db82" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Services/SocialFacebookAccountService.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/SVG/aircraft-take-off.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/SVG/bookmark.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/SVG/chat.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/SVG/chevron-thin-right.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/SVG/home.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/SVG/key.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/SVG/location-pin.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/SVG/magnifying-glass.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/SVG/map.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/SVG/star.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/chevron-thin-right.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/favicon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/hotel-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/hotel-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/hotel-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/sprite.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/text.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/user-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/user-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/user-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/user-4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/user-5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/user-6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/user.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/js/map.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/base/_global.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/base/_variables.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/sass/main.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/mail.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/map.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/kampdas.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/kampdas.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EventsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EventsController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/Events/CreateEventRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/Events/CreateEventRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/events/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/events/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/services.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/_variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/backup/_variables.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/abstracts/_functions.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/backup/abstracts/_functions.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/backup/app.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/vendor/_dropzone.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/backup/vendor/_dropzone.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/events/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/events/show.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/includes/navigation.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/includes/navigation.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -27,7 +75,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="XSLT Stylesheet" />
         <option value="blade" />
+        <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -126,6 +177,13 @@
       <path value="$PROJECT_DIR$/vendor/spatie/laravel-sluggable" />
       <path value="$PROJECT_DIR$/vendor/cviebrock/eloquent-sluggable" />
       <path value="$PROJECT_DIR$/vendor/cocur/slugify" />
+      <path value="$PROJECT_DIR$/vendor/laravel/socialite" />
+      <path value="$PROJECT_DIR$/vendor/league/oauth1-client" />
+      <path value="$PROJECT_DIR$/vendor/ralouphie/getallheaders" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/psr7" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/guzzle" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/promises" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-message" />
     </include_path>
   </component>
   <component name="ProjectId" id="1Z9GsePJ1BBtfwDsI1kK9bS8xQj" />
@@ -141,19 +199,28 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="editor.config.ad.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/sass" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="node.js.detected.package.stylelint" value="true" />
+    <property name="node.js.path.for.package.stylelint" value="project" />
+    <property name="node.js.selected.package.stylelint" value="" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\xampp\htdocs\kampdas\resources\sass" />
+      <recent name="D:\xampp\htdocs\kampdas\public\img" />
+      <recent name="D:\xampp\htdocs\kampdas\public" />
       <recent name="D:\xampp\htdocs\kampdas\public\js" />
       <recent name="D:\xampp\htdocs\kampdas\resources\js" />
-      <recent name="D:\xampp\htdocs\kampdas\resources\lang\tr" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\xampp\htdocs\kampdas\resources\sass" />
+      <recent name="D:\xampp\htdocs\kampdas\resources\sass\backup" />
       <recent name="D:\xampp\htdocs\kampdas\resources\sass\vendor" />
     </key>
   </component>
@@ -195,7 +262,22 @@
       <workItem from="1584325559767" duration="7595000" />
       <workItem from="1584381642277" duration="1838000" />
       <workItem from="1584770846124" duration="2088000" />
-      <workItem from="1584775807117" duration="3147000" />
+      <workItem from="1584775807117" duration="3449000" />
+      <workItem from="1584933557505" duration="8755000" />
+      <workItem from="1585119210489" duration="30000" />
+      <workItem from="1585356462517" duration="2275000" />
+      <workItem from="1585463299946" duration="2742000" />
+      <workItem from="1585587487383" duration="1545000" />
+      <workItem from="1586116881416" duration="600000" />
+      <workItem from="1586332355784" duration="1172000" />
+      <workItem from="1588538524776" duration="1350000" />
+      <workItem from="1588611648129" duration="7389000" />
+      <workItem from="1588872762903" duration="223000" />
+      <workItem from="1590786093315" duration="220000" />
+      <workItem from="1592255705067" duration="2000000" />
+      <workItem from="1592258267909" duration="9495000" />
+      <workItem from="1592328854155" duration="3453000" />
+      <workItem from="1592348807844" duration="535000" />
     </task>
     <servers />
   </component>
@@ -203,17 +285,33 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="552" y="178" key="#Stylelint" timestamp="1585464662123">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="178" key="#Stylelint/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1585464662123" />
     <state x="640" y="256" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1584775727964">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="640" y="256" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1584775727964" />
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1584244430863">
+    <state x="707" y="367" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1592258307856">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1584244430863" />
-    <state x="656" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1584775825769">
+    <state x="707" y="367" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1592258307856" />
+    <state x="594" y="298" key="EditFileWatcherDialog" timestamp="1592256102929">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="656" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1584775825769" />
+    <state x="594" y="298" key="EditFileWatcherDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1592256102929" />
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1585119244836">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1585119244836" />
+    <state x="461" y="162" key="SettingsEditor" timestamp="1585464668151">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="162" key="SettingsEditor/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1585464668151" />
+    <state x="656" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1592348818480">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="656" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1592348818480" />
   </component>
 </project>

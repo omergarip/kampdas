@@ -12,7 +12,8 @@ class EventsController extends Controller
 {
     public function index()
     {
-        return view('events.index')->with('events', Event::paginate(5)->where('start_date', '>', Carbon::today())->sortBy('start_date'));
+        //return view('events.index')->with('events', Event::paginate(5)->where('start_date', '>', Carbon::today())->sortBy('start_date'));
+        return view('events.index')->with('events', Event::paginate(5));
     }
 
     public function apiIndex()
@@ -39,10 +40,18 @@ class EventsController extends Controller
     public function show($slug)
     {
         $event = Event::whereSlug($slug)->first();
+        $attendants = $event->users;
+        $isAttended = false;
+        foreach ($attendants as $attendant) {
+            if($attendant->id === auth()->id())
+                $isAttended = true;
+        }
         $first_media = EventMedia::where('event_id', $event->id)->latest()->get();
         $media = EventMedia::where('id', '!=', $first_media[0]->id)->latest()->get();
         return view('events.show')
             ->with('event', $event)
+            ->with('attendants', $attendants)
+            ->with('isAttended', $isAttended)
             ->with('media', $media)
             ->with('first_media', $first_media);
     }
@@ -81,6 +90,14 @@ class EventsController extends Controller
         $event = Event::whereSlug($slug)->first();
         $event->users()->attach(auth()->id());
         session()->flash('success', 'Etkinliğe başarı ile katıldınız');
+        return redirect()->back();
+    }
+
+    public function detach($slug)
+    {
+        $event = Event::whereSlug($slug)->first();
+        $event->users()->detach(auth()->id());
+        session()->flash('success', 'Etkinlikten başarı ile ayrildiniz');
         return redirect()->back();
     }
 }

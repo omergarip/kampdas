@@ -15,6 +15,7 @@ class HomeController extends Controller
 
     public function index()
     {
-        return view('index')->with('events', Event::all()->where('start_date', '>', Carbon::today())->sortBy('start_date'));
+        //return view('index')->with('events', Event::all()->where('start_date', '>', Carbon::today())->sortBy('start_date'));
+        return view('index')->with('events', Event::paginate(5));
     }
 }

@@ -26,7 +26,7 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
     @yield('css')
 
@@ -56,7 +56,6 @@
 </div>
 
 <script src="{{ asset('js/app.js') }}"></script>
-<script src="{{ asset('js/script.js') }}"></script>
 <script src="https://kit.fontawesome.com/e651d63672.js" crossorigin="anonymous"></script>
 @yield('scripts')
 </body>

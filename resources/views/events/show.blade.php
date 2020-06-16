@@ -12,21 +12,28 @@
                     @method('DELETE')
                     <button class="form-control btn btn-sm btn-danger">Sil</button>
                 </form>
-                    @if($event->users->isEmpty())
-                        <form action="{{ route('events.attend', $event->slug)}}" method="POST">
-                            @csrf
-                            <button class="form-control btn btn-sm btn-info">Katil</button>
-                        </form>
-                    @elseif(!$event->users[0]->id == auth()->id())
-                        <form action="{{ route('events.attend', $event->slug)}}" method="POST">
-                            @csrf
-                            <button class="form-control btn btn-sm btn-info">Katil</button>
-                        </form>
-                    @else
-                        {{ $event->users[0]->id }}
-                    @endif
             </div>
         @endif
+        <div class="col-md-6">
+            @if($event->users->isEmpty())
+                <form action="{{ route('events.attend', $event->slug)}}" method="POST">
+                    @csrf
+                    <button class="form-control btn btn-sm btn-info">Katil</button>
+                </form>
+            @elseif(!$isAttended)
+                <form action="{{ route('events.attend', $event->slug)}}" method="POST">
+                    @csrf
+                    <button class="form-control btn btn-sm btn-info">Katil</button>
+                </form>
+            @else
+                <form action="{{ route('events.leave', $event->slug)}}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button class="form-control btn btn-sm btn-danger">Ayril</button>
+                </form>
+            @endif
+        </div>
+
         <div class="row">
 
             <div class="col-md-8">
@@ -102,17 +109,35 @@
                             <p>Katılımcılar:</p>
 
                             <div class="col">
-                                <img src="img/merve.jpg" class="km-thumbnail-img">
-                                <img src="img/selcuk.jpg" class="km-thumbnail-img">
-                                <img src="img/yucel.jpg" class="km-thumbnail-img">
-                                <img src="img/ilayda.jpg" class="km-thumbnail-img">
+                        @foreach($attendants as $attendant)
+
+                                        @if($attendant->photo == '')
+                                            <img class="rounded-circle z-depth-0 km-thumbnail-img" style="width: 4rem; height: 4rem;" src="https://www.pngkey.com/png/detail/230-2301779_best-classified-apps-default-user-profile.png">
+                                        @else
+                                            <img class="rounded-circle z-depth-0 km-thumbnail-img" style="width: 4rem; height: 4rem;" src="{{ asset('storage/'.auth()->user()->photo) }}">
+                                        @endif
+                                @endforeach
+                                    </div>
+
+                                </div>
+
+                                <div class="col-md-12 my-5">
+                                    <ul class="mb-5">
+                                        @foreach($attendants as $attendant)
+                                        <li>@if($attendant->photo == '')
+                                                <img class="rounded-circle z-depth-0" style="width: 4rem; height: 4rem;" src="https://www.pngkey.com/png/detail/230-2301779_best-classified-apps-default-user-profile.png">
+                                            @else
+                                                <img class="rounded-circle z-depth-0" style="width: 4rem; height: 4rem;" src="{{ asset('storage/'.auth()->user()->photo) }}">
+                                            @endif
+                                            {{ $attendant->name }} etkinlige katildi</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+
                             </div>
-                        </div>
-                    </div>
+
 
                 </div>
-
-
 
 
 
@@ -138,12 +163,9 @@
                     <button class="btn btn-default km-dark-green-btn"><b>Yeni Etkinlik Oluştur</b></button>
                 </div>
             </div>
+
         </div>
 
     </div>
-
-
-
-
-
 @endsection
+
