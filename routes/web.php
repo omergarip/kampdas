@@ -12,9 +12,6 @@
 */
 
 Auth::routes(['verify' => true]);
-Route::get('sendbasicemail','MailController@basic_email');
-Route::get('sendhtmlemail','MailController@html_email');
-Route::get('sendattachmentemail','MailController@attachment_email');
 Route::get('giris', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('giris', 'Auth\LoginController@login');
 Route::get('cikis', 'Auth\LoginController@logout');
@@ -25,7 +22,7 @@ Route::post('kayitol', 'Auth\RegisterController@register')->name('register');
 
 Route::get('send', 'MailController@send');
 
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home')->middleware('verified');
 
 Route::get('/turkiye-kamp-haritasi', function () {
         return view('map');
