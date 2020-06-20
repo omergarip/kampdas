@@ -8,7 +8,7 @@
     <div class="container">
         <div class="card card-default">
             <div class="card-header">
-                {{ isset($event) ? 'Etkinliği Düzenle' :  'Yeni Etkinlik Ekle' }}
+                {{ isset($event) ? 'Etkinliği Düzenle' :  'Yeni Kamp Etkinliği Oluştur' }}
             </div>
             <div class="card-body">
                 <form action="{{ isset($event) ? route('events.update', $event->slug) : route('events.store') }}" method="post" enctype="multipart/form-data">
@@ -26,7 +26,7 @@
                         @enderror
                     </div>
                     <div class="form-inline d-flex justify-content-between">
-                            <label for="start_date" class="mr-3">Start date</label>
+                            <label for="start_date" class="mr-3">Başlangıç Tarihi</label>
                             <input type="text" class="form-control @error('start_date') is-invalid @enderror" name="start_date" id="start_date" value="{{ isset($event) ? $event->start_date :  old('start_date') }}">
                             @error('start_date')
                                 <span class="invalid-feedback" role="alert">
@@ -35,7 +35,7 @@
                             @enderror
 
 
-                            <label for="end_date" class="mx-3">End date</label>
+                            <label for="end_date" class="mx-3">Bitiş Tarihi</label>
                             <input type="text" class="form-control @error('end_date') is-invalid @enderror" name="end_date" id="end_date" value="{{ isset($event) ? $event->end_date :  old('end_date') }}">
                             @error('end_date')
                                 <span class="invalid-feedback" role="alert">
@@ -50,14 +50,11 @@
 
                         <input type="hidden" name="lat" id="lat" value="{{ isset($event) ? $event->lat : '' }}" >
                         <input type="hidden" name="lng" id="lng" value="{{ isset($event) ? $event->lng : '' }}" >
-                        <input type="hidden" class="@error('county') is-invalid @enderror" name="county" id="county">
-                        @if(!$errors->has('location'))
-                            @error('county')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{!! $message !!}</strong>
-                                </span>
-                            @enderror
-                        @else
+                        <small className="form-text text-muted">
+                            Sizinle birlikte kamp yapacak kampdaşların kamp yerini daha kolay bulabilmesi için lütfen daha ayrıntılı bir adres giriniz.<br/>
+                            Ör. Akvaryum Koyu, Bozcaada/Çanakkale, Türkiye&emsp;&emsp;&emsp;<strike>Bozcaada/Çanakkale, Türkiye</strike>
+                        </small>
+                        @if($errors->has('location'))
                             @error('location')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -75,9 +72,9 @@
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="limit">Kontejyan</label>
+                        <label for="limit">Kontenjan</label>
                         <select name="limit" id="limit" class="form-control @error('limit') is-invalid @enderror">
-                            <option selected disabled hidden>Kontejyan Seçiniz</option>
+                            <option selected disabled hidden>Kontenjan Seçiniz</option>
                             @if(isset($event))
                                 <option selected value="{{ $event->limit  }}">{{ $event->limit  }}</option>
                             @endif
@@ -90,7 +87,7 @@
                     </div>
                     <div class="form-group">
                         <button class="btn btn-success">
-                            {{ isset($event) ? 'Güncelle' : 'İkinci Adım' }}
+                            {{ isset($event) ? 'Güncelle' : 'Fotoğraf Yükleme Adımına Geç' }}
                         </button>
                     </div>
                 </form>
@@ -103,10 +100,9 @@
 
 
 @section('scripts')
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGutj4a-6ZWDix23sZTPt30IFrKjo_iFM&libraries=places"></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpDW9uG7D9V4RMWQKJKO4iaYKijkOKmvI&libraries=places"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="https://npmcdn.com/flatpickr/dist/l10n/tr.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/trix/1.2.0/trix.js"></script>
     <script>
         $("#start_date").flatpickr({
             locale: 'tr',
@@ -135,16 +131,6 @@
         let autocomplete = new google.maps.places.Autocomplete(input, options);
         google.maps.event.addListener(autocomplete, 'place_changed', function() {
             let place = autocomplete.getPlace();
-            let test = autocomplete.getPlace().address_components
-            console.log(test);
-            let county = document.getElementById("county");
-            county.value = '';
-            test.forEach(function(data){
-                if(data.types.includes('administrative_area_level_4')){
-                    console.log(data);
-                    county.value = data.types[0];
-                }
-            });
             let lat = place.geometry.location.lat();
             let lng = place.geometry.location.lng();
             document.getElementById("lat").value = lat;
@@ -157,5 +143,4 @@
 
 @section('css')
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/trix/1.2.0/trix.css">
 @endsection

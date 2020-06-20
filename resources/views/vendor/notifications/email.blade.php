@@ -7,8 +7,7 @@
 # @lang('Whoops!')
 @endif
 @endif
-https://kampdas.org/img/PNG.png
-<img src="{{ $message->embed('https://kampdas.org/img/PNG.png') }}">
+<img src="https://kampdas.org/img/PNG.png">
 
 Merhaba {{ $user->name }},
 {{-- Intro Lines --}}

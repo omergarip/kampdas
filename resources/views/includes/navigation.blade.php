@@ -26,22 +26,45 @@
 
           </ul>
           <ul class="navbar-nav">
-              <li class="nav-item mx-0 mx-lg-1">
-                  <a
-                      class="
+              @if (!Auth::guest())
+                  <li class="nav-item mx-0 mx-lg-1">
+                      <a
+                          class="
                       nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
-                      href="/profil.html">
-                      <img src="img/user-1.jpg" class="km-circle-icon-img">
-                        Profilim
-                  </a>
-              </li>
-              <li class="nav-item mx-0 mx-lg-1">
-                  <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href=""><i class="fas fa-bell"></i>
-                      Bildirimler</a>
-              </li>
-              <li class="nav-item mx-0 mx-lg-1">
-                  <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/profil.html">Çıkış Yap</a>
-              </li>
+                          href="/profil.html">
+                          <img src="img/user-1.jpg" class="km-circle-icon-img">
+                          Profilim
+                      </a>
+                  </li>
+                  <li class="nav-item mx-0 mx-lg-1">
+                      <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href=""><i class="fas fa-bell"></i>
+                          Bildirimler</a>
+                  </li>
+                  <li class="nav-item mx-0 mx-lg-1">
+                      <a
+                          class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
+                          href={{ route('logout') }}>
+                            Çıkış Yap
+                      </a>
+                  </li>
+              @else
+                  <li class="nav-item mx-0 mx-lg-1">
+                      <a
+                          class="{{ (request()->routeIs('register-form')) ? 'active' : '' }}
+                              nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
+                          href={{route('login')}}>
+                          Giriş Yap
+                      </a>
+                  </li>
+                  <li class="nav-item mx-0 mx-lg-1">
+                      <a
+                          class="{{ (request()->routeIs('login')) ? 'active' : '' }}
+                              nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
+                          href={{route('register-form')}}>
+                          Kayıt Ol
+                      </a>
+                  </li>
+              @endif
 
 
           </ul>

@@ -12,207 +12,302 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8">
-                    <p
-                        style="background-color: #cfda5d; border-radius: 3px; color: #000; text-align: center; border: 0 solid #1a1a1a; border-left-width: 4px;">
-                        <i class="fas fa-thumbtack"></i>Başa Tutturulan Etkinlikler.</p>
-{{--                    @foreach($events as $event)--}}
-{{--                        <div class="row">--}}
-{{--                            <div class="col-md-4">--}}
-{{--                                <a href="#">--}}
-{{--                                    <img class="events__image" src=" ./img/hotel-1.jpg" style="width: 100%; border-radius: 5px;" alt="">--}}
-{{--                                </a>--}}
-{{--                            </div>--}}
-{{--                            <div class="col-md-8">--}}
-
-{{--                                <div class="km-post">--}}
-{{--                                    <!--<img src="img/post-1.jpg" style="max-width: 100%; height: 400px; vertical-align: top; border-radius: 25px"> -->--}}
-
-
-{{--                                    <div>--}}
-{{--                                        <a href="/">--}}
-{{--                                            <strong> <i class="fas fa-thumbtack"></i><a href="etkinlik.html">--}}
-{{--                                                    Salda Gölü Kamp Etkinliği / 14-15--}}
-{{--                                                    Nisan--}}
-{{--                                                    2018--}}
-{{--                                                </a> </strong>--}}
-{{--                                        </a>--}}
-
-{{--                                    </div>--}}
-{{--                                    <div class="km-post-statistics">--}}
-{{--                                        <i class="fas fa-map-marker-alt"></i> <a--}}
-{{--                                            href="https://www.google.com/maps/place/Salda+G%C3%B6l%C3%BC/@37.5475037,29.6474713,13z/data=!4m13!1m7!3m6!1s0x14c6c43d6be9db11:0xb027419946d9738b!2zU2FsZGEgR8O2bMO8!3b1!8m2!3d37.5509434!4d29.6730939!3m4!1s0x14c6c5ac1c267ebf:0xa11cbf0c826d11e4!8m2!3d37.5313057!4d29.6567774"--}}
-{{--                                            target="_blank">Etkinlik Yeri: Salda Gölü / Burdur</a>--}}
-{{--                                        <div class="row">--}}
-{{--                                            <div class="col-sm-3" style="word-break: break-all;">--}}
-{{--                                                Düzenleyen:</div>--}}
-
-{{--                                            <img src="./img/user-1.jpg" class="km-circle-icon-img">--}}
-{{--                                            <div class="col-sm-4"><small>Omer Garip @omergarip</small></div>--}}
-{{--                                        </div>--}}
-{{--                                        <!--  <small ><i class="fas fa-user"></i> Yücel Beki</small>--}}
-{{--                                       <small >/</small>--}}
-{{--                                       <small >11.06.2019</small>--}}
-{{--                                       <small >/</small>--}}
-{{--                                       <small ><i class="fas fa-comment-dots"></i> 3 COMMENTS</small>--}}
-{{--                                       <small >/</small>--}}
-{{--                                       <small ><i class="fas fa-users"></i> 51 kampçı gidiyor</small>-->--}}
-{{--                                    </div>--}}
-{{--                                    <div class="row">--}}
-{{--                                        <div class="col-sm-4">--}}
-{{--                                            <small>Katılanlar: 51 kişi</small>--}}
-{{--                                            <div class="col">--}}
-{{--                                                <img src="./img/user-1.jpg" class="km-thumbnail-img">--}}
-{{--                                                <img src="./img/user-3.jpg" class="km-thumbnail-img">--}}
-{{--                                                <img src="./img/user-4.jpg" class="km-thumbnail-img">--}}
-{{--                                                <img src="./img/user-5.jpg" class="km-thumbnail-img">--}}
-{{--                                                <img src="./img/user-6.jpg" class="km-thumbnail-img">--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                        <div class="col-sm-6">--}}
-{{--                                            <small><i class="fas fa-comment-dots"></i>Etkinlik Hakkında 63 yorum</small>--}}
-{{--                                            <a href="#"><small>Yorumları Görmek İçin Tıkla</small></a>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    @endforeach--}}
-
-                    <hr>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <a href="#">
-                                <img class="events__image" src=" ./img/hotel-2.jpg" style="width: 100%; border-radius: 5px;" alt="">
-                            </a>
-                        </div>
-                        <div class="col-md-8">
-
-                            <div class="km-post">
-                                <!--<img src="img/post-1.jpg" style="max-width: 100%; height: 400px; vertical-align: top; border-radius: 25px"> -->
-
-
-                                <div>
-                                    <a href="/">
-                                        <strong> <i class="fas fa-thumbtack"></i> Salda Gölü Kamp Etkinliği / 14-15
-                                            Nisan
-                                            2018</strong>
-                                    </a>
-                                </div>
-                                <div class="km-post-statistics">
-                                    <i class="fas fa-map-marker-alt"></i> <a
-                                        href="https://www.google.com/maps/place/Salda+G%C3%B6l%C3%BC/@37.5475037,29.6474713,13z/data=!4m13!1m7!3m6!1s0x14c6c43d6be9db11:0xb027419946d9738b!2zU2FsZGEgR8O2bMO8!3b1!8m2!3d37.5509434!4d29.6730939!3m4!1s0x14c6c5ac1c267ebf:0xa11cbf0c826d11e4!8m2!3d37.5313057!4d29.6567774"
-                                        target="_blank">Etkinlik Yeri: Salda Gölü / Burdur</a>
-                                    <div class="row">
-                                        <div class="col-sm-3" style="word-break: break-all;">
-                                            Düzenleyen:</div>
-
-                                        <img src="./img/user.jpg" class="km-circle-icon-img">
-                                        <div class="col-sm-4"><small>Yucel Beki @yucelbeki</small></div>
-                                    </div>
-                                    <!--  <small ><i class="fas fa-user"></i> Yücel Beki</small>
-                                   <small >/</small>
-                                   <small >11.06.2019</small>
-                                   <small >/</small>
-                                   <small ><i class="fas fa-comment-dots"></i> 3 COMMENTS</small>
-                                   <small >/</small>
-                                   <small ><i class="fas fa-users"></i> 51 kampçı gidiyor</small>-->
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-4">
-                                        <small>Katılanlar: 51 kişi</small>
-                                        <div class="col">
-                                            <img src="./img/user-1.jpg" class="km-thumbnail-img">
-                                            <img src="./img/user-3.jpg" class="km-thumbnail-img">
-                                            <img src="./img/user-4.jpg" class="km-thumbnail-img">
-                                            <img src="./img/user-5.jpg" class="km-thumbnail-img">
-                                            <img src="./img/user-6.jpg" class="km-thumbnail-img">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <small><i class="fas fa-comment-dots"></i>Etkinlik Hakkında 25 yorum</small>
-                                        <a href="#"><small>Yorumları Görmek İçin Tıkla</small></a>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
+                    <div class="events__banner">
+                        <p class="events__banner-pinned">
+                            Başa Tutturulan Etkinlikler</p>
                     </div>
-                    <hr>
-                    <div class="col-sm-12" style="text-align:right"><a href="#">
-                            <p>Devamı İçin Tıklayınız.</p>
-                        </a></div>
-                </div>
-                <div class="col-md-4">
-                    <a href="{{ route('events.create') }}" class="btn btn-primary btn-event"><i class="fas fa-plus"></i> Kamp Etkinliği Oluştur</a>
-                </div>
-                <div class="col-md-8">
-                    <p
-                        style="background-color: #f7cd51; border-radius: 3px; color: #000; text-align: center; border: 0 solid #1a1a1a; border-left-width: 4px;">
-                        Yaklaşan etkinlikler.</p>
-
                     @foreach($events as $event)
-                        <div class="row">
-                            <div class="col-md-4">
-                                <a href="#">
-                                    <img class="events__image" src=" ./img/hotel-1.jpg" style="width: 100%; border-radius: 5px;" alt="">
-                                </a>
-                            </div>
-                            <div class="col-md-8">
-
-                                <div class="km-post">
-                                    <!--<img src="img/post-1.jpg" style="max-width: 100%; height: 400px; vertical-align: top; border-radius: 25px"> -->
-
-
-                                    <div>
-                                        <a href="/">
-                                            <strong> <i class="fas fa-thumbtack"></i><a href="etkinlik.html">
-                                                    Salda Gölü Kamp Etkinliği / 14-15
-                                                    Nisan
-                                                    2018
-                                                </a> </strong>
-                                        </a>
-
+                        @if($event->is_pinned === 1)
+                        <div class="col-lg-12 d-flex justify-content-around align-items-center">
+                            <figure class="events">
+                                <div class="events__hero">
+                                    <div class="events__hero-top_logo">
+                                        <img src={{ asset('img/PNG.png') }} />
+                                        <h6>Kampdaş</h6>
                                     </div>
-                                    <div class="km-post-statistics">
-                                        <i class="fas fa-map-marker-alt"></i> <a
-                                            href="https://www.google.com/maps/place/Salda+G%C3%B6l%C3%BC/@37.5475037,29.6474713,13z/data=!4m13!1m7!3m6!1s0x14c6c43d6be9db11:0xb027419946d9738b!2zU2FsZGEgR8O2bMO8!3b1!8m2!3d37.5509434!4d29.6730939!3m4!1s0x14c6c5ac1c267ebf:0xa11cbf0c826d11e4!8m2!3d37.5313057!4d29.6567774"
-                                            target="_blank">Etkinlik Yeri: Salda Gölü / Burdur</a>
-                                        <div class="row">
-                                            <div class="col-sm-3" style="word-break: break-all;">
-                                                Düzenleyen:</div>
 
-                                            <img src="./img/user-1.jpg" class="km-circle-icon-img">
-                                            <div class="col-sm-4"><small>Omer Garip @omergarip</small></div>
-                                        </div>
-                                        <!--  <small ><i class="fas fa-user"></i> Yücel Beki</small>
-                                       <small >/</small>
-                                       <small >11.06.2019</small>
-                                       <small >/</small>
-                                       <small ><i class="fas fa-comment-dots"></i> 3 COMMENTS</small>
-                                       <small >/</small>
-                                       <small ><i class="fas fa-users"></i> 51 kampçı gidiyor</small>-->
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-4">
-                                            <small>Katılanlar: 51 kişi</small>
-                                            <div class="col">
-                                                <img src="./img/user-1.jpg" class="km-thumbnail-img">
-                                                <img src="./img/user-3.jpg" class="km-thumbnail-img">
-                                                <img src="./img/user-4.jpg" class="km-thumbnail-img">
-                                                <img src="./img/user-5.jpg" class="km-thumbnail-img">
-                                                <img src="./img/user-6.jpg" class="km-thumbnail-img">
+                                    <div id="{{$event->slug}}" class="carousel slide" data-ride="carousel">
+                                        <div class="carousel-inner">
+                                            <div class="carousel-item active">
+                                                <img class="d-block w-100" src="{{ asset('img/hotel-1.jpg') }}" alt="First slide">
+                                            </div>
+                                            <div class="carousel-item">
+                                                <img class="d-block w-100" src="{{ asset('img/hotel-2.jpg') }}" alt="Second slide">
+                                            </div>
+                                            <div class="carousel-item">
+                                                <img class="d-block w-100" src="{{ asset('img/hotel-3.jpg') }}" alt="Third slide">
                                             </div>
                                         </div>
-                                        <div class="col-sm-6">
-                                            <small><i class="fas fa-comment-dots"></i>Etkinlik Hakkında 63 yorum</small>
-                                            <a href="#"><small>Yorumları Görmek İçin Tıkla</small></a>
+                                        <a class="carousel-control-prev" href="#{{$event->slug}}" role="button" data-slide="prev">
+                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                            <span class="sr-only">Previous</span>
+                                        </a>
+                                        <a class="carousel-control-next" href="#{{$event->slug}}" role="button" data-slide="next">
+                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                            <span class="sr-only">Next</span>
+                                        </a>
+                                    </div>
+                                    <div class="events__hero-bottom">
+                                        <div class="events__hero-bottom_logo"></div>
+                                    </div>
+
+                                </div>
+                                <div class="events__content">
+                                    <div class="events__date">
+                                        @foreach($data as $d)
+                                            @if( $d['event_id'] === $event->id)
+                                                <img class="events__logo" src="{{ asset('img/calendar-512.webp') }}" alt="Kampdaş">
+                                                <span class="events__date-info">{{ $d['date'] }}</span>
+                                            @endif
+                                        @endforeach
+                                    </div>
+                                    <div class="events__title">
+                                        <img class="events__logo" src="{{ asset('img/camp-logo.png') }}" alt="Kampdaş">
+                                        <a
+                                            class="events__heading u-center-text"
+                                            href="{{ route('events.show', $event->slug) }}"
+                                        >
+                                            {{ $event->title }}
+                                        </a>
+
+
+                                    </div>
+                                    <div class="events__location">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <a class="events__location-detail"
+                                           href="https://www.google.com/maps/search/?api=1&query={{$event->location}}" target="_blank">
+                                            {{ Str::Limit($event->location,44) }}
+                                        </a>
+                                    </div>
+
+                                    <div class="events__owner">
+                                        <span>Etkinliği Oluşturan:</span>
+
+                                        @if($event->user->photo == '')
+                                            <img class="events__owner-profile" src="https://www.pngkey.com/png/detail/230-2301779_best-classified-apps-default-user-profile.png">
+                                        @else
+                                            <img class="events__owner-profile" src="{{ asset('storage/'.$event->user->photo) }}">
+                                        @endif
+                                        <div class="events__owner-details">
+                                            <span class="events__owner-name">{{ $event->user->name }}</span>
+                                            <span class="events__owner-username">{{ '@'.$event->user->username }}</span>
                                         </div>
                                     </div>
+                                    <div class="events__attendee">
+                                        <span>Etkinliğe Katılanlar: </span>
+                                        <span class="ml-2">{{ $event->limit === 0 ? $event->limit : $event->users->count() . '/' . $event->limit}}</span>
+                                    </div>
+                                    <div class="events__attendee-profile">
+                                        @if($event->users->count() > 0)
+                                            @foreach($event->users as $user)
+                                                @if($user->photo == '')
+                                                    <img class="events__owner-profile" src="https://www.pngkey.com/png/detail/230-2301779_best-classified-apps-default-user-profile.png">
+                                                @else
+                                                    <img class="events__owner-profile" src="{{ asset('storage/'.$user->photo) }}">
+                                                @endif
+                                            @endforeach
+                                        @else
+                                            <span>Etkinliğe katılan ilk sen ol!<span>
+                                        @endauth
+                                    </div>
+                                    <div class="events__details">
+                                        <button
+                                            onclick="window.location='{{ route('events.show', $event->slug) }}'"
+                                            class="bttn bttn__events-attend">
+                                            Katıl
+                                            <div class="bttn__events-attend__horizontal"></div>
+                                            <div class="bttn__events-attend__vertical"></div>
+                                        </button>
+                                        <a href="{{ route('events.show', $event->slug) }}" class="bttn bttn__events-detail">
+                                            <span>Etkinlik Sayfasına Git</span>
+                                            <svg width="13px" height="10px" viewBox="0 0 13 10">
+                                                <path d="M1,5 L11,5"></path>
+                                                <polyline points="8 1 12 5 8 9"></polyline>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                    <div class="events__bottom-logo">
+                                    </div>
                                 </div>
-
-                            </div>
+                                <div class="events__social-buttons">
+                                    <a class="fb" rel="nofollow" target="_blank"
+                                       href="https://www.facebook.com/share.php?u=https://www.kampdas.org/etkinlik/{{$event->slug}}"
+                                       data-link="https://www.facebook.com/share.php?u=https://www.kampdas.org/etkinlik/{{$event->slug}}">
+                                        <i class="fab fa-facebook-f"></i><span></span>
+                                    </a>
+                                    <a id="share" class="tw" href="https://twitter.com/share?original_referer=/&text=&url=
+                                        https://www.kampdas.org/etkinlik/{{$event->slug}}" data-link="https://twitter.com/share?original_referer=/&text=&url=
+                                        https://www.kampdas.org/etkinlik/{{$event->slug}}" target="_blank">
+                                        <i class="fab fa-twitter"></i><span></span>
+                                    </a>
+                                    <a id="share" class="ln"
+                                       href="https://www.linkedin.com/cws/share?url=https://www.kampdas.org/etkinlik/{{$event->slug}}"
+                                       data-link="https://www.linkedin.com/cws/share?url=https://www.kampdas.org/etkinlik/{{$event->slug}}"
+                                       target="_blank">
+                                        <i class="fab fa-linkedin"></i><span></span>
+                                    </a>
+                                    <a name="whatsapp" id="share" class="wp"
+                                       href="https://api.whatsapp.com/send?text=https://www.kampdas.org/etkinlik/{{$event->slug}}" target="_blank">
+                                        <i class="fab fa-whatsapp"></i><span></span>
+                                    </a>
+                                </div>
+                            </figure>
                         </div>
+                        @endif
+                    @endforeach
+                    <hr>
+                    <div class="col-sm-12" style="text-align:right">
+                        <a href="#">
+                            <p>Devamı İçin Tıklayınız.</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <a href="{{ route('events.create') }}" class="btn btn-outline-success" id="btn-event"><img class="events__logo" src="{{ asset('img/camp-logo.png') }}" alt="Kampdaş"> Kamp Etkinliği Oluştur</a>
+                </div>
+                <div class="col-md-8">
+                    <div class="events__banner">
+                        <p class="events__banner-oncoming">
+                            Yaklaşan Etkinlikler</p>
+                    </div>
+                    @foreach($events as $event)
+                        @if($event->is_pinned === 0)
+                            <div class="col-lg-12 d-flex justify-content-around align-items-center">
+                                <figure class="events">
+                                    <div class="events__hero">
+                                        <div class="events__hero-top_logo">
+                                            <img src={{ asset('img/PNG.png') }} />
+                                            <h6>Kampdaş</h6>
+                                        </div>
+
+                                        <div id="{{$event->slug}}" class="carousel slide" data-ride="carousel">
+                                            <div class="carousel-inner">
+                                                <div class="carousel-item active">
+                                                    <img class="d-block w-100" src="{{ asset('img/hotel-1.jpg') }}" alt="First slide">
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img class="d-block w-100" src="{{ asset('img/hotel-2.jpg') }}" alt="Second slide">
+                                                </div>
+                                                <div class="carousel-item">
+                                                    <img class="d-block w-100" src="{{ asset('img/hotel-3.jpg') }}" alt="Third slide">
+                                                </div>
+                                            </div>
+                                            <a class="carousel-control-prev" href="#{{$event->slug}}" role="button" data-slide="prev">
+                                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                <span class="sr-only">Previous</span>
+                                            </a>
+                                            <a class="carousel-control-next" href="#{{$event->slug}}" role="button" data-slide="next">
+                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                <span class="sr-only">Next</span>
+                                            </a>
+                                        </div>
+                                        <div class="events__hero-bottom">
+                                            <div class="events__hero-bottom_logo"></div>
+                                        </div>
+
+                                    </div>
+                                    <div class="events__content">
+                                        <div class="events__date">
+                                            @foreach($data as $d)
+                                                @if( $d['event_id'] === $event->id)
+                                                    <img class="events__logo" src="{{ asset('img/calendar-512.webp') }}" alt="Kampdaş">
+                                                    <span class="events__date-info">{{ $d['date'] }}</span>
+                                                @endif
+                                            @endforeach
+                                        </div>
+                                        <div class="events__title">
+                                            <img class="events__logo" src="{{ asset('img/camp-logo.png') }}" alt="Kampdaş">
+                                            <a
+                                                class="events__heading u-center-text"
+                                                href="{{ route('events.show', $event->slug) }}"
+                                            >
+                                                {{ $event->title }}
+                                            </a>
+
+
+                                        </div>
+                                        <div class="events__location">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                            <a class="events__location-detail"
+                                               href="https://www.google.com/maps/search/?api=1&query={{$event->location}}" target="_blank">
+                                                {{ Str::Limit($event->location,44) }}
+                                            </a>
+                                        </div>
+
+                                        <div class="events__owner">
+                                            <span>Etkinliği Oluşturan:</span>
+
+                                            @if($event->user->photo == '')
+                                                <img class="events__owner-profile" src="https://www.pngkey.com/png/detail/230-2301779_best-classified-apps-default-user-profile.png">
+                                            @else
+                                                <img class="events__owner-profile" src="{{ asset('storage/'.$event->user->photo) }}">
+                                            @endif
+                                            <div class="events__owner-details">
+                                                <span class="events__owner-name">{{ $event->user->name }}</span>
+                                                <span class="events__owner-username">{{ '@'.$event->user->username }}</span>
+                                            </div>
+                                        </div>
+                                        <div class="events__attendee">
+                                            <span>Etkinliğe Katılanlar: </span>
+                                            <span class="ml-2">{{ $event->limit === 0 ? $event->limit : $event->users->count() . '/' . $event->limit}}</span>
+                                        </div>
+                                        <div class="events__attendee-profile">
+                                            @if($event->users->count() > 0)
+                                                @foreach($event->users as $user)
+                                                    @if($user->photo == '')
+                                                        <img class="events__owner-profile" src="https://www.pngkey.com/png/detail/230-2301779_best-classified-apps-default-user-profile.png">
+                                                    @else
+                                                        <img class="events__owner-profile" src="{{ asset('storage/'.$user->photo) }}">
+                                                    @endif
+                                                @endforeach
+                                            @else
+                                                <span>Etkinliğe katılan ilk sen ol!<span>
+                                            @endauth
+                                        </div>
+                                        <div class="events__details">
+                                            <button
+                                                onclick="window.location='{{ route('events.show', $event->slug) }}'"
+                                                class="bttn bttn__events-attend">
+                                                Katıl
+                                                <div class="bttn__events-attend__horizontal"></div>
+                                                <div class="bttn__events-attend__vertical"></div>
+                                            </button>
+                                            <a href="{{ route('events.show', $event->slug) }}" class="bttn bttn__events-detail">
+                                                <span>Etkinlik Sayfasına Git</span>
+                                                <svg width="13px" height="10px" viewBox="0 0 13 10">
+                                                    <path d="M1,5 L11,5"></path>
+                                                    <polyline points="8 1 12 5 8 9"></polyline>
+                                                </svg>
+                                            </a>
+                                        </div>
+                                        <div class="events__bottom-logo">
+                                        </div>
+                                    </div>
+                                    <div class="events__social-buttons">
+                                        <a class="fb" rel="nofollow" target="_blank"
+                                           href="https://www.facebook.com/share.php?u=https://www.kampdas.org/etkinlik/{{$event->slug}}"
+                                           data-link="https://www.facebook.com/share.php?u=https://www.kampdas.org/etkinlik/{{$event->slug}}">
+                                            <i class="fab fa-facebook-f"></i><span></span>
+                                        </a>
+                                        <a id="share" class="tw" href="https://twitter.com/share?original_referer=/&text=&url=
+                                        https://www.kampdas.org/etkinlik/{{$event->slug}}" data-link="https://twitter.com/share?original_referer=/&text=&url=
+                                        https://www.kampdas.org/etkinlik/{{$event->slug}}" target="_blank">
+                                            <i class="fab fa-twitter"></i><span></span>
+                                        </a>
+                                        <a id="share" class="ln"
+                                           href="https://www.linkedin.com/cws/share?url=https://www.kampdas.org/etkinlik/{{$event->slug}}"
+                                           data-link="https://www.linkedin.com/cws/share?url=https://www.kampdas.org/etkinlik/{{$event->slug}}"
+                                           target="_blank">
+                                            <i class="fab fa-linkedin"></i><span></span>
+                                        </a>
+                                        <a name="whatsapp" id="share" class="wp"
+                                           href="https://api.whatsapp.com/send?text=https://www.kampdas.org/etkinlik/{{$event->slug}}" target="_blank">
+                                            <i class="fab fa-whatsapp"></i><span></span>
+                                        </a>
+                                    </div>
+                                </figure>
+                            </div>
+                        @endif
                     @endforeach
                     <hr>
                     <div class="col-sm-12" style="text-align:right"><a href="#">

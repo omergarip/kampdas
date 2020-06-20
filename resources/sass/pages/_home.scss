@@ -1,7 +1,26 @@
 #section-home{
     font-size: 1.6rem;
 
-    & .btn-event {
+    & #btn-event {
         position: fixed;
+    }
+
+    & .events__banner {
+        font-family: open sans,sans-serif;
+        font-weight: 700;
+        border-radius: 3px;
+        text-align: center;
+
+        &-pinned {
+            color: $white!important;
+            width: 100%;
+            background-image: linear-gradient(to right, $secondaryColor, lighten($secondaryColor, 25));
+        }
+
+        &-oncoming {
+            color: $white!important;
+            width: 100%;
+            background-image: linear-gradient(to right, $mainColor, lighten($mainColor, 15));
+        }
     }
 }

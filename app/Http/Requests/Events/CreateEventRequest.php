@@ -24,10 +24,9 @@ class CreateEventRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => ['required', 'string', 'max:255', 'min:10'],
+            'title' => ['required', 'string', 'max:255', 'min:5'],
             'location' => 'required',
-            'county' => 'min:5',
-            'description' => ['required', 'string', 'min:10'],
+            'description' => ['required', 'string', 'min:10', 'max:1000'],
             'limit' => 'required',
             'start_date' => 'required',
             'end_date' => 'required'
@@ -37,17 +36,16 @@ class CreateEventRequest extends FormRequest
     public function messages()
     {
         return [
-            'title.required' => 'Başlık gerekli',
-            'title.min' => 'En az 10 karakterden olusmak zorunda',
-            'title.max' => '255 karakteri gecemez',
-            'location.required' => 'Konum Gerekli',
-            'county.min' => 'Sizinle birlikte kamp yapacak kampdaşların kamp yerini daha kolay bulabilmesi için lütfen daha ayrıntılı bir adres giriniz.<br/>
-            Ör. Akvaryum Koyu, Bozcaada/Çanakkale, Türkiye&emsp;&emsp;&emsp;<strike>Bozcaada/Çanakkale, Türkiye</strike>',
-            'description.required' => 'Aciklama gerekli',
-            'description.min' => 'En az 10 karakterden olusmak zorunda',
-            'limit.required' => 'Kontejyan gerekli',
-            'start_date.required' => 'Baslangic tarihi gerekli',
-            'end_date.required' => 'Bitis tarihi gerekli'
+            'title.required' => 'Kamp etkinliğinize bir isim verin.',
+            'title.min' => 'Etkinlik başlığı en az 10 karakter olmalıdır.',
+            'title.max' => 'Etkinlik başlığı 255 karakteri gecemez',
+            'location.required' => 'Kamp etkinliğiniz için konum bildiriniz.',
+            'description.required' => 'Diğer kampdaşları bilgilendirmek için kamp etkinliğiniz hakkında bir açıklama yazısı girin.',
+            'description.min' => 'Açıklama yazısı en az 10 karakter olmalıdır.',
+            'description.max' => 'Açıklama yazısı en fazla 1000 karakter olabilir.',
+            'limit.required' => 'Katılım kontenjanını belirleyiniz.',
+            'start_date.required' => 'Etkinlik başlangıç tarihini giriniz.',
+            'end_date.required' => 'Etkinlik bitiş tarihini giriniz.'
         ];
     }
 }

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    <title>Mühendislik Yarışmaları</title>
+    <title>Etkinlik Oluştur</title>
 @endsection
 
 @section('content')
@@ -33,7 +33,7 @@
                     @csrf
 
                 </form>
-                <a href="{{ route('events.show', $slug) }}">Etkinliği Ekle</a>
+                <a class="btn btn-success mt-3" href="{{ route('events.show', $slug) }}">Etkinliği Oluştur</a>
             </div>
 
         </div>
@@ -42,11 +42,11 @@
 @endsection
 
 @section('css')
-    <link rel="stylesheet" href="{{ asset('_dropzone.scss') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.1/min/dropzone.min.css">
 @endsection
 
 @section('scripts')
-    <script src="{{ asset('js/dropzone.min.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.1/min/dropzone.min.js"></script>
     <script>
         Dropzone.options.myDropzone = {
             paramName: 'file',

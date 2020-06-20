@@ -4,7 +4,7 @@
  * Copyright 2011-2019 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
-@import url(node_modules/normalize.css);
+@import url("https://fonts.googleapis.com/css2?family=Allerta+Stencil&family=Stardos+Stencil:wght@700&display=swap");
 :root {
   --blue: #007bff;
   --indigo: #6610f2;
@@ -7142,6 +7142,12 @@ a.text-dark:hover, a.text-dark:focus {
 html {
   box-sizing: border-box;
   font-size: 62.5%; }
+  @media (max-width: 75em) {
+    html {
+      font-size: 56.25%; } }
+  @media (max-width: 56.25em) {
+    html {
+      font-size: 50%; } }
 
 body {
   font-family: 'Open Sans' sans-serif;
@@ -7247,6 +7253,312 @@ body {
   width: 15px;
   height: auto; }
 
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg); }
+  25% {
+    transform: scale(1.3) rotate(90deg); }
+  50% {
+    transform: scale(1.5) rotate(180deg); }
+  75% {
+    transform: scale(1.3) rotate(270deg); }
+  100% {
+    transform: rotate(360deg); } }
+
+.bttn {
+  text-decoration: none !important;
+  color: #000000; }
+
+#btn-event {
+  color: #ffffff;
+  background-color: #009900;
+  border-color: #009900; }
+  #btn-event:hover {
+    color: #009900;
+    background-color: #ffffff;
+    border-color: #009900; }
+
+.bttn__events-detail {
+  position: relative;
+  padding: 0 1rem;
+  transition: all 1.2s ease; }
+  .bttn__events-detail:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    border-radius: 2.8rem;
+    background: #009900;
+    width: 3rem;
+    height: 3rem;
+    transition: all .3s ease; }
+  .bttn__events-detail span {
+    position: relative;
+    font-size: 1.5rem;
+    line-height: 1rem;
+    font-weight: 700;
+    letter-spacing: .2rem;
+    vertical-align: middle;
+    text-transform: uppercase; }
+  .bttn__events-detail svg {
+    position: relative;
+    top: 0;
+    margin-left: 1rem;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke: #111;
+    stroke-width: 2;
+    transform: translateX(-0.5rem);
+    transition: all .3s ease; }
+  .bttn__events-detail:hover {
+    color: #ffffff;
+    transition: color .2s ease; }
+    .bttn__events-detail:hover:before {
+      width: 100%;
+      background: #009900; }
+    .bttn__events-detail:hover svg {
+      transform: translateX(0); }
+  .bttn__events-detail:active {
+    transform: scale(0.96); }
+
+.bttn__events-attend {
+  --offset: 8px;
+  --border-size: 1.3px;
+  font-family: 'Stardos Stencil', cursive;
+  display: block;
+  position: relative;
+  border: 0;
+  background: transparent;
+  color: #f49404 !important;
+  text-transform: uppercase;
+  letter-spacing: .25em;
+  outline: none;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 0;
+  box-shadow: inset 0 0 0 var(--border-size) currentcolor;
+  transition: background .4s ease;
+  padding-top: .4rem; }
+  .bttn__events-attend:focus {
+    outline: none; }
+  .bttn__events-attend:hover {
+    background: rgba(100, 0, 0, 0.03); }
+  .bttn__events-attend__horizontal, .bttn__events-attend__vertical {
+    position: absolute;
+    top: var(--horizontal-offset, 0);
+    right: var(--vertical-offset, 0);
+    bottom: var(--horizontal-offset, 0);
+    left: var(--vertical-offset, 0);
+    transition: transform .8s ease;
+    will-change: transform; }
+    .bttn__events-attend__horizontal::before, .bttn__events-attend__vertical::before {
+      content: '';
+      position: absolute;
+      border: inherit; }
+  .bttn__events-attend__horizontal {
+    --vertical-offset: calc(var(--offset) * -.6);
+    border-top: var(--border-size) solid currentcolor;
+    border-bottom: var(--border-size) solid currentcolor; }
+    .bttn__events-attend__horizontal::before {
+      top: calc(var(--vertical-offset) - var(--border-size));
+      bottom: calc(var(--vertical-offset) - var(--border-size));
+      left: calc(var(--vertical-offset) * -1);
+      right: calc(var(--vertical-offset) * -1); }
+  .bttn__events-attend:hover .bttn__events-attend__horizontal {
+    transform: scaleX(0); }
+  .bttn__events-attend__vertical {
+    --horizontal-offset: calc(var(--offset) * -.6);
+    border-left: var(--border-size) solid currentcolor;
+    border-right: var(--border-size) solid currentcolor; }
+    .bttn__events-attend__vertical::before {
+      top: calc(var(--horizontal-offset) * -1);
+      bottom: calc(var(--horizontal-offset) * -1);
+      left: calc(var(--horizontal-offset) - var(--border-size));
+      right: calc(var(--horizontal-offset) - var(--border-size)); }
+  .bttn__events-attend:hover .bttn__events-attend__vertical {
+    transform: scaleY(0); }
+
+.events {
+  max-width: 70rem;
+  width: 100%;
+  border-radius: 0.4rem;
+  overflow: hidden;
+  box-shadow: 0 0.3rem 0.3rem 0.3rem rgba(0, 0, 0, 0.2);
+  display: flex;
+  height: 85%; }
+  .events__hero {
+    display: flex;
+    flex-direction: column;
+    flex: 0 1 35%;
+    align-items: center;
+    justify-content: space-between; }
+    .events__hero-top_logo img, .events__hero-bottom_logo {
+      width: 6rem; }
+    .events__hero-top_logo {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: flex-start; }
+      .events__hero-top_logo h6 {
+        text-transform: uppercase;
+        font-size: 1.6rem;
+        align-self: center;
+        margin: 0; }
+    .events__hero-bottom {
+      width: 100%;
+      height: 3.8rem; }
+      .events__hero-bottom_logo {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: 100%;
+        background-image: url(http://kampdas.org/img/PNG.png);
+        background-repeat: repeat-x;
+        background-size: 6rem;
+        opacity: .3; }
+  .events__img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform .2s; }
+    .events__img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 2.5rem 4rem rgba(0, 0, 0, 0.5); }
+  .events__logo {
+    width: 2.5rem;
+    height: 2.5rem; }
+  .events__content {
+    flex: 1;
+    background: white;
+    margin-top: 1rem;
+    padding: 0 0 0 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; }
+  .events__location > i {
+    color: red;
+    margin-left: .6rem; }
+  .events__location-detail {
+    color: #999; }
+  .events__title {
+    display: flex;
+    align-items: center;
+    margin-top: -.7rem; }
+  .events__date {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 1.3rem;
+    margin-top: -1rem;
+    align-items: center; }
+    .events__date-info {
+      margin-right: 1rem; }
+  .events__heading {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-right: auto; }
+  .events__owner {
+    display: flex;
+    align-items: center;
+    margin-left: .7rem;
+    color: #000000; }
+    .events__owner span:first-child {
+      font-weight: 700; }
+    .events__owner-username {
+      margin-top: -.8rem;
+      font-size: 1.3rem; }
+    .events__owner-profile {
+      width: 6rem;
+      height: 5rem;
+      border-radius: 50%; }
+    .events__owner-details {
+      display: flex;
+      flex-direction: column; }
+      .events__owner-details span:first-child {
+        font-weight: 400; }
+  .events__attendee {
+    display: flex;
+    align-items: center;
+    margin-left: .7rem;
+    color: #000000; }
+    .events__attendee span:first-child {
+      font-weight: 700; }
+    .events__attendee-profile {
+      display: flex;
+      align-items: center;
+      margin-left: .7rem;
+      color: #000000; }
+      .events__attendee-profile img {
+        width: 5rem;
+        height: 5rem;
+        border-radius: 50%; }
+  .events__details {
+    display: flex;
+    justify-content: space-between;
+    margin: 2rem 0;
+    position: relative;
+    z-index: 999; }
+  .events__bottom-logo {
+    display: flex;
+    flex-direction: row;
+    background-image: url(http://kampdas.org/img/PNG.png);
+    background-repeat: repeat-x;
+    background-size: 6rem;
+    position: absolute;
+    width: 63%;
+    height: 5rem;
+    left: 35%;
+    bottom: -1%;
+    z-index: 0;
+    opacity: .3; }
+
+col-lg-12 {
+  margin-bottom: 2rem; }
+
+.events__social-buttons {
+  border-left: 5px dotted #8c8c8c;
+  flex: 0 0 4rem;
+  writing-mode: vertical-rl;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: -.1rem;
+  margin-bottom: -.15rem; }
+  .events__social-buttons .fb {
+    color: #3B5998; }
+    .events__social-buttons .fb:hover {
+      animation: rotation .3s ease; }
+  .events__social-buttons .tw {
+    color: #4099ff; }
+    .events__social-buttons .tw:hover {
+      animation: rotation .3s ease; }
+  .events__social-buttons .ln {
+    color: #007bb5; }
+    .events__social-buttons .ln:hover {
+      animation: rotation .3s ease; }
+  .events__social-buttons .wp {
+    color: #4dc247; }
+    .events__social-buttons .wp:hover {
+      animation: rotation .3s ease; }
+  .events__social-buttons a {
+    text-decoration: none;
+    border-radius: 5.6rem;
+    cursor: pointer;
+    font-size: 2.5rem;
+    line-height: 2.6rem;
+    margin: 0 3px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 998; }
+
 .navbar {
   padding: 0 1rem; }
 
@@ -7266,16 +7578,29 @@ body {
     #mainNav .navbar-nav li.nav-item a.nav-link {
       color: #a5958c !important; }
       #mainNav .navbar-nav li.nav-item a.nav-link:hover {
-        color: #ff4000 !important; }
+        color: #f49404 !important; }
       #mainNav .navbar-nav li.nav-item a.nav-link:active, #mainNav .navbar-nav li.nav-item a.nav-link:focus {
         color: #a5958c !important; }
       #mainNav .navbar-nav li.nav-item a.nav-link.active {
-        color: #ff4000 !important; }
+        color: #f49404 !important; }
   #mainNav .navbar-toggler {
     font-size: 80%;
     padding: 0.8rem; }
 
 #section-home {
   font-size: 1.6rem; }
-  #section-home .btn-event {
+  #section-home #btn-event {
     position: fixed; }
+  #section-home .events__banner {
+    font-family: open sans,sans-serif;
+    font-weight: 700;
+    border-radius: 3px;
+    text-align: center; }
+    #section-home .events__banner-pinned {
+      color: #ffffff !important;
+      width: 100%;
+      background-image: linear-gradient(to right, #009900, #1aff1a); }
+    #section-home .events__banner-oncoming {
+      color: #ffffff !important;
+      width: 100%;
+      background-image: linear-gradient(to right, #f49404, #fcb448); }

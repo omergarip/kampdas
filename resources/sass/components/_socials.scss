@@ -1,0 +1,57 @@
+.events__social-buttons {
+    border-left: 5px dotted #8c8c8c;
+    flex: 0 0 4rem;
+    writing-mode: vertical-rl;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: -.1rem;
+    margin-bottom: -.15rem;
+
+    & .fb {
+        color: $color-fb;
+
+        &:hover {
+            animation: rotation .3s ease;
+        }
+    }
+    & .tw {
+        color: $color-tw;
+
+        &:hover {
+            animation: rotation .3s ease;
+        }
+    }
+    & .ln {
+        color: $color-ln;
+
+        &:hover {
+            animation: rotation .3s ease;
+        }
+    }
+    & .wp {
+        color: $color-wp;
+
+        &:hover {
+            animation: rotation .3s ease;
+        }
+    }
+
+    & a {
+        text-decoration: none;
+        border-radius: 5.6rem;
+        cursor: pointer;
+        font-size: 2.5rem;
+        line-height: 2.6rem;
+        margin: 0 3px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        z-index: 998;
+    }
+}

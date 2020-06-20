@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Allerta+Stencil&family=Stardos+Stencil:wght@700&display=swap');
+.bttn {
+    text-decoration: none!important;
+    color: $black;
+}
+
+
+     #btn-event {
+        color: $white;
+        background-color: $secondaryColor;
+        border-color: $secondaryColor;
+
+        &:hover {
+            color: $secondaryColor;
+            background-color: $white;
+            border-color: $secondaryColor;
+        }
+    }
+
+
+.bttn__events {
+    &-detail {
+        position: relative;
+        padding: 0 1rem;
+        transition: all 1.2s ease;
+
+        &:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: block;
+            border-radius: 2.8rem;
+            background: rgba($secondaryColor, 1);
+            width: 3rem;
+            height: 3rem;
+            transition: all .3s ease;
+        }
+
+        & span {
+            position: relative;
+            font-size: 1.5rem;
+            line-height: 1rem;
+            font-weight: 700;
+            letter-spacing: .2rem;
+            vertical-align: middle;
+            text-transform: uppercase;
+        }
+
+        & svg {
+            position: relative;
+            top: 0;
+            margin-left: 1rem;
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke: #111;
+            stroke-width: 2;
+            transform: translateX(-.5rem);
+            transition: all .3s ease;
+        }
+
+        &:hover {
+            color: $white;
+            transition: color .2s ease;
+
+            &:before {
+                width: 100%;
+                background: rgba($secondaryColor, 1);
+            }
+
+            & svg {
+                transform: translateX(0);
+            }
+        }
+
+        &:active {
+            transform: scale(.96);
+        }
+    }
+
+    &-attend {
+        --offset: 8px;
+        --border-size: 1.3px;
+
+        font-family: 'Stardos Stencil', cursive;
+
+        &:focus {
+            outline: none;
+        }
+
+        display: block;
+        position: relative;
+        border: 0;
+        background: transparent;
+        color: $mainColor!important;
+        text-transform: uppercase;
+        letter-spacing: .25em;
+        outline: none;
+        cursor: pointer;
+        font-weight: bold;
+        border-radius: 0;
+        box-shadow: inset 0 0 0 var(--border-size) currentcolor;
+        transition: background .4s ease;
+        padding-top: .4rem;
+
+        &:hover {
+            background: rgba(100, 0, 0, .03);
+        }
+
+        &__horizontal,
+        &__vertical {
+            position: absolute;
+            top: var(--horizontal-offset, 0);
+            right: var(--vertical-offset, 0);
+            bottom: var(--horizontal-offset, 0);
+            left: var(--vertical-offset, 0);
+            transition: transform .8s ease;
+            will-change: transform;
+
+            &::before {
+                content: '';
+                position: absolute;
+                border: inherit;
+            }
+        }
+
+        &__horizontal {
+            --vertical-offset: calc(var(--offset) * -.6);
+            border-top: var(--border-size) solid currentcolor;
+            border-bottom: var(--border-size) solid currentcolor;
+
+            &::before {
+                top: calc(var(--vertical-offset) - var(--border-size));
+                bottom: calc(var(--vertical-offset) - var(--border-size));
+                left: calc(var(--vertical-offset) * -1);
+                right: calc(var(--vertical-offset) * -1);
+            }
+        }
+
+        &:hover &__horizontal {
+            transform: scaleX(0);
+        }
+
+        &__vertical {
+            --horizontal-offset: calc(var(--offset) * -.6);
+            border-left: var(--border-size) solid currentcolor;
+            border-right: var(--border-size) solid currentcolor;
+
+            &::before {
+                top: calc(var(--horizontal-offset) * -1);
+                bottom: calc(var(--horizontal-offset) * -1);
+                left: calc(var(--horizontal-offset) - var(--border-size));
+                right: calc(var(--horizontal-offset) - var(--border-size));
+            }
+        }
+
+        &:hover &__vertical {
+            transform: scaleY(0);
+        }
+    }
+}
+

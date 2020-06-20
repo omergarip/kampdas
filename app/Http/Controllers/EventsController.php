@@ -33,7 +33,6 @@ class EventsController extends Controller
         $data['start_date'] = Carbon::parse($data['start_date']);
         $data['end_date'] = Carbon::parse($data['end_date']);
         $event = Event::create($data);
-        session()->flash('success', 'Etkinlik başarı ile oluşturuldu.');
         return redirect(route('media.create', $event->slug));
     }
 
