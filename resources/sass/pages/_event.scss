@@ -1,8 +1,204 @@
 #section-event {
+    & p {
+        margin: 0!important;
+        padding: 0!important;
+    }
+
     & .event {
-
+        display: flex;
+        flex-direction: column;
         &__header {
+            display: flex;
+            align-items: center;
+            width: 100%;
 
+            &-title {
+                font-size: 2rem;
+                font-weight: 700;
+                color: $blue;
+            }
+
+            &-logo {
+                width: 5rem;
+                height: 5rem;
+            }
+
+            &-edit {
+                margin-left: auto;
+
+                & img {
+                    width: 3rem;
+                    height: 3rem;
+                }
+            }
+        }
+
+        &__share {
+            display: flex;
+            justify-content: center;
+            margin-top: 1.5rem;
+
+            &-button {
+                width: 20rem;
+                height: 5rem;
+                font-family: 'Source Sans Pro', sans-serif;
+                font-weight: 700;
+                background: #e4faff;
+                border-radius: 4rem;
+                overflow: hidden;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+                cursor: pointer;
+                transition: .3s linear;
+                box-shadow: 0 0 4rem rgba(0, 0, 0, 0.1),
+                            inset .3rem .2rem 1rem rgba(0, 0, 0, 0.1);
+
+                &:hover {
+                    transform: scale(1.1);
+
+                    & span {
+                        transform: translateX(-100%);
+                        transition-delay: .3s;
+                    }
+
+                    & a {
+                        opacity: 1;
+                        transform: translateX(0);
+                    }
+                }
+
+                & span {
+                    position: absolute;
+                    width: 100%;
+                    height: 100;
+                    background: $secondaryColor;
+                    color: #f1f1f1;
+                    text-align: center;
+                    letter-spacing: .1rem;
+                    line-height: 8rem;
+                    z-index: 999;
+                    font-size: 2rem;
+                    text-transform: uppercase;
+                    transition: .6s linear;
+                    border-radius: 4rem;
+                }
+
+                & a {
+                    flex: 1;
+                    font-size: 2.6rem;
+                    text-align: center;
+                    transform: translateX(-100%);
+                    opacity: 0;
+                    transition: .3s linear;
+
+                    &:nth-child(2) {
+                        color: $color-fb!important;
+                        transition-delay: 1s;
+
+                        &:hover {
+                            animation: rotation .4s ease;
+                        }
+                    }
+                    &:nth-child(3) {
+                        color: $color-tw;
+                        transition-delay: .8s;
+
+                        &:hover {
+                            animation: rotation .4s ease;
+                        }
+                    }
+                    &:nth-child(4) {
+                        color: $color-ln;
+                        transition-delay: .6s;
+
+                        &:hover {
+                            animation: rotation .4s ease;
+                        }
+                    }
+                    &:nth-child(5) {
+                        color: $color-wp;
+                        transition-delay: .4s;
+
+                        &:hover {
+                            animation: rotation .4s ease;
+                        }
+                    }
+                }
+            }
+        }
+
+        &__location {
+            display: flex;
+            justify-content: center;
+
+            &-map {
+                height: 40rem;
+                width: 60rem;
+                margin: 1.5rem 0;
+            }
+        }
+
+        &__owner {
+            display: flex;
+            flex-direction: row;
+
+            &-info {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+
+                & h4 { font-weight: 700;}
+
+                & h6 {
+                    margin-top: -.7rem;
+                    font-size: 1.3rem!important;
+                }
+            }
+
+            &-profile {
+                width: 8rem;
+                height: 8rem;
+                border-radius: 50%;
+            }
+        }
+
+        &__description {
+            margin-top: 2rem;
+            background: #fff6d5;
+            border-color: #f0d461;
+            border-left: 16px solid #f0d461;
+            padding: 2rem;
+        }
+
+        &__attendee {
+            margin-top: 2rem;
+
+            &-header {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            &-profile {
+
+                & img {
+                    width: 5rem;
+                    height: 5rem;
+                    border-radius: 50%;
+                }
+
+            }
+        }
+
+        &__comments {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+
+            & iframe {
+                width: 100%!important;
+            }
         }
     }
 }

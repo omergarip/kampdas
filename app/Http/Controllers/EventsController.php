@@ -12,8 +12,9 @@ class EventsController extends Controller
 {
     public function index()
     {
+        $events = Event::whereBetween('start_date', [Carbon::today(), Carbon::today()->addWeek()]);
         //return view('events.index')->with('events', Event::paginate(5)->where('start_date', '>', Carbon::today())->sortBy('start_date'));
-        return view('events.index')->with('events', Event::paginate(5));
+        return view('events.index')->with('events', $events);
     }
 
     public function apiIndex()

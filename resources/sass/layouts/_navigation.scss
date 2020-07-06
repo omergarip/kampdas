@@ -23,6 +23,34 @@
             margin-top: 1rem;
             letter-spacing: 0.0625rem;
             & li.nav-item {
+
+                & .dropdown {
+
+                    &-menu {
+                        font-size: 1.4rem;
+                    }
+
+                    &-item {
+                        text-transform: capitalize;
+                        font-family: inherit;
+                        color: $black!important;
+                        font-family: 'Open Sans', sans-serif;
+
+                        &:hover {
+                            color: $mainColor!important;
+                        }
+                        &:active,
+                        &:focus {
+                            color: $black!important;
+                            background-color: transparent!important;
+                        }
+                        &.active {
+                            color: $mainColor!important;
+                        }
+                    }
+
+                }
+
                 & a.nav-link{
                     color: $grey!important;
 

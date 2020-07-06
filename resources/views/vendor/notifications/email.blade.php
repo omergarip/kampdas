@@ -7,7 +7,7 @@
 # @lang('Whoops!')
 @endif
 @endif
-<img src="https://kampdas.org/img/PNG.png">
+<img src="https://kampdas.org/img/kampdas-logo_dikey.png">
 
 Merhaba {{ $user->name }},
 {{-- Intro Lines --}}

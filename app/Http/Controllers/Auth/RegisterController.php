@@ -16,7 +16,7 @@ class RegisterController extends Controller
     | Register Controller
     |--------------------------------------------------------------------------
     |
-    | This controller handles the registration of new users as well as their
+    | This controller handles the registration of new profile as well as their
     | validation and creation. By default this controller uses a trait to
     | provide this functionality without requiring any additional code.
     |
@@ -25,7 +25,7 @@ class RegisterController extends Controller
     use RegistersUsers;
 
     /**
-     * Where to redirect users after registration.
+     * Where to redirect profile after registration.
      *
      * @var string
      */
@@ -52,24 +52,24 @@ class RegisterController extends Controller
         return Validator::make($data,
             [
             'name' => ['required', 'string', 'max:255'],
-            'username' => ['required', 'string', 'min:6', 'max:255', 'unique:users'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'username' => ['required', 'string', 'min:6', 'max:255', 'unique:profile'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:profile'],
+            'password' => ['required', 'string', 'min:6', 'confirmed'],
             'city' => ['required'],
             'birthday' => ['required']
             ],
             [
-                'name.required' => 'İsim ve Soyisim Gerekli.',
-                'email.required' => 'Email gerekli',
-                'email.unique' => 'Bu email adresi alindi.',
-                'password.required' => 'Sifre gerekli',
-                'password.confirmed' => 'Sifre eslesmiyor',
-                'password.min' => 'Sifreniz 8 karakterden az olamaz.',
-                'username.required' => 'Kullanici adi gerekli',
-                'username.unique' => 'Bu kullanici adi adresi alindi.',
-                'username.min' => 'Kullanici adiniz 6 karakterden az olamaz.',
-                'city.required' => 'Sehir gerekli',
-                'birthday.required' => 'Dogum tarihi gerekli'
+                'name.required' => 'Adınızı ve Soyadınız Giriniz.',
+                'email.required' => 'Email Adresinizi Giriniz.',
+                'email.unique' => 'Bu Email Adresi Başka Bir Kullanıcı Tarafından Kullanılmaktadır.',
+                'password.required' => 'Sifrenizi Giriniz.',
+                'password.confirmed' => 'Sifreniz Eşleşmemektedir.',
+                'password.min' => 'Sifreniz 6 Karakterden Az Olamaz.',
+                'username.required' => 'Kullanıcı Adınızı Giriniz.',
+                'username.unique' => 'Bu Kullanıcı Adı Başka Bir Kullanıcı Tarafından Kullanılmaktadır.',
+                'username.min' => 'Kullanıcı Adınız 6 Karakterden Az Olamaz.',
+                'city.required' => 'Sehrinizi Giriniz.',
+                'birthday.required' => 'Dogum Tarihinizi Giriniz.'
             ]);
     }
 

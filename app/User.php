@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Notifications\CustomVerifyEmailNotification;
+use Carbon\Carbon;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -36,5 +37,9 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function attend() {
         return $this->belongsToMany(Event::class);
+    }
+
+    public function calculateAge() {
+        return Carbon::parse($this->birthday)->diffInYears(Carbon::today());
     }
 }

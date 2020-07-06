@@ -24,7 +24,7 @@ class CreateEventRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => ['required', 'string', 'max:255', 'min:5'],
+            'title' => ['required', 'string', 'max:75', 'min:5'],
             'location' => 'required',
             'description' => ['required', 'string', 'min:10', 'max:1000'],
             'limit' => 'required',
@@ -38,7 +38,7 @@ class CreateEventRequest extends FormRequest
         return [
             'title.required' => 'Kamp etkinliğinize bir isim verin.',
             'title.min' => 'Etkinlik başlığı en az 10 karakter olmalıdır.',
-            'title.max' => 'Etkinlik başlığı 255 karakteri gecemez',
+            'title.max' => 'Etkinlik başlığı 75 karakteri geçemez',
             'location.required' => 'Kamp etkinliğiniz için konum bildiriniz.',
             'description.required' => 'Diğer kampdaşları bilgilendirmek için kamp etkinliğiniz hakkında bir açıklama yazısı girin.',
             'description.min' => 'Açıklama yazısı en az 10 karakter olmalıdır.',

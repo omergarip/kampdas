@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->timestamp('birthday');
             $table->string('city');
             $table->string('phone')->nullable();
+            $table->string('bio')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->integer('is_banned')->default(0);

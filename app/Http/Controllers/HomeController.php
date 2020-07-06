@@ -15,10 +15,12 @@ class HomeController extends Controller
 
     public function index()
     {
-        $events = Event::all();
+        $events = Event::where('start_date', '>', Carbon::today())->paginate(20)->sortBy('start_date');
+//        $events = Event::whereBetween('start_date', [Carbon::today(), Carbon::today()->addWeek()])->get();
         setlocale(LC_TIME, 'Turkish');
         $data = [];
         foreach ($events as $event) {
+            $numberOfAttendee = $event->users->count();
             $firstMonth = Carbon::parse($event->start_date)->formatLocalized('%B');
             $secondMonth = Carbon::parse($event->end_date)->formatLocalized('%B');
             $firstDay = Carbon::parse($event->start_date)->formatLocalized('%d');
@@ -38,7 +40,8 @@ class HomeController extends Controller
         //return view('index')->with('events', Event::all()->where('start_date', '>', Carbon::today())->sortBy('start_date'));
         return view('index')
             ->with('data', $data)
-            ->with('events', Event::paginate(5));
+            ->with('events', $events)
+            ->with('attendee', $numberOfAttendee);
 
 
     }

@@ -39,11 +39,16 @@ Route::get('etkinlik/{slug}/guncelle', 'EventsController@edit')->name('events.ed
 Route::put('etkinlik/{slug}/', 'EventsController@update')->name('events.update')->middleware('auth');
 Route::delete('etkinlik/{id}/sil', 'EventsController@destroy')->name('events.delete')->middleware('auth');
 Route::post('etkinlik/{slug}/katil', 'EventsController@attend')->name('events.attend')->middleware('auth');
-Route::delete('etkinlik/{slug}/ayril', 'EventsController@detach')->name('events.leave')->middleware('auth');
+Route::post('etkinlik/{slug}/ayril', 'EventsController@detach')->name('events.leave')->middleware('auth');
 
 //Event Media Routes
 Route::get('etkinlik/{slug}/medya', 'EventsMediaController@create')->name('media.create')->middleware('auth');
 Route::post('etkinlik/{slug}/', 'EventsMediaController@store')->name('media.store')->middleware('auth');
+
+//Profile Routes
+Route::get('profil/{username}', 'UserProfileController@show')->name('profile')->middleware('auth');
+Route::get('profil/{username}/guncelle', 'UserProfileController@edit')->name('profile.edit')->middleware('auth');
+Route::get('profil/{username}/etkinliklerim', 'UserProfileController@showEvents')->name('profile.events')->middleware('auth');
 
 //Facebook Login Routes
 Route::get('/redirect', 'SocialAuthFacebookController@redirect');

@@ -1,9 +1,55 @@
-#section-home{
+#section-profile {
     font-size: 1.6rem;
 
-    & .modal {
-        &-title {
-            font-size: 1.6rem;
+    & .profile {
+
+        &__owner {
+            display: flex;
+            flex-direction: row;
+
+            &-edit {
+                margin: auto 0 auto  auto;
+                display: flex;
+                align-items: center;
+
+                & p {
+                    margin: -.7 rem 0;
+                    font-weight: 700;
+                    text-align: center;
+                }
+                & img {
+                    width: 3rem;
+                    height: 3rem;
+                    margin-left: 1rem;
+                }
+            }
+
+            &-info {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+
+                & h4 { font-weight: 700;}
+
+                & h6 {
+                    margin-top: -.7rem;
+                    font-size: 1.3rem!important;
+                }
+            }
+
+            &-profile {
+                width: 8rem;
+                height: 8rem;
+                border-radius: 50%;
+            }
+        }
+
+        &__bio {
+            margin-top: 2rem;
+            background: #fff6d5;
+            border-color: #f0d461;
+            border-left: 16px solid #f0d461;
+            padding: 2rem;
         }
     }
 
@@ -14,8 +60,15 @@
             justify-content: center;
             flex-direction: column;
 
+            & p:first-child {
+                font-size: 2.5rem;
+                font-weight: 700;
+                color: $black;
+                text-align: center;
+            }
+
             &-map {
-                height: 40rem;
+                height: 32rem;
                 width: 100%;
                 margin: 0 0 1.5rem 0;
                 background: black;
@@ -44,9 +97,8 @@
                     }
 
                     & p:nth-child(2) {
-                        text-align: center;
                         margin-top: -.4rem;
-
+                        text-align: center;
                     }
 
                     & p:nth-child(3) {
@@ -79,26 +131,14 @@
         }
     }
 
-    & #btn-event {
-        position: fixed;
-    }
+    & .events {
+        margin: 4rem auto;
 
-    & .events__banner {
-        font-family: open sans,sans-serif;
-        font-weight: 700;
-        border-radius: 3px;
-        text-align: center;
 
-        &-pinned {
-            color: $white!important;
-            width: 100%;
-            background-image: linear-gradient(to right, $secondaryColor, lighten($secondaryColor, 25));
+        &__bottom-logo {
+
         }
 
-        &-oncoming {
-            color: $white!important;
-            width: 100%;
-            background-image: linear-gradient(to right, $mainColor, lighten($mainColor, 15));
-        }
     }
+
 }
