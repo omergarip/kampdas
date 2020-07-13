@@ -6,6 +6,9 @@ use App\Event;
 use App\EventMedia;
 use App\Http\Requests\Events\CreateEventRequest;
 use App\Http\Requests\Events\UpdateEventRequest;
+use App\Notifications\EventsNotification;
+use App\Notifications\LimitNotificiation;
+use App\User;
 use Carbon\Carbon;
 
 class EventsController extends Controller
@@ -19,7 +22,7 @@ class EventsController extends Controller
 
     public function apiIndex()
     {
-        return response()->json(Event::all());
+        return response()->json(Event::whereBetween('start_date', [Carbon::today(), Carbon::today()->addWeek()])->get());
     }
 
     public function create()
@@ -89,6 +92,14 @@ class EventsController extends Controller
     {
         $event = Event::whereSlug($slug)->first();
         $event->users()->attach(auth()->id());
+        $user = $event->user;
+        $number = $event->users->count();
+        if($number == $event->limit - 1) {
+            $user->notify(new LimitNotificiation($user, $event));
+        } else {
+            $user->notify(new EventsNotification($user, $event, $number));
+        }
+
         session()->flash('success', 'Etkinliğe başarı ile katıldınız');
         return redirect()->back();
     }
@@ -96,6 +107,12 @@ class EventsController extends Controller
     public function detach($slug)
     {
         $event = Event::whereSlug($slug)->first();
+        $user = $event->user;
+        $user->notifications()
+            ->whereJsonContains("data->slug", $slug)
+            ->get()
+            ->first()
+            ->delete();
         $event->users()->detach(auth()->id());
         session()->flash('success', 'Etkinlikten başarı ile ayrildiniz');
         return redirect()->back();

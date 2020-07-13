@@ -44,7 +44,7 @@
                         @if($user->photo == '')
                             <img class="profile__owner-profile" src="https://www.pngkey.com/png/detail/230-2301779_best-classified-apps-default-user-profile.png">
                         @else
-                            <img class="profile__owner-profile" src="{{ asset('storage/'.$user->photo) }}">
+                            <img class="profile__owner-profile" src="{{ asset('/'.$user->photo) }}">
                         @endif
                         <div class="profile__owner-info">
                             <h4>{{ $user->name . ', ' . $user->calculateAge() }}</h4>
@@ -65,7 +65,7 @@
 
                     </div>
                     <div class="profile__bio">
-                        <p>{{ $user->name }}</p>
+                        <p>{{ $user->bio }}</p>
                     </div>
                 </div>
             </div>

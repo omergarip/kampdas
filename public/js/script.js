@@ -99,3 +99,27 @@ function hideValidate(input) {
 
     $(thisAlert).removeClass('alert-validate');
 }
+
+$(document).ready(function()
+{
+    $("#notificationLink").click(function()
+    {
+        $("#notificationContainer").fadeToggle(200);
+        $("#notification_count").fadeToggle(200);
+        return false;
+    });
+
+//Document Click hiding the popup
+    $(document).click(function()
+    {
+        $("#notificationContainer").hide();
+    });
+
+//Popup on click
+
+});
+
+$(".custom-file-input").on("change", function() {
+    var fileName = $(this).val().split("\\").pop();
+    $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+});

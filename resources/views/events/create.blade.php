@@ -5,7 +5,8 @@
 @endsection
 
 @section('content')
-    <div class="container">
+    @include('includes.navigation')
+    <div class="container d-flex justify-content-center flex-column" style="height: 93.1vh">
         <div class="card card-default">
             <div class="card-header">
                 {{ isset($event) ? 'Etkinliği Düzenle' :  'Yeni Kamp Etkinliği Oluştur' }}
@@ -124,11 +125,11 @@
 
         });
 
-        let input = document.getElementById('location');
+        let data = document.getElementById('location');
         let options = {
             componentRestrictions: {country: "TR"}
         };
-        let autocomplete = new google.maps.places.Autocomplete(input, options);
+        let autocomplete = new google.maps.places.Autocomplete(data, options);
         google.maps.event.addListener(autocomplete, 'place_changed', function() {
             let place = autocomplete.getPlace();
             let lat = place.geometry.location.lat();

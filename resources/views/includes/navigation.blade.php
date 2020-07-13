@@ -25,12 +25,7 @@
 {{--                          >                  </a>--}}
                           <a class="nav-link dropdown-toggle  py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
-
-                          @if(auth()->user()->photo == '')
-                              <img class="km-circle-icon-img" src="https://www.pngkey.com/png/detail/230-2301779_best-classified-apps-default-user-profile.png">
-                          @else
-                              <img class="km-circle-icon-img" src="{{ asset('storage/'.auth()->user()->photo) }}">
-                          @endif
+                              <img class="km-circle-icon-img" src="{{ '/' . auth()->user()->photo ?? 'https://www.pngkey.com/png/detail/230-2301779_best-classified-apps-default-user-profile.png'}}">
                               Profilim
                           </a>
                           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -39,10 +34,39 @@
                           </div>
 
                   </li>
-                  <li class="nav-item mx-0 mx-lg-1">
-                      <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href=""><i class="fas fa-bell"></i>
-                          Bildirimler</a>
+                  <li id="notification_li" class="nav-item mx-0 mx-lg-1 mr-lg-3">
+
+                      <a href="#" class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" id="notificationLink">
+                          Bildirimler  <span id="notification_count">{{ $numOfNotifications ?? '' ? $numOfNotifications ?? '' : '0' }}</span>
+                      </a>
+
+                      <div id="notificationContainer">
+                          <div id="notificationTitle">
+                              Bildirimler
+                              <a href="{{ route('notifications.read') }} ">{{ $numOfNotifications ?? '' ? 'Okundu olarak isaretle' : '' }}</a>
+                          </div>
+                          <div id="notificationsBody" class="notifications">
+                              <ul>
+                                  @if($notifications ?? '')
+                                      @foreach($notifications ?? '' as $notification)
+                                          <li  class="{{ $notification->read_at ? '' : 'unread-notification' }}">
+                                              <a href="{{ $notification->read_at ? route('events.show', $notification->data['slug']) : route('notification.read', $notification->id) }}">
+                                                  {{ $notification->data['message'] }}
+                                              </a>
+                                          </li>
+                                      @endforeach
+                                  @else
+                                      <li>No notifications</li>
+                                  @endif
+                              </ul>
+                          </div>
+                      </div>
+
                   </li>
+{{--                  <li class="nav-item mx-0 mx-lg-1">--}}
+{{--                      <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href=""><i class="fas fa-bell"></i>--}}
+{{--                          Bildirimler</a>--}}
+{{--                  </li>--}}
                   <li class="nav-item mx-0 mx-lg-1">
                       <a
                           class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"

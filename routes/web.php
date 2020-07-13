@@ -35,7 +35,7 @@ Route::get('etkinlikler', 'EventsController@index')->name('events.index');
 Route::get('etkinlik/olustur', 'EventsController@create')->name('events.create')->middleware('auth');
 Route::post('etkinlik', 'EventsController@store')->name('events.store')->middleware('auth');
 Route::get('etkinlik/{slug}', 'EventsController@show')->name('events.show')->middleware('auth');
-Route::get('etkinlik/{slug}/guncelle', 'EventsController@edit')->name('events.edit')->middleware('auth');
+Route::get('etkinlik/{slug}/duzenle', 'EventsController@edit')->name('events.edit')->middleware('auth');
 Route::put('etkinlik/{slug}/', 'EventsController@update')->name('events.update')->middleware('auth');
 Route::delete('etkinlik/{id}/sil', 'EventsController@destroy')->name('events.delete')->middleware('auth');
 Route::post('etkinlik/{slug}/katil', 'EventsController@attend')->name('events.attend')->middleware('auth');
@@ -48,7 +48,12 @@ Route::post('etkinlik/{slug}/', 'EventsMediaController@store')->name('media.stor
 //Profile Routes
 Route::get('profil/{username}', 'UserProfileController@show')->name('profile')->middleware('auth');
 Route::get('profil/{username}/guncelle', 'UserProfileController@edit')->name('profile.edit')->middleware('auth');
+Route::put('profil/{username}/', 'UserProfileController@update')->name('profile.update')->middleware('auth');
 Route::get('profil/{username}/etkinliklerim', 'UserProfileController@showEvents')->name('profile.events')->middleware('auth');
+
+//Notification Routes
+Route::get('bildirim/okundu', 'UserNotificationsController@readNotification')->name('notifications.read')->middleware('auth');
+Route::get('bildirim/{id}/okundu', 'UserNotificationsController@show')->name('notification.read')->middleware('auth');
 
 //Facebook Login Routes
 Route::get('/redirect', 'SocialAuthFacebookController@redirect');

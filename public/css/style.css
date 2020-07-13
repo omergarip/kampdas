@@ -7796,6 +7796,75 @@ div .social {
   #mainNav .navbar-toggler {
     font-size: 80%;
     padding: 0.8rem; }
+  #mainNav #notification_li {
+    position: relative;
+    margin-right: 1rem; }
+  #mainNav #notificationContainer {
+    max-height: 100vh;
+    height: 89.5vh;
+    background-color: #fff;
+    border: 1px solid rgba(100, 100, 100, 0.4);
+    -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+    overflow: visible;
+    position: absolute;
+    top: 71px;
+    left: -150px;
+    width: 400px;
+    z-index: -1;
+    display: none; }
+  #mainNav #notificationContainer:before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 0;
+    height: 0;
+    color: transparent;
+    border: 10px solid black;
+    border-color: transparent transparent white;
+    margin-top: -20px;
+    margin-left: 188px; }
+  #mainNav #notificationTitle {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    padding: 8px;
+    font-size: 13px;
+    background-color: #ffffff;
+    position: fixed;
+    z-index: 1000;
+    width: 384px;
+    border-bottom: 1px solid #dddddd; }
+  #mainNav #notificationsBody {
+    padding: 33px 0px 0px 0px !important;
+    min-height: 300px; }
+    #mainNav #notificationsBody .unread-notification {
+      background-color: #ccc; }
+      #mainNav #notificationsBody .unread-notification a {
+        color: #333; }
+    #mainNav #notificationsBody ul {
+      background-color: #f4f2f2;
+      padding: 0; }
+    #mainNav #notificationsBody li {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      list-style: none;
+      padding: 2rem 1rem;
+      text-transform: none; }
+      #mainNav #notificationsBody li a {
+        color: #333;
+        text-decoration: none; }
+  #mainNav #notification_count {
+    padding: 3px 7px 3px 7px;
+    background: #cc0000;
+    color: #ffffff;
+    font-weight: bold;
+    border-radius: 9px;
+    -moz-border-radius: 9px;
+    -webkit-border-radius: 9px;
+    font-size: 11px;
+    position: absolute;
+    margin-left: .5rem; }
 
 #section-home {
   font-size: 1.6rem; }
@@ -7991,64 +8060,93 @@ div .social {
     #section-event .event__comments iframe {
       width: 100% !important; }
 
-#section-profile {
+#section-profile,
+#section-edit_profile {
   font-size: 1.6rem; }
-  #section-profile .profile__owner {
+  #section-profile .profile textarea,
+  #section-edit_profile .profile textarea {
+    border: 1px black solid;
+    font-size: 1.6rem; }
+  #section-profile .profile__photo,
+  #section-edit_profile .profile__photo {
+    max-height: 25rem;
+    width: 100%;
+    height: auto;
+    margin-bottom: 1.5rem; }
+  #section-profile .profile__owner,
+  #section-edit_profile .profile__owner {
     display: flex;
     flex-direction: row; }
-    #section-profile .profile__owner-edit {
+    #section-profile .profile__owner-edit,
+    #section-edit_profile .profile__owner-edit {
       margin: auto 0 auto  auto;
       display: flex;
       align-items: center; }
-      #section-profile .profile__owner-edit p {
+      #section-profile .profile__owner-edit p,
+      #section-edit_profile .profile__owner-edit p {
         margin: -.7 rem 0;
         font-weight: 700;
         text-align: center; }
-      #section-profile .profile__owner-edit img {
+      #section-profile .profile__owner-edit img,
+      #section-edit_profile .profile__owner-edit img {
         width: 3rem;
         height: 3rem;
         margin-left: 1rem; }
-    #section-profile .profile__owner-info {
+    #section-profile .profile__owner-info,
+    #section-edit_profile .profile__owner-info {
       display: flex;
       flex-direction: column;
-      justify-content: center; }
-      #section-profile .profile__owner-info h4 {
+      justify-content: center;
+      margin-left: 1rem; }
+      #section-profile .profile__owner-info h4,
+      #section-edit_profile .profile__owner-info h4 {
         font-weight: 700; }
-      #section-profile .profile__owner-info h6 {
+      #section-profile .profile__owner-info h6,
+      #section-edit_profile .profile__owner-info h6 {
         margin-top: -.7rem;
         font-size: 1.3rem !important; }
-    #section-profile .profile__owner-profile {
+    #section-profile .profile__owner-profile,
+    #section-edit_profile .profile__owner-profile {
       width: 8rem;
       height: 8rem;
       border-radius: 50%; }
-  #section-profile .profile__bio {
+  #section-profile .profile__bio,
+  #section-edit_profile .profile__bio {
     margin-top: 2rem;
     background: #fff6d5;
     border-color: #f0d461;
     border-left: 16px solid #f0d461;
     padding: 2rem; }
-  #section-profile .events__position {
+  #section-profile .events__position,
+  #section-edit_profile .events__position {
     display: flex;
     justify-content: center;
     flex-direction: column; }
-    #section-profile .events__position p:first-child {
+    #section-profile .events__position p:first-child,
+    #section-edit_profile .events__position p:first-child {
       font-size: 2.5rem;
       font-weight: 700;
       color: #000000;
       text-align: center; }
-    #section-profile .events__position-map {
+    #section-profile .events__position-map,
+    #section-edit_profile .events__position-map {
       height: 32rem;
       width: 100%;
       margin: 0 0 1.5rem 0;
       background: black; }
-    #section-profile .events__position-info {
+    #section-profile .events__position-info,
+    #section-edit_profile .events__position-info {
       display: flex;
       justify-content: space-around;
       align-items: center; }
-      #section-profile .events__position-info-1 div:first-child, #section-profile .events__position-info-2 div:first-child {
+      #section-profile .events__position-info-1 div:first-child, #section-profile .events__position-info-2 div:first-child,
+      #section-edit_profile .events__position-info-1 div:first-child,
+      #section-edit_profile .events__position-info-2 div:first-child {
         display: flex;
         justify-content: center; }
-        #section-profile .events__position-info-1 div:first-child p, #section-profile .events__position-info-2 div:first-child p {
+        #section-profile .events__position-info-1 div:first-child p, #section-profile .events__position-info-2 div:first-child p,
+        #section-edit_profile .events__position-info-1 div:first-child p,
+        #section-edit_profile .events__position-info-2 div:first-child p {
           margin: 0;
           padding: 0;
           font-family: 'Source Sans Pro', sans-serif;
@@ -8056,24 +8154,33 @@ div .social {
           color: #000000;
           align-self: center;
           font-size: 3.2rem; }
-      #section-profile .events__position-info-1 p:nth-child(2), #section-profile .events__position-info-2 p:nth-child(2) {
+      #section-profile .events__position-info-1 p:nth-child(2), #section-profile .events__position-info-2 p:nth-child(2),
+      #section-edit_profile .events__position-info-1 p:nth-child(2),
+      #section-edit_profile .events__position-info-2 p:nth-child(2) {
         margin-top: -.4rem;
         text-align: center; }
-      #section-profile .events__position-info-1 p:nth-child(3), #section-profile .events__position-info-2 p:nth-child(3) {
+      #section-profile .events__position-info-1 p:nth-child(3), #section-profile .events__position-info-2 p:nth-child(3),
+      #section-edit_profile .events__position-info-1 p:nth-child(3),
+      #section-edit_profile .events__position-info-2 p:nth-child(3) {
         margin-top: -1.5rem;
         text-align: center; }
-      #section-profile .events__position-info-1 img {
+      #section-profile .events__position-info-1 img,
+      #section-edit_profile .events__position-info-1 img {
         width: 5rem;
         height: 5rem; }
-      #section-profile .events__position-info-2 div:first-child p {
+      #section-profile .events__position-info-2 div:first-child p,
+      #section-edit_profile .events__position-info-2 div:first-child p {
         margin-left: .5rem; }
-      #section-profile .events__position-info-2 img {
+      #section-profile .events__position-info-2 img,
+      #section-edit_profile .events__position-info-2 img {
         width: 7rem;
         height: auto; }
-  #section-profile .events {
+  #section-profile .events,
+  #section-edit_profile .events {
     margin: 4rem auto; }
 
-#section-login {
+#section-login,
+#section-edit_profile {
   /*---------------------------------------------*/
   /*---------------------------------------------*/
   /*---------------------------------------------*/
@@ -8094,7 +8201,8 @@ div .social {
     [ Social item ]*/
   /*//////////////////////////////////////////////////////////////////
     [ Responsive ]*/ }
-  #section-login a {
+  #section-login a,
+  #section-edit_profile a {
     font-size: 1.6rem;
     color: #666666;
     font-weight: 700;
@@ -8105,71 +8213,106 @@ div .social {
     -webkit-transition: all 0.4s;
     -o-transition: all 0.4s;
     -moz-transition: all 0.4s; }
-    #section-login a:focus {
+    #section-login a:focus,
+    #section-edit_profile a:focus {
       outline: none !important; }
-    #section-login a:hover {
+    #section-login a:hover,
+    #section-edit_profile a:hover {
       text-decoration: none;
       color: #a64bf4; }
-  #section-login h1, #section-login h2, #section-login h3, #section-login h4, #section-login h5, #section-login h6 {
+  #section-login h1, #section-login h2, #section-login h3, #section-login h4, #section-login h5, #section-login h6,
+  #section-edit_profile h1,
+  #section-edit_profile h2,
+  #section-edit_profile h3,
+  #section-edit_profile h4,
+  #section-edit_profile h5,
+  #section-edit_profile h6 {
     margin: 0px; }
-  #section-login p {
+  #section-login p,
+  #section-edit_profile p {
     font-family: Poppins-Regular;
     font-size: 14px;
     line-height: 1.7;
     color: #666666;
     margin: 0px; }
-  #section-login ul, #section-login li {
+  #section-login ul, #section-login li,
+  #section-edit_profile ul,
+  #section-edit_profile li {
     margin: 0px;
     list-style-type: none; }
-  #section-login input {
+  #section-login input,
+  #section-edit_profile input {
     outline: none;
     border: none; }
-  #section-login textarea {
+  #section-login textarea,
+  #section-edit_profile textarea {
     outline: none;
     border: none; }
-  #section-login textarea:focus, #section-login input:focus {
+  #section-login textarea:focus, #section-login input:focus,
+  #section-edit_profile textarea:focus,
+  #section-edit_profile input:focus {
     border-color: transparent !important; }
-  #section-login input:focus::-webkit-input-placeholder {
+  #section-login input:focus::-webkit-input-placeholder,
+  #section-edit_profile input:focus::-webkit-input-placeholder {
     color: transparent; }
-  #section-login input:focus:-moz-placeholder {
+  #section-login input:focus:-moz-placeholder,
+  #section-edit_profile input:focus:-moz-placeholder {
     color: transparent; }
-  #section-login input:focus::-moz-placeholder {
+  #section-login input:focus::-moz-placeholder,
+  #section-edit_profile input:focus::-moz-placeholder {
     color: transparent; }
-  #section-login input:focus:-ms-input-placeholder {
+  #section-login input:focus:-ms-input-placeholder,
+  #section-edit_profile input:focus:-ms-input-placeholder {
     color: transparent; }
-  #section-login textarea:focus::-webkit-input-placeholder {
+  #section-login textarea:focus::-webkit-input-placeholder,
+  #section-edit_profile textarea:focus::-webkit-input-placeholder {
     color: transparent; }
-  #section-login textarea:focus:-moz-placeholder {
+  #section-login textarea:focus:-moz-placeholder,
+  #section-edit_profile textarea:focus:-moz-placeholder {
     color: transparent; }
-  #section-login textarea:focus::-moz-placeholder {
+  #section-login textarea:focus::-moz-placeholder,
+  #section-edit_profile textarea:focus::-moz-placeholder {
     color: transparent; }
-  #section-login textarea:focus:-ms-input-placeholder {
+  #section-login textarea:focus:-ms-input-placeholder,
+  #section-edit_profile textarea:focus:-ms-input-placeholder {
     color: transparent; }
-  #section-login input::-webkit-input-placeholder {
+  #section-login input::-webkit-input-placeholder,
+  #section-edit_profile input::-webkit-input-placeholder {
     color: #adadad; }
-  #section-login input:-moz-placeholder {
+  #section-login input:-moz-placeholder,
+  #section-edit_profile input:-moz-placeholder {
     color: #adadad; }
-  #section-login input::-moz-placeholder {
+  #section-login input::-moz-placeholder,
+  #section-edit_profile input::-moz-placeholder {
     color: #adadad; }
-  #section-login input:-ms-input-placeholder {
+  #section-login input:-ms-input-placeholder,
+  #section-edit_profile input:-ms-input-placeholder {
     color: #adadad; }
-  #section-login textarea::-webkit-input-placeholder {
+  #section-login textarea::-webkit-input-placeholder,
+  #section-edit_profile textarea::-webkit-input-placeholder {
     color: #adadad; }
-  #section-login textarea:-moz-placeholder {
+  #section-login textarea:-moz-placeholder,
+  #section-edit_profile textarea:-moz-placeholder {
     color: #adadad; }
-  #section-login textarea::-moz-placeholder {
+  #section-login textarea::-moz-placeholder,
+  #section-edit_profile textarea::-moz-placeholder {
     color: #adadad; }
-  #section-login textarea:-ms-input-placeholder {
+  #section-login textarea:-ms-input-placeholder,
+  #section-edit_profile textarea:-ms-input-placeholder {
     color: #adadad; }
-  #section-login button {
+  #section-login button,
+  #section-edit_profile button {
     outline: none !important;
     border: none;
     background: transparent; }
-    #section-login button:hover {
+    #section-login button:hover,
+    #section-edit_profile button:hover {
       cursor: pointer; }
-  #section-login iframe {
+  #section-login iframe,
+  #section-edit_profile iframe {
     border: none !important; }
-  #section-login .flex-c-m {
+  #section-login .flex-c-m,
+  #section-edit_profile .flex-c-m {
     display: -webkit-box;
     display: -webkit-flex;
     display: -moz-box;
@@ -8178,7 +8321,8 @@ div .social {
     justify-content: center;
     -ms-align-items: center;
     align-items: center; }
-  #section-login .flex-col-c {
+  #section-login .flex-col-c,
+  #section-edit_profile .flex-col-c {
     display: -webkit-box;
     display: -webkit-flex;
     display: -moz-box;
@@ -8191,26 +8335,33 @@ div .social {
     flex-direction: column;
     -ms-align-items: center;
     align-items: center; }
-  #section-login .txt1 {
+  #section-login .txt1,
+  #section-edit_profile .txt1 {
     font-size: 1.8rem;
     padding: 2.4rem 0 2rem 0;
     line-height: 1.5;
     color: #666666; }
-  #section-login .txt2 {
+  #section-login .txt2,
+  #section-edit_profile .txt2 {
     font-size: 2.4rem;
     line-height: 1.5;
     color: #333333;
     text-transform: uppercase; }
-  #section-login .bg1 {
+  #section-login .bg1,
+  #section-edit_profile .bg1 {
     background-color: #3b5998; }
-  #section-login .bg2 {
+  #section-login .bg2,
+  #section-edit_profile .bg2 {
     background-color: #1da1f2; }
-  #section-login .bg3 {
+  #section-login .bg3,
+  #section-edit_profile .bg3 {
     background-color: #ea4335; }
-  #section-login .limiter {
+  #section-login .limiter,
+  #section-edit_profile .limiter {
     width: 100%;
     margin: 0 auto; }
-  #section-login .container-login100 {
+  #section-login .container-login100,
+  #section-edit_profile .container-login100 {
     width: 100%;
     min-height: 100vh;
     display: -webkit-box;
@@ -8225,23 +8376,28 @@ div .social {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover; }
-  #section-login .wrap-login100 {
+  #section-login .wrap-login100,
+  #section-edit_profile .wrap-login100 {
     margin-top: 12rem;
     width: 50rem;
     background: #fff;
     border-radius: 10px;
     overflow: hidden;
     padding: 3.5rem 5.5rem 1.4rem 5.5rem; }
-  #section-login .login100-form {
+  #section-login .login100-form,
+  #section-edit_profile .login100-form {
     width: 100%; }
-    #section-login .login100-form-logo {
+    #section-login .login100-form-logo,
+    #section-edit_profile .login100-form-logo {
       width: 100%;
       display: flex;
       justify-content: center; }
-      #section-login .login100-form-logo img {
+      #section-login .login100-form-logo img,
+      #section-edit_profile .login100-form-logo img {
         width: 14rem;
         height: auto; }
-    #section-login .login100-form-title {
+    #section-login .login100-form-title,
+    #section-edit_profile .login100-form-title {
       display: block;
       font-family: Poppins-Bold;
       font-size: 39px;
@@ -8249,18 +8405,21 @@ div .social {
       line-height: 1.2;
       text-align: center;
       padding-bottom: 2.9rem; }
-  #section-login .wrap-input100 {
+  #section-login .wrap-input100,
+  #section-edit_profile .wrap-input100 {
     width: 100%;
     position: relative;
     border-bottom: 2px solid #d9d9d9;
     margin-bottom: 2.3rem; }
-  #section-login .label-input100 {
+  #section-login .label-input100,
+  #section-edit_profile .label-input100 {
     font-size: 1.6rem;
     color: #333333;
     font-weight: 700;
     line-height: 1.5;
     padding-left: 7px; }
-  #section-login .input100 {
+  #section-login .input100,
+  #section-edit_profile .input100 {
     font-family: Poppins-Medium;
     font-size: 16px;
     color: #333333;
@@ -8270,7 +8429,8 @@ div .social {
     height: 55px;
     background: transparent;
     padding: 0 7px 0 43px; }
-  #section-login .focus-input100 {
+  #section-login .focus-input100,
+  #section-edit_profile .focus-input100 {
     position: absolute;
     display: block;
     width: 100%;
@@ -8278,7 +8438,8 @@ div .social {
     top: 0;
     left: 0;
     pointer-events: none; }
-    #section-login .focus-input100::after {
+    #section-login .focus-input100::after,
+    #section-edit_profile .focus-input100::after {
       content: attr(data-symbol);
       font-family: Material-Design-Iconic-Font;
       color: #adadad;
@@ -8296,7 +8457,8 @@ div .social {
       left: 0;
       padding-left: 13px;
       padding-top: 3px; }
-    #section-login .focus-input100::before {
+    #section-login .focus-input100::before,
+    #section-edit_profile .focus-input100::before {
       content: "";
       display: block;
       position: absolute;
@@ -8309,15 +8471,23 @@ div .social {
       -o-transition: all 0.4s;
       -moz-transition: all 0.4s;
       transition: all 0.4s; }
-  #section-login .input100:focus + .focus-input100::before {
+  #section-login .input100:focus + .focus-input100::before,
+  #section-edit_profile .input100:focus + .focus-input100::before {
     width: 100%; }
-  #section-login .has-val.input100 + .focus-input100::before {
+  #section-login .has-val.input100 + .focus-input100::before,
+  #section-edit_profile .has-val.input100 + .focus-input100::before {
     width: 100%; }
-  #section-login .input100:focus + .focus-input100::after {
+  #section-login .input100:focus + .focus-input100::after,
+  #section-edit_profile .input100:focus + .focus-input100::after {
     color: #a64bf4; }
-  #section-login .has-val.input100 + .focus-input100::after {
+  #section-login .has-val.input100 + .focus-input100::after,
+  #section-edit_profile .has-val.input100 + .focus-input100::after {
     color: #a64bf4; }
-  #section-login #section-login .container-login100-form-btn {
+  #section-login #section-login .container-login100-form-btn,
+  #section-edit_profile #section-login .container-login100-form-btn, #section-login
+  #section-edit_profile .container-login100-form-btn,
+  #section-edit_profile
+  #section-edit_profile .container-login100-form-btn {
     display: -webkit-box;
     display: -webkit-flex;
     display: -moz-box;
@@ -8325,7 +8495,8 @@ div .social {
     display: flex;
     flex-wrap: wrap;
     justify-content: center; }
-  #section-login .wrap-login100-form-btn {
+  #section-login .wrap-login100-form-btn,
+  #section-edit_profile .wrap-login100-form-btn {
     width: 100%;
     display: block;
     position: relative;
@@ -8338,7 +8509,8 @@ div .social {
     -webkit-box-shadow: 0 5px 30px 0px rgba(3, 216, 222, 0.2);
     -o-box-shadow: 0 5px 30px 0px rgba(3, 216, 222, 0.2);
     -ms-box-shadow: 0 5px 30px 0px rgba(3, 216, 222, 0.2); }
-  #section-login .login100-form-bgbtn {
+  #section-login .login100-form-bgbtn,
+  #section-edit_profile .login100-form-bgbtn {
     position: absolute;
     z-index: -1;
     width: 300%;
@@ -8354,7 +8526,8 @@ div .social {
     -o-transition: all 0.4s;
     -moz-transition: all 0.4s;
     transition: all 0.4s; }
-  #section-login .login100-form-btn {
+  #section-login .login100-form-btn,
+  #section-edit_profile .login100-form-btn {
     font-size: 2rem;
     font-weight: 700;
     color: #fff;
@@ -8370,13 +8543,17 @@ div .social {
     padding: 0 2rem;
     width: 100%;
     height: 50px; }
-  #section-login .wrap-login100-form-btn:hover .login100-form-bgbtn {
+  #section-login .wrap-login100-form-btn:hover .login100-form-bgbtn,
+  #section-edit_profile .wrap-login100-form-btn:hover .login100-form-bgbtn {
     left: 0; }
-  #section-login .forgot-password {
+  #section-login .forgot-password,
+  #section-edit_profile .forgot-password {
     padding: .8rem 0 3.1rem 0; }
-  #section-login .validate-input {
+  #section-login .validate-input,
+  #section-edit_profile .validate-input {
     position: relative; }
-  #section-login .alert-validate::before {
+  #section-login .alert-validate::before,
+  #section-edit_profile .alert-validate::before {
     content: attr(data-validate);
     position: absolute;
     max-width: 70%;
@@ -8403,7 +8580,8 @@ div .social {
     -o-transition: opacity 0.4s;
     -moz-transition: opacity 0.4s;
     transition: opacity 0.4s; }
-  #section-login .alert-validate::after {
+  #section-login .alert-validate::after,
+  #section-edit_profile .alert-validate::after {
     content: "\f06a";
     font-family: FontAwesome;
     display: block;
@@ -8417,14 +8595,17 @@ div .social {
     -o-transform: translateY(50%);
     transform: translateY(50%);
     right: 8px; }
-  #section-login .alert-validate:hover:before {
+  #section-login .alert-validate:hover:before,
+  #section-edit_profile .alert-validate:hover:before {
     visibility: visible;
     opacity: 1; }
   @media (max-width: 992px) {
-    #section-login .alert-validate::before {
+    #section-login .alert-validate::before,
+    #section-edit_profile .alert-validate::before {
       visibility: visible;
       opacity: 1; } }
-  #section-login .login100-social-item {
+  #section-login .login100-social-item,
+  #section-edit_profile .login100-social-item {
     font-size: 25px;
     color: #fff;
     display: -webkit-box;
@@ -8438,10 +8619,12 @@ div .social {
     height: 50px;
     border-radius: 50%;
     margin: 5px; }
-    #section-login .login100-social-item:hover {
+    #section-login .login100-social-item:hover,
+    #section-edit_profile .login100-social-item:hover {
       color: #fff;
       background-color: #333333; }
   @media (max-width: 576px) {
-    #section-login .wrap-login100 {
+    #section-login .wrap-login100,
+    #section-edit_profile .wrap-login100 {
       padding-left: 15px;
       padding-right: 15px; } }
