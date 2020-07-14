@@ -7877,8 +7877,7 @@ div .social {
     #section-home .events__position-map {
       height: 40rem;
       width: 100%;
-      margin: 0 0 1.5rem 0;
-      background: black; }
+      margin: 0 0 1.5rem 0; }
     #section-home .events__position-info {
       display: flex;
       justify-content: space-around;
@@ -8028,7 +8027,8 @@ div .social {
     #section-event .event__owner-info {
       display: flex;
       flex-direction: column;
-      justify-content: center; }
+      justify-content: center;
+      margin-left: 1.5rem; }
       #section-event .event__owner-info h4 {
         font-weight: 700; }
       #section-event .event__owner-info h6 {

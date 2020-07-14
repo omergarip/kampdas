@@ -6,7 +6,7 @@
 
 @section('content')
 
-    <div class="container">
+    <div class="container d-flex justify-content-center flex-column" style="height: 93.1vh"">
         <div class="card card-default">
             <div class="card-header">
                 {{ isset($media) ? 'Fotoğrafları Düzenle' :  'Fotoğrafları Yükle' }}

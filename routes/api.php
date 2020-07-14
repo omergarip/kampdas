@@ -13,8 +13,9 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+//Route::middleware('auth:api')->get('/user', function (Request $request) {
+//    return $request->user();
+//});
 
 Route::get('etkinlikler', 'EventsController@apiIndex')->name('events.apiIndex');
+Route::get('etkinlik/{slug}/bilgileri-al', 'EventsController@apiShow')->name('events.apiShow');

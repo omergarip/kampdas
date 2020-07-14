@@ -23,12 +23,14 @@ class Controller extends BaseController
      */
     public function __construct()
     {
-        $this->middleware(function ($request, $next) {
-            $this->notifications = Auth::user()->notifications;
-            $this->numOfNotifications = Auth::user()->unreadNotifications->count();
-            View::share('notifications', $this->notifications ?? '');
-            View::share('numOfNotifications', $this->numOfNotifications ?? '');
-            return $next($request);
-        });
+        if(\auth()->user()) {
+            $this->middleware(function ($request, $next) {
+                $this->notifications = Auth::user()->notifications ?? '';
+                $this->numOfNotifications = Auth::user()->unreadNotifications->count() ?? '0';
+                View::share('notifications', $this->notifications ?? '');
+                View::share('numOfNotifications', $this->numOfNotifications ?? '');
+                return $next($request);
+            });
+        }
     }
 }

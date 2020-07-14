@@ -110,7 +110,7 @@
                             @if($event->user->photo == '')
                                 <img class="event__owner-profile" src="https://www.pngkey.com/png/detail/230-2301779_best-classified-apps-default-user-profile.png">
                             @else
-                                <img class="event__owner-profile" src="{{ asset('storage/'.$event->user->photo) }}">
+                                <img class="event__owner-profile" src="{{ asset('/'.$event->user->photo) }}">
                             @endif
                             <div class="event__owner-info">
                                 <h4>{{ $event->user->name }}</h4>
@@ -169,19 +169,19 @@
                                         @if($user->photo == '')
                                             <img src="https://www.pngkey.com/png/detail/230-2301779_best-classified-apps-default-user-profile.png">
                                         @else
-                                            <img src="{{ asset('storage/'.$user->photo) }}">
+                                            <img src="{{ asset('/'.$user->photo) }}">
                                         @endif
                                     @endforeach
                                     @if($event->user->photo == '')
                                         <img src="https://www.pngkey.com/png/detail/230-2301779_best-classified-apps-default-user-profile.png">
                                     @else
-                                        <img src="{{ asset('storage/'.$event->user->photo) }}">
+                                        <img src="{{ asset('/'.$event->user->photo) }}">
                                     @endif
                                 @else
                                     @if($event->user->photo == '')
                                         <img src="https://www.pngkey.com/png/detail/230-2301779_best-classified-apps-default-user-profile.png">
                                     @else
-                                        <img src="{{ asset('storage/'.$event->user->photo) }}">
+                                        <img src="{{ asset('/'.$event->user->photo) }}">
                                     @endif
                                 @endauth
                             </div>
@@ -202,15 +202,31 @@
 
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/tr_TR/sdk.js#xfbml=1&version=v7.0" nonce="wwo9Zgxt"></script>
     <script>
-        // Initialize and add the map
+        console.log(window.location.hostname + '/api' + window.location.pathname)
+        let url = '/api' + window.location.pathname + '/bilgileri-al';
+        getEventInfo = () => {
+            return window
+                .fetch(url, {
+                    method: 'GET'
+                })
+                .then(response => {
+                    return response.json();
+                })
+                .catch(err => console.log(err));
+        };
         function initMap() {
-            // The location of Uluru
-            var uluru = {lat: 37.5525, lng: 29.6814};
-            // The map, centered at Uluru
-            var map = new google.maps.Map(
-                document.getElementById('map'), {zoom: 12, center: uluru});
-            // The marker, positioned at Uluru
-            var marker = new google.maps.Marker({position: uluru, map: map});
+            getEventInfo().then(data => {
+                if (data.error) {
+                    console.log(data.error);
+                } else {
+                    console.log(typeof (data.lng))
+                    var uluru = {lat: parseFloat(data.lat), lng: parseFloat(data.lng)};
+                    var map = new google.maps.Map(
+                    document.getElementById('map'), {zoom: 12, center: uluru});
+                    var marker = new google.maps.Marker({position: uluru, map: map});
+                }
+            });
+
         }
     </script>
     <script async defer

@@ -59,6 +59,11 @@ class EventsController extends Controller
             ->with('first_media', $first_media);
     }
 
+    public function apiShow($slug) {
+        $event = Event::whereSlug($slug)->first();
+        return response()->json($event);
+    }
+
     public function edit($slug)
     {
         $event = Event::whereSlug($slug)->first();
