@@ -10,6 +10,7 @@ use App\Notifications\EventsNotification;
 use App\Notifications\LimitNotificiation;
 use App\User;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class EventsController extends Controller
 {
@@ -97,12 +98,13 @@ class EventsController extends Controller
     {
         $event = Event::whereSlug($slug)->first();
         $event->users()->attach(auth()->id());
-        $user = $event->user;
+        $notify = $event->user;
+        $user = Auth::user();
         $number = $event->users->count();
         if($number == $event->limit - 1) {
-            $user->notify(new LimitNotificiation($user, $event));
+            $notify->notify(new LimitNotificiation($user, $event));
         } else {
-            $user->notify(new EventsNotification($user, $event, $number));
+            $notify->notify(new EventsNotification($user, $event));
         }
 
         session()->flash('success', 'Etkinliğe başarı ile katıldınız');

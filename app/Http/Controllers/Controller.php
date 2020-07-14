@@ -23,7 +23,7 @@ class Controller extends BaseController
      */
     public function __construct()
     {
-        if(\auth()->user()) {
+        if(\auth()) {
             $this->middleware(function ($request, $next) {
                 $this->notifications = Auth::user()->notifications ?? '';
                 $this->numOfNotifications = Auth::user()->unreadNotifications->count() ?? '0';

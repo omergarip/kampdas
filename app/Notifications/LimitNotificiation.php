@@ -29,7 +29,6 @@ class LimitNotificiation extends Notification
 
     public function toMail($notifiable)
     {
-        $attendee = User::whereEmail($notifiable->getEmailForVerification())->first();
         return (new MailMessage)
             ->subject("Kampdaş'tan 1 yeni bildiriminiz var!")
             ->line( 'Oluşturmuş olduğunuz ' . $this->event->title . ' etkinliğinin kontenjanı dolmuştur. Dilerseniz kamp etkinliğinizi düzenleyerek kontenjanı artırabilir ve daha fazla kişinin kamp etkinliğinize katılmasını sağlayabilirsiniz')

@@ -24,7 +24,7 @@ class EventsNotification extends Notification
 
     public function via($notifiable)
     {
-        return ['database'];
+        return ['database', 'mail'];
     }
 
     public function toMail($notifiable)
@@ -32,9 +32,9 @@ class EventsNotification extends Notification
         $attendee = User::whereEmail($notifiable->getEmailForVerification())->first();
         return (new MailMessage)
                     ->subject("Kampdaş'tan 1 yeni bildiriminiz var!")
-                    ->line( $attendee->username . ' adlı kullanıcı oluşturmuş olduğunuz ' . $this->event->title .  ' etkinliğine katıldı.')
+                    ->line( $this->user->username . ' adlı kullanıcı oluşturmuş olduğunuz ' . $this->event->title .  ' etkinliğine katıldı.')
                     ->action('Katılanları Görüntüle', url('/etkinlik/' . $this->event->slug))
-                    ->markdown('vendor.notifications.notification', ['user' => $this->user] );
+                    ->markdown('vendor.notifications.notification', ['user' => $attendee] );
     }
 
     /**
@@ -45,10 +45,10 @@ class EventsNotification extends Notification
      */
     public function toArray($notifiable)
     {
-        $attendee = User::whereEmail($notifiable->getEmailForVerification())->first();
+
         return [
-            'photo' => $attendee->photo,
-            'message' => $attendee->username . ' adlı kullanıcı oluşturmuş olduğunuz ' . $this->event->title .  ' etkinliğine katıldı.',
+            'photo' => $this->user->photo,
+            'message' => $this->user->username . ' adlı kullanıcı oluşturmuş olduğunuz ' . $this->event->title .  ' etkinliğine katıldı.',
             'slug' => $this->event->slug
         ];
     }
