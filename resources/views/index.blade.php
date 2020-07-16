@@ -9,42 +9,79 @@
 
     <section id="section-home">
         <div style="height: 200px;z-index: -1"></div>
+            <div class="events__create">
+                @auth
+                    @if(!auth()->user()->photo)
+                        <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#exampleModalCenter">
+                            <img class="events__logo" src="{{ asset('img/camp-logo.png') }}" alt="Kampdaş"> Kamp Etkinliği Oluştur
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLongTitle">Profilini Tamamla</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Tamamlanmış bir profil kişilerin size duyacağı güveni arttırır.
+                                        Oluşturacağınız kamp etkinliğine katılım oranını artırabilmek için profilinizi tamamlamalısınız.
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+                                        <a href="{{ route('profile.edit', auth()->user()->username)}}" class="btn btn-primary">Profilini Tamamla</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @else
+                        <a href="{{ route('events.create') }}" class="btn btn-outline-success" id="btn-event"><img class="events__logo" src="{{ asset('img/camp-logo.png') }}" alt="Kampdaş"> Kamp Etkinliği Oluştur</a>
+                    @endif
+                @else
+                    <a href="{{ route('events.create') }}" class="btn btn-outline-success" id="btn-event"><img class="events__logo" src="{{ asset('img/camp-logo.png') }}" alt="Kampdaş"> Kamp Etkinliği Oluştur</a>
+                @endauth
+            </div>
 
         <div class="container">
-            <div class="">
-                {{--                @if(auth()->user()->hasVerifiedEmail())--}}
-                {{--                    <div class="jumbotron jumbotron-fluid">--}}
-                {{--                        <div class="container">--}}
-                {{--                            <h1 class="display-4 text-center">Fluid jumbotron</h1>--}}
-                {{--                            <p class="lead text-center">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>--}}
-                {{--                        </div>--}}
-                {{--                    </div>--}}
-                {{--                @endif--}}
-            </div>
             <div class="row">
                 <div class="col-md-12">
+                    <div class="">
+                        @auth
+                            @if(!auth()->user()->hasVerifiedEmail())
+                                <div class="jumbotron jumbotron-fluid">
+                                    <div class="container">
+                                        <h1 class="display-4 text-center">Henüz E-mail Adresinizi Doğrulamadınız!</h1>
+                                        <p class="lead text-center" style="font-size:1.6rem">Lütfen kayıt olurken girmiş olduğunuz e-mail adresinizi kontrol ederek doğrulama işlemini gerçekleştirin.</p>
+                                    </div>
+                                </div>
+                            @endif
+                        @endauth
+                    </div>
                     <div class="events__position">
                         <div class="events__position-info">
                             <div class="events__position-info-2">
                                 <div>
-                                    <img src="{{asset('img/kampdas-logo.png')}}" />
-                                    <p id="events__week">{{ $events->count() }}</p>
+                                    <img src="{{asset('img/camp-logo.png')}}" />
+                                    <p id="events__week"></p>
                                 </div>
                                 <p>Bu Hafta Gerçekleşecek</p>
                                 <p>Kamp Etkinlikleri </p>
                             </div>
                             <div class="events__position-info-2">
                                 <div>
-                                    <img src="{{asset('img/kampdas-logo.png')}}" />
-                                    <p id="events__month">{{ $events->count() + $attendee }}</p>
+                                    <img src="{{asset('img/camp-logo_gr.png')}}" />
+                                    <p id="events__month"></p>
                                 </div>
                                 <p>Bu Ay Gerçekleşecek</p>
                                 <p>Kamp Etkinlikleri </p>
                             </div>
                             <div class="events__position-info-2">
                                 <div>
-                                    <img src="{{asset('img/kampdas-logo.png')}}" />
-                                    <p id="events__future">{{ $events->count() + $attendee }}</p>
+                                    <img src="{{asset('img/camp-logo_tu.png')}}" />
+                                    <p id="events__future"></p>
                                 </div>
                                 <p>Gelecekte Gerçekleşecek</p>
                                 <p>Kamp Etkinlikleri </p>
@@ -71,7 +108,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-8">
+                <div class="col-md-9 mx-auto">
                     <div class="col-md-12">
                         <div class="events__banner">
                             <p class="events__banner-pinned">
@@ -85,27 +122,12 @@
                                         <div class="events__hero-top_logo">
                                             <img src={{ asset('img/kampdas-logo1.png') }} />
                                         </div>
-
-                                        <div id="{{$event->slug}}" class="carousel slide" data-ride="carousel">
-                                            <div class="carousel-inner">
-                                                <div class="carousel-item active">
-                                                    <img class="d-block w-100" src="{{ asset('img/hotel-1.jpg') }}" alt="First slide">
-                                                </div>
-                                                <div class="carousel-item">
-                                                    <img class="d-block w-100" src="{{ asset('img/hotel-2.jpg') }}" alt="Second slide">
-                                                </div>
-                                                <div class="carousel-item">
-                                                    <img class="d-block w-100" src="{{ asset('img/hotel-3.jpg') }}" alt="Third slide">
-                                                </div>
-                                            </div>
-                                            <a class="carousel-control-prev" href="#{{$event->slug}}" role="button" data-slide="prev">
-                                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                                <span class="sr-only">Previous</span>
-                                            </a>
-                                            <a class="carousel-control-next" href="#{{$event->slug}}" role="button" data-slide="next">
-                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                                <span class="sr-only">Next</span>
-                                            </a>
+                                        <div class="events__hero-photo">
+                                            @foreach($data as $d)
+                                                @if( $d['event_id'] == $event->id)
+                                                    <img src={{ '/' . $d['eventPhoto']->photo}} />
+                                                @endif
+                                            @endforeach
                                         </div>
                                         <div class="events__hero-bottom">
                                             <div class="events__hero-bottom_logo"></div>
@@ -144,9 +166,11 @@
                                             <span>Etkinliği Oluşturan:</span>
 
                                             @if($event->user->photo == '')
-                                                <img class="events__owner-profile" src="https://www.pngkey.com/png/detail/230-2301779_best-classified-apps-default-user-profile.png">
+                                                <a href="{{ route('profile', $event->user->username) }}">
+                                                    <img class="events__owner-profile" src="https://www.pngkey.com/png/detail/230-2301779_best-classified-apps-default-user-profile.png"></a>
                                             @else
-                                                <img class="events__owner-profile" src="{{ asset('/'.$event->user->photo) }}">
+                                                <a href="{{ route('profile', $event->user->username) }}">
+                                                    <img class="events__owner-profile" src="{{ asset('/'.$event->user->photo) }}"></a>
                                             @endif
                                             <div class="events__owner-details">
                                                 <span class="events__owner-name">{{ $event->user->name }}</span>
@@ -161,21 +185,33 @@
                                             @if($event->users->count() > 0)
                                                 @foreach($event->users as $user)
                                                     @if($user->photo == '')
-                                                        <img src="https://www.pngkey.com/png/detail/230-2301779_best-classified-apps-default-user-profile.png">
+                                                        <a href="{{ route('profile', $user->username) }}">
+                                                            <img class="events__owner-profile" src="https://www.pngkey.com/png/detail/230-2301779_best-classified-apps-default-user-profile.png">
+                                                        </a>
                                                     @else
-                                                        <img src="{{ asset('/'.$user->photo) }}">
+                                                        <a href="{{ route('profile', $user->username) }}">
+                                                            <img class="events__owner-profile" src="{{ asset('/'.$user->photo) }}">
+                                                        </a>
                                                     @endif
                                                 @endforeach
                                                 @if($event->user->photo == '')
-                                                    <img src="https://www.pngkey.com/png/detail/230-2301779_best-classified-apps-default-user-profile.png">
+                                                    <a href="{{ route('profile', $event->user->username) }}">
+                                                        <img class="events__owner-profile" src="https://www.pngkey.com/png/detail/230-2301779_best-classified-apps-default-user-profile.png">
+                                                    </a>
                                                 @else
-                                                    <img src="{{ asset('/'.$event->user->photo) }}">
+                                                    <a href="{{ route('profile', $event->user->username) }}">
+                                                        <img class="events__owner-profile" src="{{ asset('/'.$event->user->photo) }}">
+                                                    </a>
                                                 @endif
                                             @else
                                                 @if($event->user->photo == '')
-                                                    <img src="https://www.pngkey.com/png/detail/230-2301779_best-classified-apps-default-user-profile.png">
+                                                    <a href="{{ route('profile', $event->user->username) }}">
+                                                        <img class="events__owner-profile" src="https://www.pngkey.com/png/detail/230-2301779_best-classified-apps-default-user-profile.png">
+                                                    </a>
                                                 @else
-                                                    <img src="{{ asset('/'.$event->user->photo) }}">
+                                                    <a href="{{ route('profile', $event->user->username) }}">
+                                                        <img class="events__owner-profile" src="{{ asset('/'.$event->user->photo) }}">
+                                                    </a>
                                                 @endif
                                             @endauth
                                         </div>
@@ -267,11 +303,6 @@
                         @endforeach
                     </div>
                     <hr>
-                    <div class="col-sm-12" style="text-align:right">
-                        <a href="#">
-                            <p>Devamı İçin Tıklayınız.</p>
-                        </a>
-                    </div>
                     <div class="col-md-12">
                         <div class="events__banner">
                             <p class="events__banner-oncoming">
@@ -284,27 +315,12 @@
                                         <div class="events__hero-top_logo">
                                             <img src={{ asset('img/kampdas-logo1.png') }} />
                                         </div>
-
-                                        <div id="{{$event->slug}}" class="carousel slide" data-ride="carousel">
-                                            <div class="carousel-inner">
-                                                <div class="carousel-item active">
-                                                    <img class="d-block w-100" src="{{ asset('img/hotel-1.jpg') }}" alt="First slide">
-                                                </div>
-                                                <div class="carousel-item">
-                                                    <img class="d-block w-100" src="{{ asset('img/hotel-2.jpg') }}" alt="Second slide">
-                                                </div>
-                                                <div class="carousel-item">
-                                                    <img class="d-block w-100" src="{{ asset('img/hotel-3.jpg') }}" alt="Third slide">
-                                                </div>
-                                            </div>
-                                            <a class="carousel-control-prev" href="#{{$event->slug}}" role="button" data-slide="prev">
-                                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                                <span class="sr-only">Previous</span>
-                                            </a>
-                                            <a class="carousel-control-next" href="#{{$event->slug}}" role="button" data-slide="next">
-                                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                                <span class="sr-only">Next</span>
-                                            </a>
+                                        <div class="events__hero-photo">
+                                            @foreach($data as $d)
+                                                @if( $d['event_id'] == $event->id)
+                                                    <img src={{ '/' . $d['eventPhoto']->photo}} />
+                                                @endif
+                                            @endforeach
                                         </div>
                                         <div class="events__hero-bottom">
                                             <div class="events__hero-bottom_logo"></div>
@@ -343,9 +359,11 @@
                                             <span>Etkinliği Oluşturan:</span>
 
                                             @if($event->user->photo == '')
-                                                <img class="events__owner-profile" src="https://www.pngkey.com/png/detail/230-2301779_best-classified-apps-default-user-profile.png">
+                                                <a href="{{ route('profile', $event->user->username) }}">
+                                                    <img class="events__owner-profile" src="https://www.pngkey.com/png/detail/230-2301779_best-classified-apps-default-user-profile.png"></a>
                                             @else
-                                                <img class="events__owner-profile" src="{{ asset('/'.$event->user->photo) }}">
+                                                <a href="{{ route('profile', $event->user->username) }}">
+                                                    <img class="events__owner-profile" src="{{ asset('/'.$event->user->photo) }}"></a>
                                             @endif
                                             <div class="events__owner-details">
                                                 <span class="events__owner-name">{{ $event->user->name }}</span>
@@ -360,21 +378,33 @@
                                             @if($event->users->count() > 0)
                                                 @foreach($event->users as $user)
                                                     @if($user->photo == '')
-                                                        <img class="events__owner-profile" src="https://www.pngkey.com/png/detail/230-2301779_best-classified-apps-default-user-profile.png">
+                                                        <a href="{{ route('profile', $user->username) }}">
+                                                            <img class="events__owner-profile" src="https://www.pngkey.com/png/detail/230-2301779_best-classified-apps-default-user-profile.png">
+                                                        </a>
                                                     @else
-                                                        <img class="events__owner-profile" src="{{ asset('/'.$user->photo) }}">
+                                                        <a href="{{ route('profile', $user->username) }}">
+                                                            <img class="events__owner-profile" src="{{ asset('/'.$user->photo) }}">
+                                                        </a>
                                                     @endif
                                                 @endforeach
                                                 @if($event->user->photo == '')
-                                                    <img class="events__owner-profile" src="https://www.pngkey.com/png/detail/230-2301779_best-classified-apps-default-user-profile.png">
+                                                    <a href="{{ route('profile', $event->user->username) }}">
+                                                        <img class="events__owner-profile" src="https://www.pngkey.com/png/detail/230-2301779_best-classified-apps-default-user-profile.png">
+                                                    </a>
                                                 @else
-                                                    <img class="events__owner-profile" src="{{ asset('/'.$event->user->photo) }}">
+                                                    <a href="{{ route('profile', $event->user->username) }}">
+                                                        <img class="events__owner-profile" src="{{ asset('/'.$event->user->photo) }}">
+                                                    </a>
                                                 @endif
                                             @else
                                                 @if($event->user->photo == '')
-                                                    <img class="events__owner-profile" src="https://www.pngkey.com/png/detail/230-2301779_best-classified-apps-default-user-profile.png">
+                                                    <a href="{{ route('profile', $event->user->username) }}">
+                                                        <img class="events__owner-profile" src="https://www.pngkey.com/png/detail/230-2301779_best-classified-apps-default-user-profile.png">
+                                                    </a>
                                                 @else
-                                                    <img class="events__owner-profile" src="{{ asset('/'.$event->user->photo) }}">
+                                                    <a href="{{ route('profile', $event->user->username) }}">
+                                                        <img class="events__owner-profile" src="{{ asset('/'.$event->user->photo) }}">
+                                                    </a>
                                                 @endif
                                             @endauth
                                         </div>
@@ -387,7 +417,7 @@
                                                             Kontenjan Doldu
                                                         </button>
                                                     @elseif($event->users->isEmpty())
-                                                        <form action="{{ route('events.attend', $event->slug)}}" method="POST">
+                                                        <form action="/etkinlik/{{$event->slug}}/katil" method="POST">
                                                             @csrf
                                                             <button
                                                                 class="bttn bttn__events-attend">
@@ -407,7 +437,7 @@
                                                             </button>
                                                         </form>
                                                     @else
-                                                        <form action="{{ route('events.attend  ', $event->slug)}}" method="POST">
+                                                        <form action="/etkinlik/{{$event->slug}}/katil" method="POST">
                                                             @csrf
                                                             <button
                                                                 class="bttn bttn__events-attend">
@@ -467,45 +497,6 @@
                         @endforeach
                     </div>
                     <hr>
-                    <div class="col-sm-12" style="text-align:right"><a href="#">
-                            <p>Devamı İçin Tıklayınız.</p>
-                        </a></div>
-                </div>
-
-                <div class="col-md-4">
-                    @auth
-                        @if(!auth()->user()->photo)
-                            <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#exampleModalCenter">
-                                <img class="events__logo" src="{{ asset('img/camp-logo.png') }}" alt="Kampdaş"> Kamp Etkinliği Oluştur
-                            </button>
-
-                            <!-- Modal -->
-                            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLongTitle">Profilini Tamamla</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            Tamamlanmış bir profil kişilerin size duyacağı güveni arttırır.
-                                            Oluşturacağınız kamp etkinliğine katılım oranını artırabilmek için profilinizi tamamlamalısınız.
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
-                                            <button type="button" class="btn btn-primary">Profilini Tamamla</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        @else
-                            <a href="{{ route('events.create') }}" class="btn btn-outline-success" id="btn-event"><img class="events__logo" src="{{ asset('img/camp-logo.png') }}" alt="Kampdaş"> Kamp Etkinliği Oluştur</a>
-                        @endif
-                    @else
-                        <a href="{{ route('events.create') }}" class="btn btn-outline-success" id="btn-event"><img class="events__logo" src="{{ asset('img/camp-logo.png') }}" alt="Kampdaş"> Kamp Etkinliği Oluştur</a>
-                    @endauth
                 </div>
             </div>
         </div>
@@ -520,7 +511,13 @@
         // This example displays a marker at the center of Australia.
         // When the user clicks the marker, an info window opens.
         let url = 'https://kampdas.org/api/etkinlikler';
-        getAdvisers = () => {
+        let thisMonth = "https://kampdas.org/api/etkinlikler/bu-ay"
+        let thisWeek = "https://kampdas.org/api/etkinlikler/bu-hafta"
+        let future = "https://kampdas.org/api/etkinlikler/gelecekte"
+        $.getJSON(thisWeek , data => $('#events__week').text(data.length));
+        $.getJSON(thisMonth , data => $('#events__month').text(data.length));
+        $.getJSON(future , data => $('#events__future').text(data.length));
+        getEvents = () => {
             return window
                 .fetch(url, {
                     method: 'GET'
@@ -530,13 +527,31 @@
                 })
                 .catch(err => console.log(err));
         };
-
-
+        getEventsInWeek = () => {
+            return window
+                .fetch(thisWeek, {
+                    method: 'GET'
+                })
+                .then(response => {
+                    return response.json();
+                })
+                .catch(err => console.log(err));
+        };
+        getEventsInMonth = () => {
+            return window
+                .fetch(thisMonth, {
+                    method: 'GET'
+                })
+                .then(response => {
+                    return response.json();
+                })
+                .catch(err => console.log(err));
+        };
 
         function initMap() {
             var activeInfoWindow;
-            var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-            getAdvisers().then(data => {
+
+            getEvents().then(data => {
                 if (data.error) {
                     console.log(data.error);
                 } else {
@@ -597,21 +612,8 @@
                                                 </a>
                                             </div>
 
-                                            <div class="events__owner">
-                                                <span>Etkinliği Oluşturan:</span>
-                                                    <img class="events__owner-profile" src="https://www.pngkey.com/png/detail/230-2301779_best-classified-apps-default-user-profile.png">
-                                                <div class="events__owner-details">
-                                                    <span class="events__owner-name">Omer Garip</span>
-                                                    <span class="events__owner-username">ogarip</span>
-                                                </div>
-                                            </div>
-                                            <div class="events__attendee">
-                                                <span>Etkinliğe Katılanlar: </span>
-                                                <span class="ml-2">1/10</span>
-                                            </div>
-                                            <div class="events__attendee-profile">
-                                               <img src="https://www.pngkey.com/png/detail/230-2301779_best-classified-apps-default-user-profile.png">
-                                            </div>
+
+
                                             <div class="events__details">
                                                 <button
                                                     onclick="window.location='/etkinlik/${info.slug}"
@@ -633,23 +635,23 @@
                                         </div>
                                         <div class="events__social-buttons">
                                             <a class="fb" rel="nofollow" target="_blank"
-                                               href="https://www.facebook.com/share.php?u=https://www.kampdas.org/etkinlik/{{$event->slug}}"
-                                               data-link="https://www.facebook.com/share.php?u=https://www.kampdas.org/etkinlik/{{$event->slug}}">
+                                               href="https://www.facebook.com/share.php?u=https://www.kampdas.org/etkinlik/${info.slug}"
+                                               data-link="https://www.facebook.com/share.php?u=https://www.kampdas.org/etkinlik/${info.slug}">
                                                 <i class="fab fa-facebook-f"></i><span></span>
                                             </a>
                                             <a id="share" class="tw" href="https://twitter.com/share?original_referer=/&text=&url=
-                                        https://www.kampdas.org/etkinlik/{{$event->slug}}" data-link="https://twitter.com/share?original_referer=/&text=&url=
-                                        https://www.kampdas.org/etkinlik/{{$event->slug}}" target="_blank">
+                                        https://www.kampdas.org/etkinlik/${info.slug}" data-link="https://twitter.com/share?original_referer=/&text=&url=
+                                        https://www.kampdas.org/etkinlik/${info.slug}" target="_blank">
                                                 <i class="fab fa-twitter"></i><span></span>
                                             </a>
                                             <a id="share" class="ln"
-                                               href="https://www.linkedin.com/cws/share?url=https://www.kampdas.org/etkinlik/{{$event->slug}}"
-                                               data-link="https://www.linkedin.com/cws/share?url=https://www.kampdas.org/etkinlik/{{$event->slug}}"
+                                               href="https://www.linkedin.com/cws/share?url=https://www.kampdas.org/etkinlik/${info.slug}"
+                                               data-link="https://www.linkedin.com/cws/share?url=https://www.kampdas.org/etkinlik/${info.slug}"
                                                target="_blank">
                                                 <i class="fab fa-linkedin"></i><span></span>
                                             </a>
                                             <a name="whatsapp" id="share" class="wp"
-                                               href="https://api.whatsapp.com/send?text=https://www.kampdas.org/etkinlik/{{$event->slug}}" target="_blank">
+                                               href="https://api.whatsapp.com/send?text=https://www.kampdas.org/etkinlik/${info.slug}" target="_blank">
                                                 <i class="fab fa-whatsapp"></i><span></span>
                                             </a>
                                         </div>
@@ -668,13 +670,10 @@
                             map: map,
                             title: info.title,
                             icon: {
-                                url: 'https://image.flaticon.com/icons/svg/2673/2673330.svg',
+                                url: 'https://kampdas.org/img/camp-logo.png',
                                 scaledSize: new google.maps.Size(25, 25),
-                            },
-                            label: labels[i % labels.length]
+                            }
                         });
-
-
                         marker.addListener('click', function() {
 
                             if (activeInfoWindow) { activeInfoWindow.close();}

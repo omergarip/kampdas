@@ -18,4 +18,10 @@ use Illuminate\Http\Request;
 //});
 
 Route::get('etkinlikler', 'EventsController@apiIndex')->name('events.apiIndex');
+Route::get('etkinlikler/bu-hafta', 'EventsController@eventsInWeek')->name('events.eventsInWeek');
+Route::get('etkinlikler/bu-ay', 'EventsController@eventsInMonth')->name('events.eventsInMonth');
+Route::get('etkinlikler/gelecekte', 'EventsController@eventsInFuture')->name('events.eventsInFuture');
 Route::get('etkinlik/{slug}/bilgileri-al', 'EventsController@apiShow')->name('events.apiShow');
+
+
+Route::get('profil/{username}/katildigim-etkinlikler', 'UserProfileController@userEvents')->name('profile.userEvents');

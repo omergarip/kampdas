@@ -28,7 +28,14 @@ class UserProfileController extends Controller
 
     public function show($username)
     {
-        return view('profile.show')->with('user', User::get()->where('username', $username)->first());
+        $user = User::get()->where('username', $username)->first();
+        $createdEvents = Event::all()->where('created_by', $user->id);
+        $attendedEvents = $user->attend;
+        $numberOfEvent = $createdEvents->count() + $attendedEvents->count();
+
+        return view('profile.show')
+            ->with('numberOfEvent', $numberOfEvent)
+            ->with('user', $user);
     }
 
     public function showEvents($username)
@@ -39,6 +46,16 @@ class UserProfileController extends Controller
         return view('profile.showEvents')
             ->with('createdEvents', $createdEvents)
             ->with('attendedEvents', $attendedEvents);
+    }
+
+    public function userEvents($username)
+    {
+        $user = User::get()->where('username', $username)->first();
+        $createdEvents = Event::all()->where('created_by', $user->id);
+        $attendedEvents = $user->attend;
+        $data[] = json_decode($createdEvents);
+        $data[] = json_decode($attendedEvents);
+        return response()->json($attendedEvents);
     }
 
     public function edit($username)
@@ -62,7 +79,7 @@ class UserProfileController extends Controller
             $data['photo'] = $photo;
         }
         $user->update($data);
-        session()->flash('success', 'Profiliniz güncellendi.');
+        session()->flash('success', 'Profiliniz g端ncellendi.');
         return redirect(route('profile', $username));
     }
 

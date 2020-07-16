@@ -11,10 +11,19 @@
         <div class="limiter">
             <div class="container-login100" style="background-image: url('https://kampdas.org/img/camp_photo-min.jpg');">
                 <div class="wrap-login100">
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                     <form method="POST" action="{{ route('register') }}" class="login100-form validate-form">
                         @csrf
                         <div class="login100-form-logo">
-                            <img class="wrap-login100-logo" src={{ asset('img/PNG.png') }} />
+                            <img class="wrap-login100-logo" src={{ asset('img/kampdas-logo.png') }} />
                         </div>
                         <span class="login100-form-title">
                             Kayıt Ol
@@ -66,20 +75,20 @@
                             </div>
                         </div>
 
-                        <div class="txt1 text-center">
-						<span>
-							veya
-						</span>
-                        </div>
+                        <!--                  <div class="txt1 text-center">-->
+                        <!--<span>-->
+                        <!--	veya-->
+                        <!--</span>-->
+                        <!--                  </div>-->
 
-                        <div class="flex-c-m">
-                            <a href="#" class="login100-social-item bg1">
-                                <i class="fa fa-facebook"></i>
-                            </a>
-                            <a href="#" class="login100-social-item bg3">
-                                <i class="fa fa-google"></i>
-                            </a>
-                        </div>
+                        <!--                  <div class="flex-c-m">-->
+                        <!--                      <a href="#" class="login100-social-item bg1">-->
+                        <!--                          <i class="fa fa-facebook"></i>-->
+                        <!--                      </a>-->
+                        <!--                      <a href="#" class="login100-social-item bg3">-->
+                        <!--                          <i class="fa fa-google"></i>-->
+                        <!--                      </a>-->
+                        <!--                  </div>-->
 
                         <div class="flex-col-c">
 						<span class="txt1">
@@ -94,117 +103,117 @@
             </div>
         </div>
     </section>
-{{--<div class="container">--}}
-{{--    <div class="row justify-content-center">--}}
-{{--        <div class="col-md-8">--}}
-{{--            <div class="card">--}}
-{{--                <div class="card-header">{{ __('Kayıt Ol') }}</div>--}}
+    {{--<div class="container">--}}
+    {{--    <div class="row justify-content-center">--}}
+    {{--        <div class="col-md-8">--}}
+    {{--            <div class="card">--}}
+    {{--                <div class="card-header">{{ __('Kayıt Ol') }}</div>--}}
 
-{{--                <div class="card-body">--}}
-{{--                    <form method="POST" action="{{ route('register') }}">--}}
-{{--                        @csrf--}}
+    {{--                <div class="card-body">--}}
+    {{--                    <form method="POST" action="{{ route('register') }}">--}}
+    {{--                        @csrf--}}
 
-{{--                        <div class="form-group row">--}}
-{{--                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('İsim Soyisim') }}</label>--}}
+    {{--                        <div class="form-group row">--}}
+    {{--                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('İsim Soyisim') }}</label>--}}
 
-{{--                            <div class="col-md-6">--}}
-{{--                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" autocomplete="name" autofocus>--}}
+    {{--                            <div class="col-md-6">--}}
+    {{--                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" autocomplete="name" autofocus>--}}
 
-{{--                                @error('name')--}}
-{{--                                    <span class="invalid-feedback" role="alert">--}}
-{{--                                        <strong>{{ $message }}</strong>--}}
-{{--                                    </span>--}}
-{{--                                @enderror--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
+    {{--                                @error('name')--}}
+    {{--                                    <span class="invalid-feedback" role="alert">--}}
+    {{--                                        <strong>{{ $message }}</strong>--}}
+    {{--                                    </span>--}}
+    {{--                                @enderror--}}
+    {{--                            </div>--}}
+    {{--                        </div>--}}
 
-{{--                        <div class="form-group row">--}}
-{{--                            <label for="username" class="col-md-4 col-form-label text-md-right">{{ __('Kullanıcı Adı') }}</label>--}}
+    {{--                        <div class="form-group row">--}}
+    {{--                            <label for="username" class="col-md-4 col-form-label text-md-right">{{ __('Kullanıcı Adı') }}</label>--}}
 
-{{--                            <div class="col-md-6">--}}
-{{--                                <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}">--}}
+    {{--                            <div class="col-md-6">--}}
+    {{--                                <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}">--}}
 
-{{--                                @error('username')--}}
-{{--                                <span class="invalid-feedback" role="alert">--}}
-{{--                                        <strong>{{ $message }}</strong>--}}
-{{--                                    </span>--}}
-{{--                                @enderror--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
+    {{--                                @error('username')--}}
+    {{--                                <span class="invalid-feedback" role="alert">--}}
+    {{--                                        <strong>{{ $message }}</strong>--}}
+    {{--                                    </span>--}}
+    {{--                                @enderror--}}
+    {{--                            </div>--}}
+    {{--                        </div>--}}
 
-{{--                        <div class="form-group row">--}}
-{{--                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Adresi') }}</label>--}}
+    {{--                        <div class="form-group row">--}}
+    {{--                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Adresi') }}</label>--}}
 
-{{--                            <div class="col-md-6">--}}
-{{--                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}"  autocomplete="email">--}}
+    {{--                            <div class="col-md-6">--}}
+    {{--                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}"  autocomplete="email">--}}
 
-{{--                                @error('email')--}}
-{{--                                    <span class="invalid-feedback" role="alert">--}}
-{{--                                        <strong>{{ $message }}</strong>--}}
-{{--                                    </span>--}}
-{{--                                @enderror--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
+    {{--                                @error('email')--}}
+    {{--                                    <span class="invalid-feedback" role="alert">--}}
+    {{--                                        <strong>{{ $message }}</strong>--}}
+    {{--                                    </span>--}}
+    {{--                                @enderror--}}
+    {{--                            </div>--}}
+    {{--                        </div>--}}
 
-{{--                        <div class="form-group row">--}}
-{{--                            <label for="city" class="col-md-4 col-form-label text-md-right">{{ __('Şehir') }}</label>--}}
+    {{--                        <div class="form-group row">--}}
+    {{--                            <label for="city" class="col-md-4 col-form-label text-md-right">{{ __('Şehir') }}</label>--}}
 
-{{--                            <div class="col-md-6">--}}
-{{--                                <input id="city" type="text" class="form-control @error('city') is-invalid @enderror" name="city" >--}}
+    {{--                            <div class="col-md-6">--}}
+    {{--                                <input id="city" type="text" class="form-control @error('city') is-invalid @enderror" name="city" >--}}
 
-{{--                                @error('city')--}}
-{{--                                <span class="invalid-feedback" role="alert">--}}
-{{--                                    <strong>{{ $message }}</strong>--}}
-{{--                                </span>--}}
-{{--                                @enderror--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                        <div class="form-group row">--}}
-{{--                            <label for="birthday" class="col-md-4 col-form-label text-md-right">Doğum Tarihi</label>--}}
-{{--                            <div class="col-md-6">--}}
-{{--                                <input type="text" class="form-control" name="birthday" id="birthday" value="{{ old('birthday') }}">--}}
-{{--                                @error('birthday')--}}
-{{--                                <span class="invalid-feedback" role="alert">--}}
-{{--                                    <strong>{{ $message }}</strong>--}}
-{{--                                </span>--}}
-{{--                                @enderror--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                        <div class="form-group row">--}}
-{{--                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Şifre') }}</label>--}}
+    {{--                                @error('city')--}}
+    {{--                                <span class="invalid-feedback" role="alert">--}}
+    {{--                                    <strong>{{ $message }}</strong>--}}
+    {{--                                </span>--}}
+    {{--                                @enderror--}}
+    {{--                            </div>--}}
+    {{--                        </div>--}}
+    {{--                        <div class="form-group row">--}}
+    {{--                            <label for="birthday" class="col-md-4 col-form-label text-md-right">Doğum Tarihi</label>--}}
+    {{--                            <div class="col-md-6">--}}
+    {{--                                <input type="text" class="form-control" name="birthday" id="birthday" value="{{ old('birthday') }}">--}}
+    {{--                                @error('birthday')--}}
+    {{--                                <span class="invalid-feedback" role="alert">--}}
+    {{--                                    <strong>{{ $message }}</strong>--}}
+    {{--                                </span>--}}
+    {{--                                @enderror--}}
+    {{--                            </div>--}}
+    {{--                        </div>--}}
+    {{--                        <div class="form-group row">--}}
+    {{--                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Şifre') }}</label>--}}
 
-{{--                            <div class="col-md-6">--}}
-{{--                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" autocomplete="new-password">--}}
+    {{--                            <div class="col-md-6">--}}
+    {{--                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" autocomplete="new-password">--}}
 
-{{--                                @error('password')--}}
-{{--                                    <span class="invalid-feedback" role="alert">--}}
-{{--                                        <strong>{{ $message }}</strong>--}}
-{{--                                    </span>--}}
-{{--                                @enderror--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
+    {{--                                @error('password')--}}
+    {{--                                    <span class="invalid-feedback" role="alert">--}}
+    {{--                                        <strong>{{ $message }}</strong>--}}
+    {{--                                    </span>--}}
+    {{--                                @enderror--}}
+    {{--                            </div>--}}
+    {{--                        </div>--}}
 
-{{--                        <div class="form-group row">--}}
-{{--                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Şifre (Tekrar)') }}</label>--}}
+    {{--                        <div class="form-group row">--}}
+    {{--                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Şifre (Tekrar)') }}</label>--}}
 
-{{--                            <div class="col-md-6">--}}
-{{--                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" autocomplete="new-password">--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
+    {{--                            <div class="col-md-6">--}}
+    {{--                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" autocomplete="new-password">--}}
+    {{--                            </div>--}}
+    {{--                        </div>--}}
 
-{{--                        <div class="form-group row mb-0">--}}
-{{--                            <div class="col-md-6 offset-md-4">--}}
-{{--                                <button type="submit" class="btn btn-primary">--}}
-{{--                                    {{ __('Kayıt Ol') }}--}}
-{{--                                </button>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </form>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-{{--</div>--}}
+    {{--                        <div class="form-group row mb-0">--}}
+    {{--                            <div class="col-md-6 offset-md-4">--}}
+    {{--                                <button type="submit" class="btn btn-primary">--}}
+    {{--                                    {{ __('Kayıt Ol') }}--}}
+    {{--                                </button>--}}
+    {{--                            </div>--}}
+    {{--                        </div>--}}
+    {{--                    </form>--}}
+    {{--                </div>--}}
+    {{--            </div>--}}
+    {{--        </div>--}}
+    {{--    </div>--}}
+    {{--</div>--}}
 @endsection
 
 @section('scripts')

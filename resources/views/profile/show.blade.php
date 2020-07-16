@@ -23,8 +23,8 @@
                             <div class="events__position-info-1">
                                 <div>
                                     <img src="{{asset('img/camp-logo.png')}}" />
-                                    <p>55</p>
-{{--                                    <p>{{ $events->count() }}</p>--}}
+                                    <p>{{ $numberOfEvent }}</p>
+                                    {{--                                    <p>{{ $events->count() }}</p>--}}
                                 </div>
                                 <p>Şimdiye Kadar Yaptığım</p>
                                 <p>Kamp Sayısı</p>
@@ -32,8 +32,8 @@
                             <div class="events__position-info-2">
                                 <div>
                                     <img src="{{asset('img/kampdas-logo.png')}}" />
-                                    <p>159</p>
-{{--                                    <p>{{ $events->count() + $attendee }}</p>--}}
+                                    <p>-</p>
+                                    {{--                                    <p>{{ $events->count() + $attendee }}</p>--}}
                                 </div>
                                 <p>Birlikte Kamp Yaptığım</p>
                                 <p>Kampdaş Sayısı</p>
@@ -78,10 +78,17 @@
 
 @section('scripts')
     <script>
+
         // This example displays a marker at the center of Australia.
         // When the user clicks the marker, an info window opens.
-        let url = 'http://kampdas.org/api/etkinlikler';
-        getAdvisers = () => {
+        let url = `https://kampdas.org/api${location.pathname}/katildigim-etkinlikler`;
+        let thisMonth = "https://kampdas.org/api/etkinlikler/bu-ay"
+        let thisWeek = "https://kampdas.org/api/etkinlikler/bu-hafta"
+        let future = "https://kampdas.org/api/etkinlikler/gelecekte"
+        $.getJSON(thisWeek , data => $('#events__week').text(data.length));
+        $.getJSON(thisMonth , data => $('#events__month').text(data.length));
+        $.getJSON(future , data => $('#events__future').text(data.length));
+        getEvents = () => {
             return window
                 .fetch(url, {
                     method: 'GET'
@@ -91,35 +98,138 @@
                 })
                 .catch(err => console.log(err));
         };
+        getEventsInWeek = () => {
+            return window
+                .fetch(thisWeek, {
+                    method: 'GET'
+                })
+                .then(response => {
+                    return response.json();
+                })
+                .catch(err => console.log(err));
+        };
+        getEventsInMonth = () => {
+            return window
+                .fetch(thisMonth, {
+                    method: 'GET'
+                })
+                .then(response => {
+                    return response.json();
+                })
+                .catch(err => console.log(err));
+        };
+
         function initMap() {
             var activeInfoWindow;
-            var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-            getAdvisers().then(data => {
+
+            getEvents().then(data => {
                 if (data.error) {
                     console.log(data.error);
                 } else {
-                    console.log(data[0].lat)
 
-
-                    var uluru = {lat: parseFloat(data[0].lat), lng: parseFloat(data[0].lng)};
+                    var uluru = {lat: 39.142401, lng: 35.408133};
                     var map = new google.maps.Map(document.getElementById('map'), {
-                        zoom: 4,
+                        zoom: 5.5,
                         center: uluru
                     });
 
                     data.forEach((info, i) => {
-                        var contentString = '<div id="content">'+
-                            '<div id="siteNotice">'+
-                            '</div>'+
-                            `<h1 id="firstHeading" class="firstHeading text-center">${info.title}</h1>`+
-                            '<div id="bodyContent">'+
-                            `<p>${info.description}</p>`+
-                            `<a href="/etkinlikler/${info.slug}" class="btn btn-success">Tikla</a>`
-                        '</div>'+
-                        '</div>';
-                        var infowindow = new google.maps.InfoWindow({
-                            content: contentString
-                        });
+                        console.log(info);
+                        var contentString = `<figure class="events">
+                                        <div class="events__hero">
+                                            <div class="events__hero-top_logo">
+                                                <img src='/img/kampdas-logo1.png' />
+                                            </div>
+                                            <div id="${info.slug}" class="carousel slide" data-ride="carousel">
+                                                <div class="carousel-inner">
+                                                    <div class="carousel-item active">
+                                                        <img class="d-block w-100" src='/img/hotel-1.jpg' alt="First slide">
+                                                    </div>
+                                                    <div class="carousel-item">
+                                                        <img class="d-block w-100" src='/img/hotel-3.jpg' alt="Second slide">
+                                                    </div>
+                                                    <div class="carousel-item">
+                                                        <img class="d-block w-100" src='/img/hotel-2.jpg'" alt="Third slide">
+                                                    </div>
+                                                </div>
+                                                <a class="carousel-control-prev" href="#${info.slug}" role="button" data-slide="prev">
+                                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                    <span class="sr-only">Previous</span>
+                                                </a>
+                                                <a class="carousel-control-next" href="#${info.slug}" role="button" data-slide="next">
+                                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                    <span class="sr-only">Next</span>
+                                                </a>
+                                            </div>
+                                            <div class="events__hero-bottom">
+                                                <div class="events__hero-bottom_logo"></div>
+                                            </div>
+
+                                        </div>
+                                        <div class="events__content">
+                                            <div class="events__title">
+                                                <img class="events__logo" src='/img/camp-logo.png' alt="Kampdaş">
+                                                <a
+                                                    class="events__heading u-center-text"
+                                                    href="/etkinlik/${info.slug}"
+                                                >
+                                                    ${info.title}
+                                                </a>
+                                            </div>
+                                            <div class="events__location">
+                                                <i class="fas fa-map-marker-alt"></i>
+                                                <a class="events__location-detail"
+                                                   href="https://www.google.com/maps/search/?api=1&query=${info.location}" target="_blank">
+                                                    ${info.location}
+                                                </a>
+                                            </div>
+
+
+
+                                            <div class="events__details">
+                                                <button
+                                                    onclick="window.location='/etkinlik/${info.slug}"
+                                                    class="bttn bttn__events-attend">
+                                                    Katıl
+                                                    <div class="bttn__events-attend__horizontal"></div>
+                                                    <div class="bttn__events-attend__vertical"></div>
+                                                </button>
+                                                <a href="/etkinlik/${info.slug}" class="bttn bttn__events-detail">
+                                                    <span>Etkinlik Sayfasına Git</span>
+                                                    <svg width="13px" height="10px" viewBox="0 0 13 10">
+                                                        <path d="M1,5 L11,5"></path>
+                                                        <polyline points="8 1 12 5 8 9"></polyline>
+                                                    </svg>
+                                                </a>
+                                            </div>
+                                            <div class="events__bottom-logo">
+                                            </div>
+                                        </div>
+                                        <div class="events__social-buttons">
+                                            <a class="fb" rel="nofollow" target="_blank"
+                                               href="https://www.facebook.com/share.php?u=https://www.kampdas.org/etkinlik/${info.slug}"
+                                               data-link="https://www.facebook.com/share.php?u=https://www.kampdas.org/etkinlik/${info.slug}">
+                                                <i class="fab fa-facebook-f"></i><span></span>
+                                            </a>
+                                            <a id="share" class="tw" href="https://twitter.com/share?original_referer=/&text=&url=
+                                        https://www.kampdas.org/etkinlik/${info.slug}" data-link="https://twitter.com/share?original_referer=/&text=&url=
+                                        https://www.kampdas.org/etkinlik/${info.slug}" target="_blank">
+                                                <i class="fab fa-twitter"></i><span></span>
+                                            </a>
+                                            <a id="share" class="ln"
+                                               href="https://www.linkedin.com/cws/share?url=https://www.kampdas.org/etkinlik/${info.slug}"
+                                               data-link="https://www.linkedin.com/cws/share?url=https://www.kampdas.org/etkinlik/${info.slug}"
+                                               target="_blank">
+                                                <i class="fab fa-linkedin"></i><span></span>
+                                            </a>
+                                            <a name="whatsapp" id="share" class="wp"
+                                               href="https://api.whatsapp.com/send?text=https://www.kampdas.org/etkinlik/${info.slug}" target="_blank">
+                                                <i class="fab fa-whatsapp"></i><span></span>
+                                            </a>
+                                        </div>
+                                    </figure> `;
+
+
 
                         var marker = new google.maps.Marker({
                             position: {
@@ -132,11 +242,8 @@
                             icon: {
                                 url: 'https://kampdas.org/img/camp-logo.png',
                                 scaledSize: new google.maps.Size(25, 25),
-                            },
-                            label: labels[i % labels.length]
+                            }
                         });
-
-
                         marker.addListener('click', function() {
 
                             if (activeInfoWindow) { activeInfoWindow.close();}

@@ -1,8 +1,14 @@
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});
+
 fetch('http://kampdas.test/vendor/cities.json')
     .then(response => response.json())
     .then(data => {
         let city = $('#city')
-        data.forEach(d => city.append($("<option></option>").attr("value",d.id).text(d.name)))
+        data.forEach(d => city.append($("<option></option>").attr("value",d.name).text(d.name)))
 
     });
 

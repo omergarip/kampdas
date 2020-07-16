@@ -10,6 +10,15 @@
         <div class="limiter">
             <div class="container-login100" style="background-image: url('https://kampdas.org/img/camp_photo-min.jpg');">
                 <div class="wrap-login100">
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                     <form method="POST" action="{{ route('login') }}" class="login100-form validate-form">
                     @csrf
                         <div class="login100-form-logo">

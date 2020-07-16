@@ -16,14 +16,29 @@ class EventsController extends Controller
 {
     public function index()
     {
-        $events = Event::whereBetween('start_date', [Carbon::today(), Carbon::today()->addWeek()]);
+        $events = Event::where('start_date', '>', Carbon::today())->get();
         //return view('events.index')->with('events', Event::paginate(5)->where('start_date', '>', Carbon::today())->sortBy('start_date'));
         return view('events.index')->with('events', $events);
     }
 
     public function apiIndex()
     {
+        return response()->json(Event::where('start_date', '>', Carbon::today())->get());
+    }
+
+    public function eventsInWeek()
+    {
         return response()->json(Event::whereBetween('start_date', [Carbon::today(), Carbon::today()->addWeek()])->get());
+    }
+
+    public function eventsInMonth()
+    {
+        return response()->json(Event::whereBetween('start_date', [Carbon::today()->addWeek(), Carbon::today()->addWeek()->addMonth()])->get());
+    }
+
+    public function eventsInFuture()
+    {
+        return response()->json(Event::where('start_date', '>', Carbon::today()->addWeek()->addMonth())->get());
     }
 
     public function create()
@@ -50,8 +65,9 @@ class EventsController extends Controller
             if($attendant->id === auth()->id())
                 $isAttended = true;
         }
+
         $first_media = EventMedia::where('event_id', $event->id)->latest()->get();
-        $media = EventMedia::where('id', '!=', $first_media[0]->id)->latest()->get();
+        $media = EventMedia::where('id', '!=', $first_media[0]->id)->where('event_id', $event->id)->get();
         return view('events.show')
             ->with('event', $event)
             ->with('attendants', $attendants)

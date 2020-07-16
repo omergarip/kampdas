@@ -1,14 +1,15 @@
 .events {
-    max-width: 73rem;
+    max-width: 79.5rem;
     max-height: 25.3rem;
-    height: 25.3rem;
+    height: 100%;
     width: 100%;
     border-radius: 0.4rem;
     overflow: hidden;
     box-shadow: 0 0.3rem 0.3rem 0.3rem rgba(0, 0, 0, 0.2);
     display: flex;
     position: relative;
-    height: 85%;
+
+
 
     &__hero {
         display: flex;
@@ -16,6 +17,21 @@
         flex: 0 1 35%;
         align-items: center;
         justify-content: space-between;
+
+        &-photo {
+            height: 100%;
+            box-sizing: border-box;
+            max-width: 100%;
+            max-height: 15rem;
+            width: 100%;
+            & img {
+                height: 100%;
+                box-sizing: border-box;
+                max-width: 100%;
+                max-height: 100%;
+                width: 100%;
+            }
+        }
 
         &-top_logo {
             width: 100%;
@@ -72,7 +88,7 @@
         padding: 0 0 0 3rem;
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: space-between;
     }
 
     &__location {
@@ -128,9 +144,10 @@
         }
 
         &-profile {
-            width: 6rem;
+            width: 5rem;
             height: 5rem;
             border-radius: 50%;
+            margin-left: .5rem;
         }
 
         &-details {

@@ -7,19 +7,42 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="robots" content="noindex nofollow" />
+    <meta name="title" content="Kampdaş">
+{{--    <meta name="description" content="">--}}
 
-@yield('meta')
+<!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kampdas.org/">
+    <meta property="og:title" content="Kampdaş">
+    {{--    <meta property="og:description" content="">--}}
+    <meta property="og:image" content="https://kampdas.org/img/kampdas-logo.png">
 
-@yield('title')
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://kampdas.org/">
+    <meta property="twitter:title" content="Kampdaş">
+    {{--    <meta property="twitter:description" content="">--}}
+    <meta property="twitter:image" content="https://kampdas.org/img/kampdas-logo.png">
+
+    @yield('meta')
+
+    @yield('title')
 
 <!-- Favicons -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/img/icon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/img/icon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/img/icon/favicon-16x16.png">
-    <link rel="manifest" href="/img/icon/site.webmanifest">
-    <link rel="mask-icon" href="/img/icon/safari-pinned-tab.svg" color="#5bbad5">
-    <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="theme-color" content="#f8f8f8">
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png">
+    <link rel="android-chrome-icon" sizes="512x512" href="img/favicon/android-chrome-512x512.png">
+    <link rel="android-chrome-icon" sizes="192x192" href="img/favicon/android-chrome-192x192.png">
+    <link rel="mtile-icon" sizes="150x150" href="img/favicon/mstile-150x150.png">
+    <link rel="manifest" href="/img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="/img/favicon/safari-pinned-tab.svg" color="#f49404">
+    <link rel="shortcut icon" href="/img/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#2d89ef">
+    <meta name="msapplication-config" content="/img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">

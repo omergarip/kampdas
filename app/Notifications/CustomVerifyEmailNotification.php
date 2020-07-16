@@ -49,7 +49,6 @@ class CustomVerifyEmailNotification extends Notification
             ->line(Lang::get('Aramıza Hoşgeldin!'))
             ->line(Lang::get('Birçok yeni kamp arkadaşı ile tanışacağın Kampdaş topluluğu üyeliğinin tamamlanabilmesi için aşağıdaki butona tıklamalısın.'))
             ->action(Lang::get('Hesabımı Doğrula'), $verificationUrl)
-            ->line(Lang::get('If you did not create an account, no further action is required.'))
             ->markdown('vendor.notifications.email', ['user' => $user]);
     }
 

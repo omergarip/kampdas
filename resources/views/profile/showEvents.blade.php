@@ -77,7 +77,7 @@
                                                 @if($event->user->photo == '')
                                                     <img class="events__owner-profile" src="https://www.pngkey.com/png/detail/230-2301779_best-classified-apps-default-user-profile.png">
                                                 @else
-                                                    <img class="events__owner-profile" src="{{ asset('storage/'.$event->user->photo) }}">
+                                                    <img class="events__owner-profile" src="{{ asset('/'.$event->user->photo) }}">
                                                 @endif
                                                 <div class="events__owner-details">
                                                     <span class="events__owner-name">{{ $event->user->name }}</span>
@@ -94,30 +94,23 @@
                                                         @if($user->photo == '')
                                                             <img src="https://www.pngkey.com/png/detail/230-2301779_best-classified-apps-default-user-profile.png">
                                                         @else
-                                                            <img src="{{ asset('storage/'.$user->photo) }}">
+                                                            <img src="{{ asset('/'.$user->photo) }}">
                                                         @endif
                                                     @endforeach
                                                     @if($event->user->photo == '')
                                                         <img src="https://www.pngkey.com/png/detail/230-2301779_best-classified-apps-default-user-profile.png">
                                                     @else
-                                                        <img src="{{ asset('storage/'.$event->user->photo) }}">
+                                                        <img src="{{ asset('/'.$event->user->photo) }}">
                                                     @endif
                                                 @else
                                                     @if($event->user->photo == '')
                                                         <img src="https://www.pngkey.com/png/detail/230-2301779_best-classified-apps-default-user-profile.png">
                                                     @else
-                                                        <img src="{{ asset('storage/'.$event->user->photo) }}">
+                                                        <img src="{{ asset('/'.$event->user->photo) }}">
                                                     @endif
                                                 @endauth
                                             </div>
                                             <div class="events__details">
-                                                <button
-                                                    onclick="window.location='{{ route('events.show', $event->slug) }}'"
-                                                    class="bttn bttn__events-attend">
-                                                    Katıl
-                                                    <div class="bttn__events-attend__horizontal"></div>
-                                                    <div class="bttn__events-attend__vertical"></div>
-                                                </button>
                                                 <a href="{{ route('events.show', $event->slug) }}" class="bttn bttn__events-detail">
                                                     <span>Etkinlik Sayfasına Git</span>
                                                     <svg width="13px" height="10px" viewBox="0 0 13 10">
@@ -212,7 +205,7 @@
                                                 @if($event->user->photo == '')
                                                     <img class="events__owner-profile" src="https://www.pngkey.com/png/detail/230-2301779_best-classified-apps-default-user-profile.png">
                                                 @else
-                                                    <img class="events__owner-profile" src="{{ asset('storage/'.$event->user->photo) }}">
+                                                    <img class="events__owner-profile" src="{{ asset('/'.$event->user->photo) }}">
                                                 @endif
                                                 <div class="events__owner-details">
                                                     <span class="events__owner-name">{{ $event->user->name }}</span>
@@ -229,30 +222,70 @@
                                                         @if($user->photo == '')
                                                             <img src="https://www.pngkey.com/png/detail/230-2301779_best-classified-apps-default-user-profile.png">
                                                         @else
-                                                            <img src="{{ asset('storage/'.$user->photo) }}">
+                                                            <img src="{{ asset('/'.$user->photo) }}">
                                                         @endif
                                                     @endforeach
                                                     @if($event->user->photo == '')
                                                         <img src="https://www.pngkey.com/png/detail/230-2301779_best-classified-apps-default-user-profile.png">
                                                     @else
-                                                        <img src="{{ asset('storage/'.$event->user->photo) }}">
+                                                        <img src="{{ asset('/'.$event->user->photo) }}">
                                                     @endif
                                                 @else
                                                     @if($event->user->photo == '')
                                                         <img src="https://www.pngkey.com/png/detail/230-2301779_best-classified-apps-default-user-profile.png">
                                                     @else
-                                                        <img src="{{ asset('storage/'.$event->user->photo) }}">
+                                                        <img src="{{ asset('/'.$event->user->photo) }}">
                                                     @endif
                                                 @endauth
                                             </div>
                                             <div class="events__details">
-                                                <button
-                                                    onclick="window.location='{{ route('events.show', $event->slug) }}'"
-                                                    class="bttn bttn__events-attend">
-                                                    Katıl
-                                                    <div class="bttn__events-attend__horizontal"></div>
-                                                    <div class="bttn__events-attend__vertical"></div>
-                                                </button>
+                                                @auth
+                                                    @if(auth()->user()->id != $event->created_by)
+                                                        @if($event->users->count() + 1 == $event->limit && !$isAttended)
+                                                            <button
+                                                                class="bttn bttn__events-attend" disabled="disabled">
+                                                                Kontenjan Doldu
+                                                            </button>
+                                                        @elseif($event->users->isEmpty())
+                                                            <form action="{{ route('events.attend', $event->slug)}}" method="POST">
+                                                                @csrf
+                                                                <button
+                                                                    class="bttn bttn__events-attend">
+                                                                    Katıl
+                                                                    <div class="bttn__events-attend__horizontal"></div>
+                                                                    <div class="bttn__events-attend__vertical"></div>
+                                                                </button>
+                                                            </form>
+                                                        @elseif($isAttended)
+                                                            <form action="{{ route('events.leave', $event->slug)}}" method="POST">
+                                                                @csrf
+                                                                <button
+                                                                    class="bttn bttn__events-leave">
+                                                                    Ayrıl
+                                                                    <div class="bttn__events-attend__horizontal"></div>
+                                                                    <div class="bttn__events-attend__vertical"></div>
+                                                                </button>
+                                                            </form>
+                                                        @else
+                                                            <form action="{{ route('events.attend  ', $event->slug)}}" method="POST">
+                                                                @csrf
+                                                                <button
+                                                                    class="bttn bttn__events-attend">
+                                                                    Katıl
+                                                                    <div class="bttn__events-attend__horizontal"></div>
+                                                                    <div class="bttn__events-attend__vertical"></div>
+                                                                </button>
+                                                            </form>
+                                                        @endif
+                                                    @else
+                                                        <button style="visibility: hidden"
+                                                                class="bttn bttn__events-attend">
+                                                            Katıl
+                                                            <div class="bttn__events-attend__horizontal"></div>
+                                                            <div class="bttn__events-attend__vertical"></div>
+                                                        </button>
+                                                    @endif
+                                                @endauth
                                                 <a href="{{ route('events.show', $event->slug) }}" class="bttn bttn__events-detail">
                                                     <span>Etkinlik Sayfasına Git</span>
                                                     <svg width="13px" height="10px" viewBox="0 0 13 10">
@@ -271,8 +304,8 @@
                                                 <i class="fab fa-facebook-f"></i><span></span>
                                             </a>
                                             <a id="share" class="tw" href="https://twitter.com/share?original_referer=/&text=&url=
-                                    https://www.kampdas.org/etkinlik/{{$event->slug}}" data-link="https://twitter.com/share?original_referer=/&text=&url=
-                                    https://www.kampdas.org/etkinlik/{{$event->slug}}" target="_blank">
+                                        https://www.kampdas.org/etkinlik/{{$event->slug}}" data-link="https://twitter.com/share?original_referer=/&text=&url=
+                                        https://www.kampdas.org/etkinlik/{{$event->slug}}" target="_blank">
                                                 <i class="fab fa-twitter"></i><span></span>
                                             </a>
                                             <a id="share" class="ln"
@@ -292,7 +325,7 @@
                         </div>
                         <div class="tab-2">
                             <label for="tab2-2">Yarım Kalan Etkinliklerim <span class="badge badge-danger">2</span></label>
-                            <input id="tab2-2" name="tabs-two" type="radio">
+                            <input id="tab2-2" name="tabs-two" type="radio" disabled>
                             <div>
                                 <h4>Tab Two</h4>
                                 <p>Quisque sit amet turpis leo. Maecenas sed dolor mi. Pellentesque varius elit in neque ornare commodo ac non tellus. Mauris id iaculis quam. Donec eu felis quam. Morbi tristique lorem eget iaculis consectetur. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aenean at tellus eget risus tempus ultrices. Nam condimentum nisi enim, scelerisque faucibus lectus sodales at.</p>

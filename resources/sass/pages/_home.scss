@@ -1,6 +1,10 @@
 #section-home{
     font-size: 1.6rem;
 
+    & hr {
+        max-width: 79.5rem;
+    }
+
     & .modal {
         &-title {
             font-size: 1.6rem;
@@ -8,6 +12,12 @@
     }
 
     & .events {
+
+        &__create {
+            position: absolute;
+            top: 20rem;
+            right: 30rem;
+        }
 
         &__position {
             display: flex;

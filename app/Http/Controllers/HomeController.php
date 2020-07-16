@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Event;
+use App\EventMedia;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -27,13 +28,15 @@ class HomeController extends Controller
         setlocale(LC_TIME, 'Turkish');
         $data = [];
         $isAttended = false;
+        $numberOfAttendee = 0;
         foreach ($events as $event) {
             $attendants = $event->users;
             foreach ($attendants as $attendant) {
                 if($attendant->id === auth()->id())
                     $isAttended = true;
             }
-            $numberOfAttendee = $event->users->count() ?? '0';
+            $eventPhoto = EventMedia::where('event_id', $event->id)->first();
+            $numberOfAttendee = $numberOfAttendee + $attendants->count() ?? '0';
             $firstMonth = Carbon::parse($event->start_date)->formatLocalized('%B');
             $secondMonth = Carbon::parse($event->end_date)->formatLocalized('%B');
             $firstDay = Carbon::parse($event->start_date)->formatLocalized('%d');
@@ -42,11 +45,13 @@ class HomeController extends Controller
                 $data[] = [
                     'event_id' => $event->id,
                     'date' => $firstDay . '-' . $secondDay . ' ' . $firstMonth,
+                    'eventPhoto' => $eventPhoto
                 ] ;
             } else {
                 $data[] = [
                     'event_id' => $event->id,
                     'date' => $firstDay . ' ' . $firstMonth . ' - ' . $secondDay . ' ' . $secondMonth,
+                    'eventPhoto' => $eventPhoto
                 ] ;
             }
         }

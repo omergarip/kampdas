@@ -1,5 +1,8 @@
 #section-edit_profile {
     & .profile {
-
+        &__photo {
+            width: 10rem!important;
+            height: 10rem!important;
+        }
     }
 }

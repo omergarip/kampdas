@@ -58,3 +58,8 @@ Route::get('bildirim/{id}/okundu', 'UserNotificationsController@show')->name('no
 //Facebook Login Routes
 Route::get('/redirect', 'SocialAuthFacebookController@redirect');
 Route::get('/callback', 'SocialAuthFacebookController@callback');
+
+Route::get('/clear-cache', function() {
+    Artisan::call('cache:clear');
+    return "Cache is cleared";
+});

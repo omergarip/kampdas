@@ -22,7 +22,11 @@
                         </span>
                         <div class="wrap-input100">
                             <span class="label-input100">Profil Fotoğrafınız</span>
-                            <img class="km-circle-icon-img profile__photo" src="{{  '/' . auth()->user()->photo ?? 'https://www.pngkey.com/png/detail/230-2301779_best-classified-apps-default-user-profile.png'}}">
+                            @if(auth()->user()->photo == '')
+                                <img class="km-circle-icon-img profile__photo" src="{{'https://www.pngkey.com/png/detail/230-2301779_best-classified-apps-default-user-profile.png'}}">
+                            @else
+                                <img class="km-circle-icon-img profile__photo" src="{{ '/' . auth()->user()->photo}}">
+                            @endauth
                             <div class="custom-file">
                                 <input type="file" name="photo" class="custom-file-input" id="customFile">
                                 <label class="custom-file-label" for="customFile">Bir Fotoğraf Seçiniz</label>
@@ -60,12 +64,12 @@
                             <input class="input100" id="birthday" type="text" placeholder="Doğum Tarihinizi Giriniz" name="birthday" value="{{ $user->birthday ?? old('birthday') }}"  autocomplete="birthday">
                             <span class="focus-input100" data-symbol="&#xf206;"></span>
                         </div>
-                        <div class="wrap-input100 validate-input" data-validate="Şifrenizi Giriniz">
+                        <div class="wrap-input100">
                             <span class="label-input100">Şifreniz</span>
                             <input class="input100" type="password" name="password" autocomplete="new-password" placeholder="Şifrenizi Giriniz">
                             <span class="focus-input100" data-symbol="&#xf190;"></span>
                         </div>
-                        <div class="wrap-input100 validate-input" data-validate="Şifrenizi Tekrar Giriniz">
+                        <div class="wrap-input100" >
                             <span class="label-input100">Şifreniz (Tekrar)</span>
                             <input class="input100" type="password" name="password_confirmation" autocomplete="new-password" placeholder="Şifrenizi Tekrar Giriniz">
                             <span class="focus-input100" data-symbol="&#xf190;"></span>

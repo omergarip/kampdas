@@ -54,27 +54,31 @@
                             @endif
                         </div>
                         <div class="event__slider">
-                            <div id="{{$event->slug}}" class="carousel slide" data-ride="carousel">
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active">
-                                        <img class="d-block w-100" src="{{ asset('img/hotel-1.jpg') }}" alt="First slide">
+                            @if($media->count() == 0)
+                                <img class="d-block w-100" src="{{ '/' .  $first_media[0]->photo }}" alt="{{ $event->title }}">
+                            @else
+                                <div id="{{$event->slug}}" class="carousel slide" data-ride="carousel">
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active">
+                                            <img class="d-block w-100" src="{{ '/' .  $first_media[0]->photo }}" alt="{{ $event->title }}">
+                                        </div>
+                                        @foreach($media as $m)
+                                            <div class="carousel-item">
+                                                <img class="d-block w-100" src="{{ '/' .  $m->photo }}" alt="{{ $event->title }}">
+                                            </div>
+                                        @endforeach
                                     </div>
-                                    <div class="carousel-item">
-                                        <img class="d-block w-100" src="{{ asset('img/hotel-2.jpg') }}" alt="Second slide">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img class="d-block w-100" src="{{ asset('img/hotel-3.jpg') }}" alt="Third slide">
-                                    </div>
+                                    <a class="carousel-control-prev" href="#{{$event->slug}}" role="button" data-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="sr-only">Previous</span>
+                                    </a>
+                                    <a class="carousel-control-next" href="#{{$event->slug}}" role="button" data-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="sr-only">Next</span>
+                                    </a>
                                 </div>
-                                <a class="carousel-control-prev" href="#{{$event->slug}}" role="button" data-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="sr-only">Previous</span>
-                                </a>
-                                <a class="carousel-control-next" href="#{{$event->slug}}" role="button" data-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="sr-only">Next</span>
-                                </a>
-                            </div>
+                            @endif
+
                         </div>
                         <div class="event__share">
                             <div class="event__share-button">
@@ -103,14 +107,27 @@
                         <div class="event__location">
                             <div id="map" class="event__location-map"></div>
                         </div>
+                        <section id="section-login">
+                            <div class="container-login100-form-btn" style="width: 45rem; height: 5rem; margin: 0 auto;">
+                                <div class="wrap-login100-form-btn">
+                                    <div class="login100-form-bgbtn"></div>
+                                    <button class="login100-form-btn"
+                                            onclick="window.open('https://www.google.com/maps/search/?api=1&query={{$event->location}}')" >
+                                        Yol Tarifi İçin Buraya Tıklayınız
+                                    </button>
+                                </div>
+                            </div>
+                        </section>
                         <div class="event__owner-header">
                             <h3>Etkinliği Oluşturan:</h3>
                         </div>
                         <div class="event__owner">
                             @if($event->user->photo == '')
-                                <img class="event__owner-profile" src="https://www.pngkey.com/png/detail/230-2301779_best-classified-apps-default-user-profile.png">
+                                <a href="{{ route('profile', $event->user->username) }}">
+                                    <img class="events__owner-profile" src="https://www.pngkey.com/png/detail/230-2301779_best-classified-apps-default-user-profile.png"></a>
                             @else
-                                <img class="event__owner-profile" src="{{ asset('/'.$event->user->photo) }}">
+                                <a href="{{ route('profile', $event->user->username) }}">
+                                    <img class="events__owner-profile" src="{{ asset('/'.$event->user->photo) }}"></a>
                             @endif
                             <div class="event__owner-info">
                                 <h4>{{ $event->user->name }}</h4>
@@ -167,21 +184,32 @@
                                 @if($event->users->count() > 0)
                                     @foreach($event->users as $user)
                                         @if($user->photo == '')
-                                            <img src="https://www.pngkey.com/png/detail/230-2301779_best-classified-apps-default-user-profile.png">
+                                            <a href="{{ route('profile', $user->username) }}">
+                                                <img class="events__owner-profile" src="https://www.pngkey.com/png/detail/230-2301779_best-classified-apps-default-user-profile.png">
+                                            </a>
                                         @else
-                                            <img src="{{ asset('/'.$user->photo) }}">
-                                        @endif
+                                            <a href="{{ route('profile', $user->username) }}">
+                                                <img class="events__owner-profile" src="{{ asset('/'.$user->photo) }}">
+                                            </a>
+                                        @endauth
                                     @endforeach
                                     @if($event->user->photo == '')
-                                        <img src="https://www.pngkey.com/png/detail/230-2301779_best-classified-apps-default-user-profile.png">
-                                    @else
-                                        <img src="{{ asset('/'.$event->user->photo) }}">
-                                    @endif
-                                @else
-                                    @if($event->user->photo == '')
-                                        <img src="https://www.pngkey.com/png/detail/230-2301779_best-classified-apps-default-user-profile.png">
-                                    @else
-                                        <img src="{{ asset('/'.$event->user->photo) }}">
+                                        <a href="{{ route('profile', $event->user->username) }}">
+                                            <img src="https://www.pngkey.com/png/detail/230-2301779_best-classified-apps-default-user-profile.png">
+                                            @else
+                                                <a href="{{ route('profile', $event->user->username) }}">
+                                                    <img src="{{ asset('/'.$event->user->photo) }}">
+                                                </a>
+                                            @endif
+                                            @else
+                                                @if($event->user->photo == '')
+                                                    <a href="{{ route('profile', $event->user->username) }}">
+                                                        <img src="https://www.pngkey.com/png/detail/230-230
+                                        </a>1779_best-classified-apps-default-user-profile.png">
+                                                        @else
+                                                            <a href="{{ route('profile', $event->user->username) }}">
+                                                                <img src="{{ asset('/'.$event->user->photo) }}">
+                                                            </a>
                                     @endif
                                 @endauth
                             </div>
@@ -222,7 +250,7 @@
                     console.log(typeof (data.lng))
                     var uluru = {lat: parseFloat(data.lat), lng: parseFloat(data.lng)};
                     var map = new google.maps.Map(
-                    document.getElementById('map'), {zoom: 12, center: uluru});
+                        document.getElementById('map'), {zoom: 12, center: uluru});
                     var marker = new google.maps.Marker({position: uluru, map: map});
                 }
             });

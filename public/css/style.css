@@ -7158,8 +7158,21 @@ body {
   min-height: 100vh;
   font-size: 1.6rem; }
 
+input,
+textarea,
+select {
+  font-size: 1.4rem !important; }
+
 .btn {
   font-size: 1.6rem !important; }
+
+.gm-style .gm-style-iw-c {
+  max-width: 695px !important;
+  max-height: 266px !important; }
+
+.gm-style .gm-style-iw-d {
+  overflow: hidden !important;
+  max-height: 248px !important; }
 
 .km-green-bar {
   height: 800px;
@@ -7365,6 +7378,9 @@ select:focus {
   position: relative;
   padding: .25rem 1rem;
   transition: all 1.2s ease; }
+  @media (max-width: 75em) {
+    .bttn__events-detail {
+      padding: .125rem .5rem; } }
   .bttn__events-detail:before {
     content: '';
     position: absolute;
@@ -7384,6 +7400,10 @@ select:focus {
     letter-spacing: .2rem;
     vertical-align: middle;
     text-transform: uppercase; }
+    @media (max-width: 75em) {
+      .bttn__events-detail span {
+        font-size: 1.2rem;
+        letter-spacing: .1rem; } }
   .bttn__events-detail svg {
     position: relative;
     top: 0;
@@ -7473,22 +7493,33 @@ select:focus {
   cursor: pointer !important; }
 
 .events {
-  max-width: 73rem;
+  max-width: 79.5rem;
   max-height: 25.3rem;
-  height: 25.3rem;
+  height: 100%;
   width: 100%;
   border-radius: 0.4rem;
   overflow: hidden;
   box-shadow: 0 0.3rem 0.3rem 0.3rem rgba(0, 0, 0, 0.2);
   display: flex;
-  position: relative;
-  height: 85%; }
+  position: relative; }
   .events__hero {
     display: flex;
     flex-direction: column;
     flex: 0 1 35%;
     align-items: center;
     justify-content: space-between; }
+    .events__hero-photo {
+      height: 100%;
+      box-sizing: border-box;
+      max-width: 100%;
+      max-height: 15rem;
+      width: 100%; }
+      .events__hero-photo img {
+        height: 100%;
+        box-sizing: border-box;
+        max-width: 100%;
+        max-height: 100%;
+        width: 100%; }
     .events__hero-top_logo {
       width: 100%;
       display: flex;
@@ -7528,7 +7559,7 @@ select:focus {
     padding: 0 0 0 3rem;
     display: flex;
     flex-direction: column;
-    justify-content: center; }
+    justify-content: space-between; }
   .events__location > i {
     color: red;
     margin-left: .6rem; }
@@ -7561,9 +7592,10 @@ select:focus {
       margin-top: -.8rem;
       font-size: 1.3rem; }
     .events__owner-profile {
-      width: 6rem;
+      width: 5rem;
       height: 5rem;
-      border-radius: 50%; }
+      border-radius: 50%;
+      margin-left: .5rem; }
     .events__owner-details {
       display: flex;
       flex-direction: column; }
@@ -7866,10 +7898,20 @@ div .social {
     position: absolute;
     margin-left: .5rem; }
 
+#section-edit_profile .profile__photo {
+  width: 10rem !important;
+  height: 10rem !important; }
+
 #section-home {
   font-size: 1.6rem; }
+  #section-home hr {
+    max-width: 79.5rem; }
   #section-home .modal-title {
     font-size: 1.6rem; }
+  #section-home .events__create {
+    position: absolute;
+    top: 20rem;
+    right: 30rem; }
   #section-home .events__position {
     display: flex;
     justify-content: center;
@@ -7933,7 +7975,8 @@ div .social {
   #section-event .event__header {
     display: flex;
     align-items: center;
-    width: 100%; }
+    width: 100%;
+    margin-bottom: 1.5rem; }
     #section-event .event__header-title {
       font-size: 2rem;
       font-weight: 700;
@@ -8130,7 +8173,7 @@ div .social {
       text-align: center; }
     #section-profile .events__position-map,
     #section-edit_profile .events__position-map {
-      height: 32rem;
+      height: 40rem;
       width: 100%;
       margin: 0 0 1.5rem 0;
       background: black; }
@@ -8483,10 +8526,7 @@ div .social {
   #section-login .has-val.input100 + .focus-input100::after,
   #section-edit_profile .has-val.input100 + .focus-input100::after {
     color: #a64bf4; }
-  #section-login #section-login .container-login100-form-btn,
-  #section-edit_profile #section-login .container-login100-form-btn, #section-login
-  #section-edit_profile .container-login100-form-btn,
-  #section-edit_profile
+  #section-login .container-login100-form-btn,
   #section-edit_profile .container-login100-form-btn {
     display: -webkit-box;
     display: -webkit-flex;
