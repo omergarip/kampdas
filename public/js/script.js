@@ -1,3 +1,7 @@
+if(document.location.protocol!="https:"){
+    document.location=document.URL.replace(/^http:/i, "https:");
+}
+
 $.ajaxSetup({
     headers: {
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

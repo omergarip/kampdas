@@ -59,7 +59,7 @@
 <div id="app">
 
     <main>
-        <div class="container">
+        <div class="container space-lg">
             @if(session()->has('success'))
                 <div class="alert alert-success">
                     {{ session()->get('success') }}

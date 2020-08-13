@@ -8,7 +8,6 @@
     @include('includes.navigation')
 
     <section id="section-profile">
-        <div style="height: 200px;z-index: -1"></div>
         <div class="container">
             <div class="row">
                 <div class="col-10 mx-auto">

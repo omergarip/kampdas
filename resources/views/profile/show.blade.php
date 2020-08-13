@@ -8,10 +8,9 @@
     @include('includes.navigation')
 
     <section id="section-profile">
-        <div style="height: 200px;z-index: -1"></div>
         <div class="container">
             <div class="row">
-                <div class="col-10 mx-auto">
+                <div class="col-lg-10 col-md-11 mx-auto">
                     <div class="events__position">
                         @if(auth()->user()->username === $user->username)
                             <p>Şimdiye Kadar Yaptığım Kamplar</p>
@@ -24,7 +23,6 @@
                                 <div>
                                     <img src="{{asset('img/camp-logo.png')}}" />
                                     <p>{{ $numberOfEvent }}</p>
-                                    {{--                                    <p>{{ $events->count() }}</p>--}}
                                 </div>
                                 <p>Şimdiye Kadar Yaptığım</p>
                                 <p>Kamp Sayısı</p>
@@ -33,7 +31,6 @@
                                 <div>
                                     <img src="{{asset('img/kampdas-logo.png')}}" />
                                     <p>-</p>
-                                    {{--                                    <p>{{ $events->count() + $attendee }}</p>--}}
                                 </div>
                                 <p>Birlikte Kamp Yaptığım</p>
                                 <p>Kampdaş Sayısı</p>

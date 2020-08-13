@@ -94,7 +94,7 @@ class EventsController extends Controller
         $data['start_date'] = Carbon::parse($data['start_date']);
         $data['end_date'] = Carbon::parse($data['end_date']);
         $event->update($data);
-        session()->flash('success', 'Etkinlik güncellendi.');
+        session()->flash('success', 'Etkinliğiniz başarıyla güncellendi.');
         return redirect(route('events.show', $slug));
     }
 
@@ -106,7 +106,7 @@ class EventsController extends Controller
             @unlink('/'.$m->photo);
         }
         $event->forceDelete();
-        session()->flash('success', 'Etkinlik başarı ile silindi.');
+        session()->flash('success', 'Etkinliğiniz başarı ile silindi.');
         return redirect(route('home'));
     }
 
@@ -123,7 +123,7 @@ class EventsController extends Controller
             $notify->notify(new EventsNotification($user, $event));
         }
 
-        session()->flash('success', 'Etkinliğe başarı ile katıldınız');
+        session()->flash('success', 'Etkinliğe başarı bir şekilde katıldınız');
         return redirect()->back();
     }
 
@@ -137,7 +137,7 @@ class EventsController extends Controller
             ->first()
             ->delete();
         $event->users()->detach(auth()->id());
-        session()->flash('success', 'Etkinlikten başarı ile ayrildiniz');
+        session()->flash('success', 'Etkinlikten başarı bir şekilde ayrıldınız');
         return redirect()->back();
     }
 }

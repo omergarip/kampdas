@@ -6,42 +6,9 @@
 
 @section('content')
     @include('includes.navigation')
-    <div style="height: 200px;z-index: -1"></div>
     <section id="section-event">
         <div class="container">
             <div class="row">
-                {{--        @if(auth()->id() == $event->created_by)--}}
-                {{--            <div class="form-group mb-5">--}}
-                {{--                <a href="{{ route('events.edit', $event->slug) }}" class="form-control btn btn-sm btn-primary">Güncelle</a>--}}
-                {{--                <form action="{{ route('events.delete', $event->id)}}" method="POST">--}}
-                {{--                    @csrf--}}
-                {{--                    @method('DELETE')--}}
-                {{--                    <button class="form-control btn btn-sm btn-danger">Sil</button>--}}
-                {{--                </form>--}}
-                {{--            </div>--}}
-                {{--        @endif--}}
-                {{--        <div class="col-md-6">--}}
-                {{--            @if($event->profile->isEmpty())--}}
-                {{--                <form action="{{ route('events.attend', $event->slug)}}" method="POST">--}}
-                {{--                    @csrf--}}
-                {{--                    <button class="form-control btn btn-sm btn-info">Katil</button>--}}
-                {{--                </form>--}}
-                {{--            @elseif(!$isAttended)--}}
-                {{--                <form action="{{ route('events.attend', $event->slug)}}" method="POST">--}}
-                {{--                    @csrf--}}
-                {{--                    <button class="form-control btn btn-sm btn-info">Katil</button>--}}
-                {{--                </form>--}}
-                {{--            @else--}}
-                {{--                <form action="{{ route('events.leave', $event->slug)}}" method="POST">--}}
-                {{--                    @csrf--}}
-                {{--                    @method('DELETE')--}}
-                {{--                    <button class="form-control btn btn-sm btn-danger">Ayril</button>--}}
-                {{--                </form>--}}
-                {{--            @endif--}}
-                {{--        </div>--}}
-
-
-
                 <div class="col-md-10 mx-auto">
                     <figure class="event">
                         <div class="event__header">
@@ -108,7 +75,7 @@
                             <div id="map" class="event__location-map"></div>
                         </div>
                         <section id="section-login">
-                            <div class="container-login100-form-btn" style="width: 45rem; height: 5rem; margin: 0 auto;">
+                            <div class="container-login100-form-btn">
                                 <div class="wrap-login100-form-btn">
                                     <div class="login100-form-bgbtn"></div>
                                     <button class="login100-form-btn"
@@ -140,8 +107,8 @@
                         <div class="event__attendee">
                             <div class="event__attendee-header">
                                 <h3>Etkinliğe Katılanlar: {{ $event->limit === 0 ? $event->users->count() + 1 : $event->users->count() + 1 . '/' . $event->limit}}</h3>
-                                @if(auth()->user()->id !== $event->created_by)
-                                    @if($event->users->count() + 1 === $event->limit && !$isAttended)
+                                @if(auth()->user()->id != $event->created_by)
+                                    @if($event->users->count() + 1 == $event->limit && !$isAttended)
                                         <button
                                             class="bttn bttn__events-attend" disabled="disabled">
                                             Kontenjan Doldu
@@ -191,25 +158,26 @@
                                             <a href="{{ route('profile', $user->username) }}">
                                                 <img class="events__owner-profile" src="{{ asset('/'.$user->photo) }}">
                                             </a>
-                                        @endauth
+                                        @endif
                                     @endforeach
                                     @if($event->user->photo == '')
                                         <a href="{{ route('profile', $event->user->username) }}">
-                                            <img src="https://www.pngkey.com/png/detail/230-2301779_best-classified-apps-default-user-profile.png">
-                                            @else
-                                                <a href="{{ route('profile', $event->user->username) }}">
-                                                    <img src="{{ asset('/'.$event->user->photo) }}">
-                                                </a>
-                                            @endif
-                                            @else
-                                                @if($event->user->photo == '')
-                                                    <a href="{{ route('profile', $event->user->username) }}">
-                                                        <img src="https://www.pngkey.com/png/detail/230-230
-                                        </a>1779_best-classified-apps-default-user-profile.png">
-                                                        @else
-                                                            <a href="{{ route('profile', $event->user->username) }}">
-                                                                <img src="{{ asset('/'.$event->user->photo) }}">
-                                                            </a>
+                                            <img class="events__owner-profile" src="https://www.pngkey.com/png/detail/230-2301779_best-classified-apps-default-user-profile.png">
+                                        </a>
+                                    @else
+                                        <a href="{{ route('profile', $event->user->username) }}">
+                                            <img class="events__owner-profile" src="{{ asset('/'.$event->user->photo) }}">
+                                        </a>
+                                    @endif
+                                @else
+                                    @if($event->user->photo == '')
+                                        <a href="{{ route('profile', $event->user->username) }}">
+                                            <img class="events__owner-profile" src="https://www.pngkey.com/png/detail/230-2301779_best-classified-apps-default-user-profile.png">
+                                        </a>
+                                    @else
+                                        <a href="{{ route('profile', $event->user->username) }}">
+                                            <img class="events__owner-profile" src="{{ asset('/'.$event->user->photo) }}">
+                                        </a>
                                     @endif
                                 @endauth
                             </div>
@@ -221,7 +189,7 @@
                 </div>
             </div>
         </div>
-        <div style="height: 200px;z-index: -1"></div>
+        <div class="space-lg"></div>
     </section>
     <div id="fb-root"></div>
 @endsection

@@ -7166,6 +7166,15 @@ select {
 .btn {
   font-size: 1.6rem !important; }
 
+.space {
+  margin-top: 20rem; }
+
+.modal-backdrop {
+  z-index: 1030; }
+
+.space-lg {
+  margin-top: 20rem; }
+
 .gm-style .gm-style-iw-c {
   max-width: 695px !important;
   max-height: 266px !important; }
@@ -7501,13 +7510,21 @@ select:focus {
   overflow: hidden;
   box-shadow: 0 0.3rem 0.3rem 0.3rem rgba(0, 0, 0, 0.2);
   display: flex;
-  position: relative; }
+  position: relative;
+  margin: 3rem 0; }
+  @media (max-width: 48em) {
+    .events {
+      flex-direction: column;
+      max-height: 48rem; } }
   .events__hero {
     display: flex;
     flex-direction: column;
     flex: 0 1 35%;
     align-items: center;
     justify-content: space-between; }
+    @media (max-width: 48em) {
+      .events__hero {
+        flex-direction: row; } }
     .events__hero-photo {
       height: 100%;
       box-sizing: border-box;
@@ -7526,12 +7543,18 @@ select:focus {
       flex-direction: row;
       justify-content: flex-start;
       align-items: flex-start; }
+      @media (max-width: 48em) {
+        .events__hero-top_logo {
+          display: none; } }
       .events__hero-top_logo img {
         width: auto;
         height: 5.4rem; }
     .events__hero-bottom {
       width: 100%;
       height: 3.8rem; }
+      @media (max-width: 48em) {
+        .events__hero-bottom {
+          display: none; } }
       .events__hero-bottom_logo {
         display: flex;
         flex-direction: row;
@@ -7575,6 +7598,9 @@ select:focus {
     font-size: 1.3rem;
     margin-top: -1rem;
     align-items: center; }
+    @media (max-width: 48em) {
+      .events__date {
+        margin-top: 1rem; } }
     .events__date-info {
       margin-right: 1rem; }
   .events__heading {
@@ -7588,17 +7614,18 @@ select:focus {
     color: #000000; }
     .events__owner span:first-child {
       font-weight: 700; }
-    .events__owner-username {
-      margin-top: -.8rem;
-      font-size: 1.3rem; }
     .events__owner-profile {
-      width: 5rem;
-      height: 5rem;
+      width: 3rem;
+      height: 3rem;
       border-radius: 50%;
       margin-left: .5rem; }
     .events__owner-details {
       display: flex;
-      flex-direction: column; }
+      flex-direction: column;
+      margin-left: .75rem; }
+      .events__owner-details a {
+        margin-top: -.8rem;
+        font-size: 1.3rem; }
       .events__owner-details span:first-child {
         font-weight: 400; }
   .events__attendee {
@@ -7623,6 +7650,8 @@ select:focus {
     margin: 2rem 0;
     position: relative;
     z-index: 999; }
+    .events__details a {
+      margin-left: auto; }
   .events__bottom-logo {
     display: flex;
     flex-direction: row;
@@ -7636,6 +7665,9 @@ select:focus {
     bottom: -1%;
     z-index: 0;
     opacity: .4; }
+    @media (max-width: 48em) {
+      .events__bottom-logo {
+        display: none; } }
 
 col-lg-12 {
   margin-bottom: 2rem; }
@@ -7649,6 +7681,11 @@ col-lg-12 {
   justify-content: space-around;
   margin-top: -.1rem;
   margin-bottom: -.15rem; }
+  @media (max-width: 48em) {
+    .events__social-buttons {
+      flex-direction: column;
+      border-left: 0;
+      border-top: 5px dotted #8c8c8c; } }
   .events__social-buttons .fb {
     color: #3B5998; }
     .events__social-buttons .fb:hover {
@@ -7686,6 +7723,10 @@ col-lg-12 {
   display: flex;
   justify-content: space-around;
   width: 100%; }
+  @media (max-width: 40.5em) {
+    .footerbc {
+      flex-direction: column;
+      align-items: center; } }
 
 .footer {
   position: relative;
@@ -7798,6 +7839,22 @@ div .social {
   #mainNav .logo-brand {
     width: auto;
     height: 8rem; }
+    @media (max-width: 40.5em) {
+      #mainNav .logo-brand {
+        display: none; } }
+    @media (max-width: 62.25em) {
+      #mainNav .logo-brand {
+        margin-left: -50rem; } }
+    @media (max-width: 48em) {
+      #mainNav .logo-brand {
+        margin-left: -40rem; } }
+    #mainNav .logo-brand_mobile {
+      width: auto;
+      height: 5rem;
+      display: none; }
+      @media (max-width: 40.5em) {
+        #mainNav .logo-brand_mobile {
+          display: block; } }
   #mainNav .navbar-brand {
     color: #a5958c !important; }
   #mainNav .navbar-nav {
@@ -7827,7 +7884,10 @@ div .social {
         color: #f49404 !important; }
   #mainNav .navbar-toggler {
     font-size: 80%;
-    padding: 0.8rem; }
+    padding: 0.8rem;
+    position: absolute;
+    right: 2rem;
+    top: 1.2rem; }
   #mainNav #notification_li {
     position: relative;
     margin-right: 1rem; }
@@ -7906,12 +7966,34 @@ div .social {
   font-size: 1.6rem; }
   #section-home hr {
     max-width: 79.5rem; }
+    @media (max-width: 40.5em) {
+      #section-home hr {
+        width: 100%;
+        max-width: 48rem; } }
   #section-home .modal-title {
     font-size: 1.6rem; }
   #section-home .events__create {
-    position: absolute;
-    top: 20rem;
-    right: 30rem; }
+    position: fixed;
+    top: 16.5rem;
+    right: 3rem;
+    z-index: 1031; }
+    @media (max-width: 62.25em) {
+      #section-home .events__create-button {
+        display: none; } }
+    #section-home .events__create-button_mobile {
+      display: none; }
+      @media (max-width: 62.25em) {
+        #section-home .events__create-button_mobile {
+          display: block;
+          border-radius: 50%;
+          width: 5rem;
+          height: 5rem;
+          right: 3rem;
+          display: flex;
+          align-items: center;
+          justify-content: center; } }
+      #section-home .events__create-button_mobile i {
+        font-size: 3rem; }
   #section-home .events__position {
     display: flex;
     justify-content: center;
@@ -7947,10 +8029,8 @@ div .social {
       #section-home .events__position-info-2 div:first-child p {
         margin-left: .5rem; }
       #section-home .events__position-info-2 img {
-        width: 7rem;
-        height: auto; }
-  #section-home #btn-event {
-    position: fixed; }
+        width: 8.25rem;
+        height: 5rem; }
   #section-home .events__banner {
     font-family: open sans,sans-serif;
     font-weight: 700;
@@ -7964,6 +8044,34 @@ div .social {
       color: #ffffff !important;
       width: 100%;
       background-image: linear-gradient(to right, #f49404, #fcb448); }
+
+#section-event #section-login .container-login100-form-btn {
+  width: 50%;
+  height: 5rem;
+  margin: 1rem auto 3rem auto; }
+  @media (max-width: 62.25em) {
+    #section-event #section-login .container-login100-form-btn {
+      width: 60%; } }
+  @media (max-width: 48em) {
+    #section-event #section-login .container-login100-form-btn {
+      width: 80%;
+      height: 4rem; } }
+
+@media (max-width: 62.25em) {
+  #section-event #section-login .login100-form-btn {
+    font-size: 1.8rem; } }
+
+@media (max-width: 56.25em) {
+  #section-event #section-login .login100-form-btn {
+    font-size: 1.6rem; } }
+
+@media (max-width: 48em) {
+  #section-event #section-login .login100-form-btn {
+    font-size: 1.4rem; } }
+
+@media (max-width: 40.5em) {
+  #section-event #section-login .login100-form-btn {
+    font-size: 1.3rem; } }
 
 #section-event p {
   margin: 0 !important;
@@ -8127,7 +8235,7 @@ div .social {
       align-items: center; }
       #section-profile .profile__owner-edit p,
       #section-edit_profile .profile__owner-edit p {
-        margin: -.7 rem 0;
+        margin: -.7rem 0;
         font-weight: 700;
         text-align: center; }
       #section-profile .profile__owner-edit img,
@@ -8216,8 +8324,8 @@ div .social {
         margin-left: .5rem; }
       #section-profile .events__position-info-2 img,
       #section-edit_profile .events__position-info-2 img {
-        width: 7rem;
-        height: auto; }
+        width: 8.25rem;
+        height: 5rem; }
   #section-profile .events,
   #section-edit_profile .events {
     margin: 4rem auto; }
@@ -8402,7 +8510,7 @@ div .social {
   #section-login .limiter,
   #section-edit_profile .limiter {
     width: 100%;
-    margin: 0 auto; }
+    margin: -20rem auto 0 auto; }
   #section-login .container-login100,
   #section-edit_profile .container-login100 {
     width: 100%;
@@ -8438,7 +8546,7 @@ div .social {
       #section-login .login100-form-logo img,
       #section-edit_profile .login100-form-logo img {
         width: 14rem;
-        height: auto; }
+        height: 8.5rem; }
     #section-login .login100-form-title,
     #section-edit_profile .login100-form-title {
       display: block;
@@ -8463,11 +8571,12 @@ div .social {
     padding-left: 7px; }
   #section-login .input100,
   #section-edit_profile .input100 {
-    font-family: Poppins-Medium;
+    font-family: 'Open Sans', sans-serif;
     font-size: 16px;
     color: #333333;
     line-height: 1.2;
-    display: block;
+    display: flex;
+    align-items: center;
     width: 100%;
     height: 55px;
     background: transparent;

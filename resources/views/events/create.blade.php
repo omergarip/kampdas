@@ -6,6 +6,7 @@
 
 @section('content')
     @include('includes.navigation')
+    <div class="space-lg"></div>
     <div class="container d-flex justify-content-center flex-column" style="height: 93.1vh">
         <div class="card card-default">
             <div class="card-header">
@@ -27,22 +28,22 @@
                         @enderror
                     </div>
                     <div class="form-inline d-flex justify-content-between">
-                            <label for="start_date" class="mr-3">Başlangıç Tarihi</label>
-                            <input type="text" class="form-control @error('start_date') is-invalid @enderror" name="start_date" id="start_date" value="{{ isset($event) ? $event->start_date :  old('start_date') }}">
-                            @error('start_date')
-                                <span class="invalid-feedback" role="alert">
+                        <label for="start_date" class="mr-3">Başlangıç Tarihi</label>
+                        <input type="text" class="form-control @error('start_date') is-invalid @enderror" name="start_date" id="start_date" value="{{ isset($event) ? $event->start_date :  old('start_date') }}">
+                        @error('start_date')
+                        <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
-                            @enderror
+                        @enderror
 
 
-                            <label for="end_date" class="mx-3">Bitiş Tarihi</label>
-                            <input type="text" class="form-control @error('end_date') is-invalid @enderror" name="end_date" id="end_date" value="{{ isset($event) ? $event->end_date :  old('end_date') }}">
-                            @error('end_date')
-                                <span class="invalid-feedback" role="alert">
+                        <label for="end_date" class="mx-3">Bitiş Tarihi</label>
+                        <input type="text" class="form-control @error('end_date') is-invalid @enderror" name="end_date" id="end_date" value="{{ isset($event) ? $event->end_date :  old('end_date') }}">
+                        @error('end_date')
+                        <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
-                            @enderror
+                        @enderror
 
                     </div>
                     <div class="form-group">
@@ -57,7 +58,7 @@
                         </small>
                         @if($errors->has('location'))
                             @error('location')
-                                <span class="invalid-feedback" role="alert">
+                            <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
@@ -65,7 +66,11 @@
                     </div>
                     <div class="form-group">
                         <label for="description">Açıklama</label>
-                        <input type="text" class="form-control @error('description') is-invalid @enderror" name="description" id="description" value="{{ isset($event) ? $event->description : old('description') }}">
+                        <textarea
+                            rows="5"
+                            class="form-control @error('description') is-invalid @enderror"
+                            name="description"
+                            id="description">{{ isset($event) ? $event->description : old('description') }}</textarea>
                         @error('description')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -109,7 +114,7 @@
             locale: 'tr',
             enableTime: true,
             dateFormat: "d.m.Y H:i",
-            minDate: new Date().fp_incr(5),
+            minDate: new Date().fp_incr(1),
             onChange: function(date) {
 
                 var selectedDate = new Date(date);

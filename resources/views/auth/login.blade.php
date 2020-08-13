@@ -22,7 +22,7 @@
                     <form method="POST" action="{{ route('login') }}" class="login100-form validate-form">
                     @csrf
                         <div class="login100-form-logo">
-                            <img class="wrap-login100-logo" src={{ asset('img/PNG.png') }} />
+                            <img class="wrap-login100-logo" src={{ asset('img/kampdas-logo.png') }} />
                         </div>
                         <span class="login100-form-title">
                             Giriş Yap

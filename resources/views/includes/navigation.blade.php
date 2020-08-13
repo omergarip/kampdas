@@ -1,5 +1,11 @@
 <nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase km-nav" id="mainNav">
-    <a class="navbar-brand js-scroll-trigger" href="{{ route('home') }}"><img class="logo-brand" src={{ asset('img/kampdas-logo1.png') }} /> </a>
+    <a class="navbar-brand js-scroll-trigger" href="{{ route('home') }}">
+        <img class="logo-brand_mobile" src={{ asset('img/kampdas-logo1.png') }} />
+    </a>
+    <a class="navbar-brand js-scroll-trigger" href="{{ route('home') }}">
+        <img class="logo-brand" src={{ asset('img/kampdas-logo1.png') }} />
+    </a>
+
     <button class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"> Menü <i class="fas fa-bars"></i>
     </button>
 

@@ -79,7 +79,7 @@ class UserProfileController extends Controller
             $data['photo'] = $photo;
         }
         $user->update($data);
-        session()->flash('success', 'Profiliniz g端ncellendi.');
+        session()->flash('success', 'Profiliniz başarı ile güncellendi.');
         return redirect(route('profile', $username));
     }
 

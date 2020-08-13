@@ -2,32 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a5129c1a-c031-46d5-910b-444fc876db82" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/kampdas.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/kampdas.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/VerificationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/VerificationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EventsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EventsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SocialAuthFacebookController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SocialAuthFacebookController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserProfileController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserProfileController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Notifications/CustomVerifyEmailNotification.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Notifications/CustomVerifyEmailNotification.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Services/SocialFacebookAccountService.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Services/SocialFacebookAccountService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kampdas.zip" beforeDir="false" afterPath="$PROJECT_DIR$/kampdas.zip" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/tr.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/tr.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/abtracts/_mixins.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/abtracts/_mixins.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/sass/base/_global.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/base/_global.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/components/_button.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/components/_button.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/sass/components/_card.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/components/_card.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/pages/_editProfile.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/pages/_editProfile.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/components/_socials.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/components/_socials.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/layouts/_footer.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/layouts/_footer.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/layouts/_navigation.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/layouts/_navigation.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/sass/pages/_event.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/pages/_event.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/sass/pages/_home.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/pages/_home.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/sass/pages/_login.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/pages/_login.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/sass/pages/_profile.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/pages/_profile.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/events/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/events/create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/events/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/events/show.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/includes/navigation.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/includes/navigation.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/index.blade.php" afterDir="false" />
@@ -35,8 +28,6 @@
       <change beforePath="$PROJECT_DIR$/resources/views/profile/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/edit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/profile/show.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/show.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/profile/showEvents.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/profile/showEvents.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -303,7 +294,10 @@
       <workItem from="1594758945434" duration="16110000" />
       <workItem from="1594819126165" duration="1193000" />
       <workItem from="1594832206351" duration="16116000" />
-      <workItem from="1594888872077" duration="3525000" />
+      <workItem from="1594888872077" duration="22953000" />
+      <workItem from="1596990128073" duration="1718000" />
+      <workItem from="1597067618607" duration="1660000" />
+      <workItem from="1597248435119" duration="1805000" />
     </task>
     <servers />
   </component>

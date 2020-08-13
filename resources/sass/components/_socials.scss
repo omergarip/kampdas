@@ -8,6 +8,12 @@
     margin-top: -.1rem;
     margin-bottom: -.15rem;
 
+    @include respond(medium) {
+        flex-direction: column;
+        border-left: 0;
+        border-top: 5px dotted #8c8c8c;
+    }
+
     & .fb {
         color: $color-fb;
 

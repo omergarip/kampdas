@@ -1,4 +1,39 @@
 #section-event {
+
+    & #section-login {
+        & .container-login100-form-btn {
+            width: 50%;
+            height: 5rem;
+            margin: 1rem auto 3rem auto;
+            @include respond(large) {
+                width: 60%;
+            }
+
+            @include respond(medium) {
+                width: 80%;
+                height: 4rem;
+            }
+        }
+
+        & .login100-form-btn {
+            @include respond(large) {
+                font-size: 1.8rem;
+            }
+
+            @include respond(tab-port) {
+                font-size: 1.6rem;
+            }
+
+            @include respond(medium) {
+                font-size: 1.4rem;
+            }
+
+            @include respond(phone) {
+                font-size: 1.3rem;
+            }
+        }
+    }
+
     & p {
         margin: 0!important;
         padding: 0!important;

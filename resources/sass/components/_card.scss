@@ -8,8 +8,12 @@
     box-shadow: 0 0.3rem 0.3rem 0.3rem rgba(0, 0, 0, 0.2);
     display: flex;
     position: relative;
+    margin: 3rem 0;
 
-
+    @include respond(medium) {
+        flex-direction: column;
+        max-height: 48rem;
+    }
 
     &__hero {
         display: flex;
@@ -17,6 +21,10 @@
         flex: 0 1 35%;
         align-items: center;
         justify-content: space-between;
+
+        @include respond(medium) {
+            flex-direction: row;
+        }
 
         &-photo {
             height: 100%;
@@ -39,7 +47,9 @@
             flex-direction: row;
             justify-content: flex-start;
             align-items: flex-start;
-
+            @include respond(medium) {
+                display: none;
+            }
             & img {
                 width: auto;
                 height: 5.4rem;
@@ -49,6 +59,10 @@
         &-bottom {
             width: 100%;
             height: 3.8rem;
+
+            @include respond(medium) {
+                display: none;
+            }
             &_logo {
                 display: flex;
                 flex-direction: row;
@@ -115,6 +129,10 @@
         margin-top: -1rem;
         align-items: center;
 
+        @include respond(medium) {
+            margin-top: 1rem;
+        }
+
         &-info {
             margin-right: 1rem;
         }
@@ -138,14 +156,9 @@
             font-weight: 700;
         }
 
-        &-username {
-            margin-top: -.8rem;
-            font-size: 1.3rem;
-        }
-
         &-profile {
-            width: 5rem;
-            height: 5rem;
+            width: 3rem;
+            height: 3rem;
             border-radius: 50%;
             margin-left: .5rem;
         }
@@ -153,6 +166,12 @@
         &-details {
             display: flex;
             flex-direction: column;
+            margin-left: .75rem;
+
+            & a {
+                margin-top: -.8rem;
+                font-size: 1.3rem;
+            }
 
             & span:first-child {
                 font-weight: 400;
@@ -191,6 +210,10 @@
         margin: 2rem 0;
         position: relative;
         z-index: 999;
+
+        & a {
+            margin-left: auto;
+        }
     }
 
     &__bottom-logo {
@@ -206,6 +229,10 @@
         bottom: -1%;
         z-index: 0;
         opacity: .4;
+
+        @include respond(medium) {
+            display: none;
+        }
     }
 }
 

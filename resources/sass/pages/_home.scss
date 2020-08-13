@@ -3,6 +3,11 @@
 
     & hr {
         max-width: 79.5rem;
+
+        @include respond(phone) {
+            width: 100%;
+            max-width: 48rem;
+        }
     }
 
     & .modal {
@@ -12,11 +17,40 @@
     }
 
     & .events {
-
         &__create {
-            position: absolute;
-            top: 20rem;
-            right: 30rem;
+            position: fixed;
+            top: 16.5rem;
+            right: 3rem;
+            z-index: 1031;
+
+            &-button{
+
+                @include respond(large) {
+                    display: none;
+                }
+
+
+                &_mobile {
+                    display: none;
+
+
+                    @include respond(large) {
+                        display: block;
+                        border-radius: 50%;
+                        width: 5rem;
+                        height: 5rem;
+                        right: 3rem;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    }
+
+                    & i {
+                        font-size: 3rem;
+                    }
+                }
+            }
+
         }
 
         &__position {
@@ -80,16 +114,12 @@
                         }
                     }
                     img {
-                        width: 7rem;
-                        height: auto;
+                        width: 8.25rem;
+                        height: 5rem;
                     }
                 }
             }
         }
-    }
-
-    & #btn-event {
-        position: fixed;
     }
 
     & .events__banner {

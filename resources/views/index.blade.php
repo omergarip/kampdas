@@ -8,42 +8,47 @@
     @include('includes.navigation')
 
     <section id="section-home">
-        <div style="height: 200px;z-index: -1"></div>
-            <div class="events__create">
-                @auth
-                    @if(!auth()->user()->photo)
-                        <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#exampleModalCenter">
-                            <img class="events__logo" src="{{ asset('img/camp-logo.png') }}" alt="Kampdaş"> Kamp Etkinliği Oluştur
-                        </button>
+        <div class="events__create">
+            @auth
+                @if(!auth()->user()->photo)
+                    <button id="btn-event" type="button" class="btn btn-outline-success events__create-button" data-toggle="modal" data-target="#exampleModalCenter">
+                        <img class="events__logo" src="{{ asset('img/camp-logo.png') }}" alt="Kampdaş"> Kamp Etkinliği Oluştur
+                    </button>
+                    <button id="btn-event" type="button" class="btn btn-outline-success events__create-button_mobile" data-toggle="modal" data-target="#exampleModalCenter">
+                        <i class="fas fa-plus"></i>
+                    </button>
 
-                        <!-- Modal -->
-                        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLongTitle">Profilini Tamamla</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        Tamamlanmış bir profil kişilerin size duyacağı güveni arttırır.
-                                        Oluşturacağınız kamp etkinliğine katılım oranını artırabilmek için profilinizi tamamlamalısınız.
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
-                                        <a href="{{ route('profile.edit', auth()->user()->username)}}" class="btn btn-primary">Profilini Tamamla</a>
-                                    </div>
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLongTitle">Profilini Tamamla</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    Tamamlanmış bir profil kişilerin size duyacağı güveni arttırır.
+                                    Oluşturacağınız kamp etkinliğine katılım oranını artırabilmek için profilinizi tamamlamalısınız.
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+                                    <a href="{{ route('profile.edit', auth()->user()->username)}}" class="btn btn-primary">Profilini Tamamla</a>
                                 </div>
                             </div>
                         </div>
-                    @else
-                        <a href="{{ route('events.create') }}" class="btn btn-outline-success" id="btn-event"><img class="events__logo" src="{{ asset('img/camp-logo.png') }}" alt="Kampdaş"> Kamp Etkinliği Oluştur</a>
-                    @endif
+                    </div>
                 @else
-                    <a href="{{ route('events.create') }}" class="btn btn-outline-success" id="btn-event"><img class="events__logo" src="{{ asset('img/camp-logo.png') }}" alt="Kampdaş"> Kamp Etkinliği Oluştur</a>
-                @endauth
-            </div>
+                    <a href="{{ route('events.create') }}" class="btn btn-outline-success events__create-button" id="btn-event">
+                        <img class="events__logo" src="{{ asset('img/camp-logo.png') }}" alt="Kampdaş"> Kamp Etkinliği Oluştur
+                    </a>
+                    <a href="{{ route('events.create') }}" class="btn btn-outline-success events__create-button_mobile" id="btn-event">
+                        <i class="fas fa-plus"></i>
+                    </a>
+                @endif
+            @endauth
+        </div>
 
         <div class="container">
             <div class="row">
@@ -62,7 +67,7 @@
                     </div>
                     <div class="events__position">
                         <div class="events__position-info">
-                            <div class="events__position-info-2">
+                            <div class="events__position-info-1">
                                 <div>
                                     <img src="{{asset('img/camp-logo.png')}}" />
                                     <p id="events__week"></p>
@@ -70,7 +75,7 @@
                                 <p>Bu Hafta Gerçekleşecek</p>
                                 <p>Kamp Etkinlikleri </p>
                             </div>
-                            <div class="events__position-info-2">
+                            <div class="events__position-info-1">
                                 <div>
                                     <img src="{{asset('img/camp-logo_gr.png')}}" />
                                     <p id="events__month"></p>
@@ -78,7 +83,7 @@
                                 <p>Bu Ay Gerçekleşecek</p>
                                 <p>Kamp Etkinlikleri </p>
                             </div>
-                            <div class="events__position-info-2">
+                            <div class="events__position-info-1">
                                 <div>
                                     <img src="{{asset('img/camp-logo_tu.png')}}" />
                                     <p id="events__future"></p>
@@ -108,7 +113,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-9 mx-auto">
+                <div class="col-lg-9 col-md-12 mx-auto">
                     <div class="col-md-12">
                         <div class="events__banner">
                             <p class="events__banner-pinned">
@@ -158,7 +163,7 @@
                                             <i class="fas fa-map-marker-alt"></i>
                                             <a class="events__location-detail"
                                                href="https://www.google.com/maps/search/?api=1&query={{$event->location}}" target="_blank">
-                                                {{ Str::Limit($event->location,44) }}
+                                                {{ Str::Limit($event->location,50) }}
                                             </a>
                                         </div>
 
@@ -351,7 +356,7 @@
                                             <i class="fas fa-map-marker-alt"></i>
                                             <a class="events__location-detail"
                                                href="https://www.google.com/maps/search/?api=1&query={{$event->location}}" target="_blank">
-                                                {{ Str::Limit($event->location,44) }}
+                                                {{ Str::Limit($event->location,50) }}
                                             </a>
                                         </div>
 
@@ -500,7 +505,7 @@
                 </div>
             </div>
         </div>
-        <div style="height: 200px"></div>
+        <div class="space-lg"></div>
     </section>
 
 @endsection
@@ -558,7 +563,7 @@
 
                     var uluru = {lat: 39.142401, lng: 35.408133};
                     var map = new google.maps.Map(document.getElementById('map'), {
-                        zoom: 5.5,
+                        zoom: 4.7,
                         center: uluru
                     });
 

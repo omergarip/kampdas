@@ -11,6 +11,27 @@
     & .logo-brand {
         width: auto;
         height: 8rem;
+        @include respond(phone) {
+            display: none;
+        }
+
+        @include respond(large) {
+            margin-left: -50rem;
+        }
+
+        @include respond(medium) {
+            margin-left: -40rem;
+        }
+
+        &_mobile {
+            width: auto;
+            height: 5rem;
+            display: none;
+
+            @include respond(phone) {
+                display: block;
+            }
+        }
     }
 
     & .navbar {
@@ -71,6 +92,9 @@
         &-toggler {
             font-size: 80%;
             padding: 0.8rem;
+            position: absolute;
+            right: 2rem;
+            top: 1.2rem;
         }
     }
 
