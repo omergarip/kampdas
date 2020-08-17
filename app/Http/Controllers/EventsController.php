@@ -21,11 +21,6 @@ class EventsController extends Controller
         return view('events.index')->with('events', $events);
     }
 
-    public function apiIndex()
-    {
-        return response()->json(Event::where('start_date', '>', Carbon::today())->get());
-    }
-
     public function eventsInWeek()
     {
         return response()->json(Event::whereBetween('start_date', [Carbon::today(), Carbon::today()->addWeek()])->get());

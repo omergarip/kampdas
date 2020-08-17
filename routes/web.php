@@ -61,5 +61,7 @@ Route::get('/callback', 'SocialAuthFacebookController@callback');
 
 Route::get('/clear-cache', function() {
     Artisan::call('cache:clear');
+    Artisan::call('clear-compiled');
     return "Cache is cleared";
 });
+

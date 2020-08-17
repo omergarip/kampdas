@@ -8,7 +8,7 @@ $.ajaxSetup({
     }
 });
 
-fetch('http://kampdas.test/vendor/cities.json')
+fetch('https://kampdas.test/kampdas/public/vendor/cities.json')
     .then(response => response.json())
     .then(data => {
         let city = $('#city')

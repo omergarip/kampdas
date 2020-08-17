@@ -17,7 +17,14 @@ use Illuminate\Http\Request;
 //    return $request->user();
 //});
 
-Route::get('etkinlikler', 'EventsController@apiIndex')->name('events.apiIndex');
+Route::post('kayit-ol', 'API\AuthController@register');
+Route::post('giris-yap', 'API\AuthController@login');
+
+Route::apiResource('etkinlik', 'API\EventsController')->middleware('auth:api')->except(['index']);
+Route::get('etkinlikler', 'API\EventsController@index');
+Route::post('etkinlik/{slug}/katil', 'API\EventsController@attend')->name('events.attend')->middleware('auth:api');
+Route::post('etkinlik/{slug}/ayril', 'API\EventsController@detach')->name('events.leave')->middleware('auth:api');
+
 Route::get('etkinlikler/bu-hafta', 'EventsController@eventsInWeek')->name('events.eventsInWeek');
 Route::get('etkinlikler/bu-ay', 'EventsController@eventsInMonth')->name('events.eventsInMonth');
 Route::get('etkinlikler/gelecekte', 'EventsController@eventsInFuture')->name('events.eventsInFuture');
