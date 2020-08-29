@@ -48,7 +48,7 @@ Route::post('etkinlik/{slug}/', 'EventsMediaController@store')->name('media.stor
 //Profile Routes
 Route::get('profil/{username}', 'UserProfileController@show')->name('profile')->middleware('auth');
 Route::get('profil/{username}/guncelle', 'UserProfileController@edit')->name('profile.edit')->middleware('auth');
-Route::put('profil/{username}/', 'UserProfileController@update')->name('profile.update')->middleware('auth');
+Route::put('profil/{username}', 'UserProfileController@update')->name('profile.update')->middleware('auth');
 Route::get('profil/{username}/etkinliklerim', 'UserProfileController@showEvents')->name('profile.events')->middleware('auth');
 
 //Notification Routes

@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Event;
+use App\Http\Requests\Profile\UpdateProfileRequest;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 
 class UserProfileController extends Controller
@@ -64,7 +66,7 @@ class UserProfileController extends Controller
         return view('profile.edit')->with('user', $user);
     }
 
-    public function update(Request $request, $username)
+    public function update(UpdateProfileRequest $request, $username)
     {
         $user = User::where('username', $username)->first();
         $data = $request->only(['name', 'username', 'email', 'city', 'birthday', 'bio']);
@@ -79,6 +81,8 @@ class UserProfileController extends Controller
             $data['photo'] = $photo;
         }
         $user->update($data);
+        $errors = Session::get('errors');
+        dd($errors);
         session()->flash('success', 'Profiliniz başarı ile güncellendi.');
         return redirect(route('profile', $username));
     }
